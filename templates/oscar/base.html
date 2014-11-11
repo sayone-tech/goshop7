@@ -1,0 +1,432 @@
+{% load i18n %}
+{% load socialaccount wishlist %}
+{% providers_media_js %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="{{ LANGUAGE_CODE|default:"en-gb" }}" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="{{ LANGUAGE_CODE|default:"en-gb" }}" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="{{ LANGUAGE_CODE|default:"en-gb" }}" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="{{ LANGUAGE_CODE|default:"en-gb" }}" class="no-js"> <!--<![endif]-->
+                             <head>
+        <title>{% if display_version %}[{% trans "Build" %} {{ version }}] {% endif %}{% block title %}{{ shop_name }} - {{ shop_tagline }}{% endblock %}</title>
+
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="created" content="{% now "jS M Y h:i" %}" />
+              <meta name="description" content="Buy various products like electronics,fabrics,Household items etc." />
+        <meta name="keywords" content="" />
+        <meta name="viewport" content="" />
+
+
+        <link rel="shortcut icon" href="{{ STATIC_URL }}assets/frontend/layout/img/favicon.ico" type="image/x-icon" />
+	<!-- Apple Touch Icons -->
+	<link rel="apple-touch-icon" href="/static/assets/frontend/layout/img/apple-touch-icon.png" />
+	<link rel="apple-touch-icon" sizes="57x57" href="/static/assets/frontend/layout/img/apple-touch-icon-57x57.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="/static/assets/frontend/layout/img/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="/static/assets/frontend/layout/img/apple-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="/static/assets/frontend/layout/img/apple-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon" sizes="60x60" href="/static/assets/frontend/layout/img/apple-touch-icon-60x60.png" />
+	<link rel="apple-touch-icon" sizes="120x120" href="/static/assets/frontend/layout/img/apple-touch-icon-120x120.png" />
+	<link rel="apple-touch-icon" sizes="76x76" href="/static/assets/frontend/layout/img/apple-touch-icon-76x76.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="/static/assets/frontend/layout/img/apple-touch-icon-152x152.png" />
+	<!-- Windows 8 Tile Icons -->
+    	<meta name="msapplication-square70x70logo" content="smalltile.png" />
+	<meta name="msapplication-square150x150logo" content="mediumtile.png" />
+	<meta name="msapplication-wide310x150logo" content="widetile.png" />
+	<meta name="msapplication-square310x310logo" content="largetile.png" />
+        <meta name="google-site-verification" content="JVpiCgBwYXqOf5c_JAfItzljTd90tJIAMm489uGSEpY" />
+        <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+        <!--[if lt IE 9]>
+        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+
+              {% block mainstyles %}
+              {% comment %}
+              We use an inner block to work-around the fact that django-compressor doesn't work with
+              template inheritance.  Ie, we can't just wrap the {% block mainstyles %} with compress tags and
+              expect it to compress CSS files added in child templates.
+              {% endcomment %}
+              {% block styles %}
+              {% comment %}
+              If you are developing Oscar's CSS, or overriding Oscar's CSS
+              files in your project, then set USE_LESS = True in your
+              settings file.  You will also need to ensure that the 'lessc'
+              executable is available and you have COMPRESS_PRECOMPILERS specified
+              correctly.
+              {% endcomment %}
+              {% comment %}
+              {% if use_less %}
+              <link rel="stylesheet" type="text/less" href="{% static "oscar/less/styles.less" %}" />
+              <link rel="stylesheet" type="text/less" href="{% static "oscar/less/responsive.less" %}" />
+              {% else %}
+              <link rel="stylesheet" type="text/css" href="{% static "oscar/css/styles.css" %}" />
+              <link rel="stylesheet" type="text/css" href="{% static "oscar/css/responsive.css" %}" />
+              {% endif %}
+              {% endcomment %}
+              <!-- Fonts START -->
+              <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&subset=all" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=all" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900&subset=all" rel="stylesheet" type="text/css"><!--- fonts for slider on the index page -->
+        <!-- Fonts END -->
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"><!-- for slider-range -->
+        <!-- Global styles START -->
+        <link href="{{ STATIC_URL }}assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <!-- Global styles END -->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+        <!-- Page level plugin styles START -->
+        <link href="{{ STATIC_URL }}assets/global/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet">
+        <link href="{{ STATIC_URL }}assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css" rel="stylesheet">
+        <link href="{{ STATIC_URL }}assets/global/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="{{ STATIC_URL }}assets/global/plugins/slider-layer-slider/css/layerslider.css" rel="stylesheet">
+        <!-- Page level plugin styles END -->
+
+        <!-- Theme styles START -->
+
+        <link href="{{ STATIC_URL }}assets/global/css/components.css" rel="stylesheet">
+        <link href="{{ STATIC_URL }}assets/frontend/layout/css/style.css" rel="stylesheet">
+        <link href="{{ STATIC_URL }}assets/frontend/pages/css/style-shop.css" rel="stylesheet" type="text/css">
+        <link href="{{ STATIC_URL }}assets/frontend/pages/css/style-layer-slider.css" rel="stylesheet">
+        <link href="{{ STATIC_URL }}assets/frontend/layout/css/style-responsive.css" rel="stylesheet">
+        <link href="{{ STATIC_URL }}assets/frontend/layout/css/themes/red.css" rel="stylesheet" id="style-color">
+        <link href="{{ STATIC_URL }}assets/frontend/layout/css/custom.css" rel="stylesheet">
+        <link href="{{ STATIC_URL }}assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css">
+        <link href="{{ STATIC_URL }}assets/global/plugins/rateit/src/rateit.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="{{ STATIC_URL }}assets/global/js/jquery-1.9.1.min.js"></script>
+        
+
+        <style>
+            .errorlist li{list-style:none;color:red;}
+            .content-form-page a.btn-primary,.content-form-page a.btn-primary:hover {color: white;}
+            .ui-state-default, .ui-state-default:hover {background-color:transparent!important;}
+            .account-profile .btn,.content-form-page .btn{margin-top:15px;}
+            .divider{display:none;}
+            .error{
+                color:red !important;
+            }
+            .wish-list
+            {
+                margin-top:17px !important;
+               
+            }
+            .cart
+            {
+                margin-top:17px !important;
+            }
+            .search
+            {
+                width:640px;
+                margin-left:36px;
+            }
+            .fa-suitcase{
+                background: #25AAE2 !important;
+                color: white !important;
+                font-size:16px;
+                padding: 8px 8px 7px;
+                border-radius:16px !important;
+                right:0;
+                position:absolute;
+            }
+            .sidebar-menu li active{ background:#25AAE2; color:#ffffff;}
+            
+        </style>
+        {% endblock %}
+        {% endblock %}
+
+        {# Additional CSS - specific to certain pages #}
+        {% block extrastyles %}{% endblock %}
+
+        {% block extrahead %}{% endblock %}
+        {% if GOOGLE_ANALYTICS_PROPERTY_ID %}
+        {% include "google_analytics.html" %}
+        {% endif %}
+    </head>
+
+    <body id="{% block body_id %}default{% endblock %}" class="{% block body_class %}ecommerce{% endblock %}">
+        {% wishlist_display as wishs %}
+        {# Main content goes in this 'layout' block #}
+        {% block layout %}{% endblock %}
+        <div id="product-pop-up" style="display: none; width: 700px;height: 562px;">
+            {# include 'catalogue/partials/product_popup.html' #}
+        </div>
+
+        {% block tracking %}
+        {# Default to using Google analytics #}
+        {% include "partials/google_analytics.html" %}
+        {% endblock %}
+
+        {% comment %}
+        Scripts loaded from a CDN.  These can't be wrapped by the 'compress' tag and so we
+        use a separate block for them.
+        {% endcomment %}
+        {% block cdn_scripts %}
+        <!-- jQuery -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+        <script>window.jQuery || document.write('<script src="{% static "oscar/js/jquery/jquery-1.9.1.min.js" %}"><\/script>')</script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script><!-- for slider-range --><!-- for slider-range -->
+        {% endblock %}
+
+        {# Local scripts #}
+        {% block scripts %}
+        <!-- Twitter Bootstrap -->
+
+        <script src="{{ STATIC_URL }}assets/global/plugins/jquery-1.11.0.min.js" type="text/javascript"></script>
+        <script src="{{ STATIC_URL }}assets/global/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+        <script src="{{ STATIC_URL }}assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="{{ STATIC_URL }}assets/frontend/layout/scripts/back-to-top.js" type="text/javascript"></script>
+        <script src="{{ STATIC_URL }}assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <!-- END CORE PLUGINS -->
+        <script type="text/javascript" src="{{STATIC_URL}}assets/global/plugins/jquery.validate.min.js"></script>
+        <script src="{% static "oscar/js/oscar/ui.js" %}" type="text/javascript" charset="utf-8"></script>
+        <!-- BEGIN PAGE LEVEL JAVASCRIPTS (REQUIRED ONLY FOR CURRENT PAGE) -->
+        <script src="{{ STATIC_URL }}assets/global/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script><!-- pop up -->
+        <script src="{{ STATIC_URL }}assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js" type="text/javascript"></script><!-- slider for products -->
+        <script src='{{ STATIC_URL }}assets/global/plugins/zoom/jquery.zoom.min.js' type="text/javascript"></script><!-- product zoom -->
+        <script src="{{ STATIC_URL }}assets/global/plugins/bootstrap-touchspin/bootstrap.touchspin.js" type="text/javascript"></script><!-- Quantity -->
+        <script src="{{ STATIC_URL }}assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+        <script src="{{ STATIC_URL }}assets/global/plugins/rateit/src/jquery.rateit.js" type="text/javascript"></script>
+        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script><!-- for slider-range -->
+        <!-- BEGIN LayerSlider -->
+        <script src="{{ STATIC_URL }}assets/global/plugins/slider-layer-slider/js/greensock.js" type="text/javascript"></script><!-- External libraries: GreenSock -->
+        <script src="{{ STATIC_URL }}assets/global/plugins/slider-layer-slider/js/layerslider.transitions.js" type="text/javascript"></script><!-- LayerSlider script files -->
+        <script src="{{ STATIC_URL }}assets/global/plugins/slider-layer-slider/js/layerslider.kreaturamedia.jquery.js" type="text/javascript"></script><!-- LayerSlider script files -->
+        <script src="{{ STATIC_URL }}assets/frontend/pages/scripts/layerslider-init.js" type="text/javascript"></script>
+        <!-- END LayerSlider -->
+        <script src="{{ STATIC_URL }}assets/frontend/layout/scripts/layout.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            jQuery(document).ready(function() {
+                Layout.init();
+                Layout.initOWL();
+                LayersliderInit.initLayerSlider();
+                Layout.initImageZoom();
+                Layout.initTouchspin();
+                Layout.initTwitter();
+                Layout.initUniform();
+                Layout.initSliderRange();
+            });
+        </script>
+        <script>
+            function submitform()
+            {
+                document.submitform.submit();
+            }
+        </script>
+        {% endblock %}
+
+        {# Additional JS scripts #}
+        {% block extrascripts %}{% endblock %}
+
+        {# Block for body onload functions #}
+
+        <script>
+            function submitform()
+            {
+                document.submitform.submit();
+            }
+        </script>
+        <script type="text/javascript">
+            $(function() {
+                $('.classquickview').on('click',function(){
+                    url = $(this).attr('data-url');
+                    ajaxLoadProduct(url);
+                })
+            });
+            function ajaxLoadProduct(url){
+                $('#product-pop-up').html('<div class="bx-wrapper" style="height: 562px;"><div class="bx-loading"></div></div>')
+                $.ajax({
+                    type: 'GET',
+                    url: url,
+                    success: function(data) {
+                        $('#product-pop-up').html(data)                        
+                        $('div.rateit, span.rateit').rateit();
+                        $('.imagegalchange').on('hover,click',function(){
+            imge = $('.imageplacer');
+            imge.trigger('zoom.destroy');
+            normal = $(this).attr('data-normal-image');
+            large = $(this).attr('data-large-image');
+            imge.attr('src',normal);
+            $('.imagegalchange').removeClass('active');
+            $(this).addClass('active');
+            $('.product-main-image').zoom({url:large});
+            return false;
+        });
+                    }
+                });
+            }
+        </script>
+        <script>
+            $(document).ready(function(e){
+                $(".login").validate({
+                    rules: {
+                        'login-username':
+                            {
+                            required:true,
+
+                        },
+                        'login-password' : {
+                            required: true
+                        },
+                
+                    },
+                    messages: {
+                        'login-username': "{% trans 'Please Enter Username' %}",
+                        'login-password': "{%trans 'Please Enter Password' %}",
+
+                    },
+                    submitHandler: function(form) {
+                        form.submit();
+                    }
+                });
+
+            });
+    
+        </script>
+        <script>
+            $(document).ready(function(e){
+                $(".register-form").validate({
+                    rules: {
+                        'registration-email':
+                            {
+                            required:true,
+
+                        },
+                        'registration-password1' : {
+                            required: true
+                        },
+                        'registration-password2' : {
+                            required: true
+                        },
+
+                    },
+                    messages: {
+                        'registration-email': "{% trans 'Please Enter Email' %}",
+                        'registration-password1': "{%trans 'Please Enter Password' %}",
+                        'registration-password2': "{%trans 'Please Retype Password' %}",
+
+                    },
+                    //submitHandler: function(form) {
+                    //  form.submit();
+                    //}
+                });
+
+            });
+        </script>
+        <script type="text/javascript">
+            $('#newsletter-form').submit(function(){
+                 event.preventDefault();
+                var email=$('#newsletter-email').val();
+                $('#sbscribe_button').hide();
+                $('#loading').show();
+                if (email==''){
+                    $('#msg').html('Enter Valid Email');
+                }
+                
+                var url = "{% url 'newsletter_subscription' %}"
+                $.ajax({
+                    type: $('#newsletter-form').attr('method'), // GET or POST
+                    url: $('#newsletter-form').attr('action'),
+                    data : {email:email,
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                        submit:''
+                    },
+                    success:function(response) {
+                        $('#sbscribe_button').show();
+                        $('#loading').hide();
+                        if (response.status=='success'){
+                            $('#newsletter-email').val('');
+                            $('#msg').html(response.message);
+                        }
+                        else{
+
+                                $('#msg').html(response.message);
+                                $("#loading").hide();
+                                $("#sbscribe_button").show();
+                            }
+                    },
+                    error: function(e, x, r) { // on error..
+
+                        //alert($('#newsletter-form').serialize());
+                        //alert(error);
+                    }
+                });
+                return false;
+            });
+        </script>
+        <script type="text/javascript">
+            $(function() {
+                oscar.init();
+                {% block onbodyload %}{% endblock %}
+            });
+        </script>
+        <div id="test_box" style="display: none; padding:15px;">
+
+            <form class="form-horizontal form-without-legend login-form login"  role="form" action="{% url 'customer:login' %}" method="post">{% csrf_token %}
+                <h1>Login</h1>
+                <p class="lead">Connect with a social network</p>
+                <div class="social-signup">
+                    <a href="{% provider_login_url "facebook" method="js_sdk" %}" class="btn-connect-option facebook badge-facebook-connect">facebook</a>
+                    <a  href="{% provider_login_url "google" next=form.redirect_url.value %}" class="btn-connect-option google-plus">Google</a>
+                </div>
+                <p class="lead">Log in with your email address</p>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email<span class="require">*</span></label>
+                    <input type="email" class="form-control" id="id_login-username" placeholder="Enter email" name="login-username">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Password<span class="require">*</span></label>
+                    <input type="password" class="form-control" id="id_login-password" placeholder="Enter email" name="login-password">
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 ">
+                        <a href="{% url 'account_reset_password' %}">Forget Password?</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+                        <button type="submit" class="btn btn-primary login-button" name="login_submit">Login</button>
+
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div id="sign-up-box" style="display: none;">
+            <form class="form-horizontal login-form register-form" role="form" id="register-form" action="{% url 'customer:register' %}" method="post">{% csrf_token %}
+                <h1>Become A Member</h1>
+                <p class="lead">Connect with a social network</p>
+                <div class="social-signup">
+                    <a href="{% provider_login_url "facebook" method="js_sdk" %}" class="btn-connect-option facebook badge-facebook-connect">facebook</a>
+                    <a  href="{% provider_login_url "google" next=form.redirect_url.value %}" class="btn-connect-option google-plus">Google</a>
+                </div>
+                <fieldset>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email<span class="require">*</span></label>
+                        <input type="email" class="form-control" id="id_registration-email" placeholder="Enter email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Password<span class="require">*</span></label>
+                        <input type="password" class="form-control" id="id_registration-password1" placeholder="Enter Password" name="password1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Confirm Password<span class="require">*</span></label>
+                        <input type="password" class="form-control" id="id_registration-password2" placeholder="Re-Enter Password" name="password2">
+                    </div>
+                </fieldset>
+                <div class="row">
+                    <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+                        <button type="submit" class="btn btn-primary login-button">Sign Up</button>
+
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+
+        {# Page meta-data - this is populated by the 'metadata' template context processor #}
+
+        <!-- {% trans "Version:" %} {{ version }} -->
+    </body>
+</html>
+

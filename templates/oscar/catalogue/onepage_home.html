@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <!--<![endif]-->
+
+    <!-- Head BEGIN -->
+    <head>
+        <meta charset="utf-8">
+        <title>Shop7 - Sell your dream</title>
+
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <meta content="Metronic Shop UI description" name="description">
+        <meta content="Metronic Shop UI keywords" name="keywords">
+        <meta content="keenthemes" name="author">
+        <meta http-equiv="cleartype" content="on">
+
+        <meta property="og:site_name" content="-CUSTOMER VALUE-">
+        <meta property="og:title" content="-CUSTOMER VALUE-">
+        <meta property="og:description" content="-CUSTOMER VALUE-">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="-CUSTOMER VALUE-"><!-- link to image for socio -->
+        <meta property="og:url" content="-CUSTOMER VALUE-">
+
+        <link rel="shortcut icon" href="{{ STATIC_URL }}assets/frontend/layout/img/favicon.ico" type="image/x-icon" />
+        <!-- Apple Touch Icons -->
+        <link rel="apple-touch-icon" href="/static/assets/frontend/layout/img/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/static/assets/frontend/layout/img/apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/static/assets/frontend/layout/img/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/static/assets/frontend/layout/img/apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/static/assets/frontend/layout/img/apple-touch-icon-144x144.png" />
+        <link rel="apple-touch-icon" sizes="60x60" href="/static/assets/frontend/layout/img/apple-touch-icon-60x60.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/static/assets/frontend/layout/img/apple-touch-icon-120x120.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/static/assets/frontend/layout/img/apple-touch-icon-76x76.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/static/assets/frontend/layout/img/apple-touch-icon-152x152.png" />
+        <!-- Windows 8 Tile Icons -->
+        <meta name="msapplication-square70x70logo" content="smalltile.png" />
+        <meta name="msapplication-square150x150logo" content="mediumtile.png" />
+        <meta name="msapplication-wide310x150logo" content="widetile.png" />
+        <meta name="msapplication-square310x310logo" content="largetile.png" />
+        <meta name="google-site-verification" content="JVpiCgBwYXqOf5c_JAfItzljTd90tJIAMm489uGSEpY" />
+        <!-- Fonts START -->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Pathway+Gothic+One|PT+Sans+Narrow:400+700|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css">
+        <!-- Fonts END -->
+
+        <!-- Global styles BEGIN -->
+        <link href="static/assets_old/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="static/assets_old/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="static/assets_old/plugins/slider-revolution-slider/rs-plugin/css/settings.css" rel="stylesheet">
+        <!-- Global styles END -->
+
+        <!-- Page level plugin styles BEGIN -->
+        <link href="static/assets_old/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet">
+        <!-- Page level plugin styles END -->
+
+        <!-- Theme styles BEGIN -->
+        <link href="static/assets_old/css/components.css" rel="stylesheet">
+        <link href="static/assets_old/onepage/css/style.css" rel="stylesheet">
+        <link href="static/assets_old/onepage/css/style-responsive.css" rel="stylesheet">
+        <link href="static/assets_old/onepage/css/themes/red.css" rel="stylesheet" id="style-color">
+        <link href="static/assets_old/onepage/css/custom.css" rel="stylesheet">
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.more').click(function() {
+                    $(this).prev('div').slideToggle();
+                    if($(this).text() == 'Show Less'){
+                        $(this).text('All Features');
+                    } else {
+                        $(this).text('Show Less');
+                    }
+                });
+
+            });
+
+        </script>
+
+        <!-- Theme styles END -->
+
+        <link href="static/assets_old/onepage/css/font-awesome.css" rel="stylesheet">
+        {% if GOOGLE_ANALYTICS_PROPERTY_ID %}
+        {% include "google_analytics.html" %}
+        {% endif %}
+    </head>
+    <body>
+        <!-- BEGIN STYLE CUSTOMIZER -->
+        <!--<div class="color-panel">
+          <div class="color-mode-icons icon-color"></div>
+          <div class="color-mode-icons icon-color-close"></div>
+          <div class="color-mode">
+            <p>THEME COLOR</p>
+            <ul class="inline">
+              <li class="color-red current color-default" data-style="red"></li>
+              <li class="color-blue" data-style="blue"></li>
+              <li class="color-green" data-style="green"></li>
+              <li class="color-orange" data-style="orange"></li>
+              <li class="color-gray" data-style="gray"></li>
+              <li class="color-turquoise" data-style="turquoise"></li>
+            </ul>
+          </div>
+        </div>-->
+        <!-- END BEGIN STYLE CUSTOMIZER -->
+        <!-- Header BEGIN -->
+        <div class="header header-mobi-ext">
+            <div class="top_strip"></div>
+            <div class="container">
+                <div class="row">
+                    <!-- Logo BEGIN -->
+                    <div class="col-md-2 col-sm-2">
+                        <a class="scroll site-logo" href="#promo-block"><img src="/static/assets/frontend/layout/img/logos/logo-shop-red.png" alt="Metronic One Page"></a>
+                    </div>
+                    <!-- Logo END -->
+
+                    <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
+                    <!-- Navigation BEGIN -->
+                    <div class="col-md-10 pull-right">
+                        <ul class="header-navigation">
+                            <li class="current"><a href="#promo-block">Home</a></li>
+                            <li><a href="#about">Features</a></li>
+                            <li><a href="#why_shop">Why Shop7</a></li>
+                            <li><a href="#prices">Pricing</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#services" class="demo_link">Demo</a></li>
+                        </ul>
+                    </div>
+                    <!-- Navigation END -->
+                </div>
+            </div>
+        </div>
+        <!-- Header END -->
+
+        <!-- Promo block BEGIN -->
+        <div class="promo-block" id="promo-block">
+
+
+            <div class="tp-banner-container">
+
+                <div class="tp-banner" >
+
+                    <ul>
+                        <li data-transition="fade" data-slotamount="5" data-masterspeed="2000" data-delay="3000" class="slider-item-1">
+                            <img src="/static/assets_old/onepage/img/silder/slide3.jpg" alt="" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                            <div class="tp-caption large_text customin customout start"
+                                 data-x="50"
+                                 data-hoffset="0"
+                                 data-y="center"
+                                 data-voffset="0"
+                                 data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                                 data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                 data-speed="1000"
+                                 data-start="500"
+                                 data-easing="Back.easeInOut"
+                                 data-endspeed="300">
+                                <div class="promo-like"><img src="/static/assets_old/onepage/img/silder/slider-caption01.png"/></div>
+
+                            </div>
+                            <div class="caption lft start"
+                                 data-y="center"
+                                 data-voffset="0"
+                                 data-x="center"
+                                 data-hoffset="400"
+                                 data-speed="600"
+                                 data-start="500"
+                                 data-easing="easeOutBack"><a href="/shop/" target="_blank"><img src="/static/assets_old/onepage/img/silder/slider-caption02.png" alt=""></a>
+                            </div>
+                        </li>
+                        <li data-transition="fade" data-slotamount="5" data-masterspeed="2000" data-delay="3000" class="slider-item-1">
+                            <img src="/static/assets_old/onepage/img/silder/slide5.jpg" alt="" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                            <div class="tp-caption large_text customin customout start"
+                                 data-x="50"
+                                 data-hoffset="0"
+                                 data-y="center"
+                                 data-voffset="0"
+                                 data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                                 data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                 data-speed="1000"
+                                 data-start="500"
+                                 data-easing="Back.easeInOut"
+                                 data-endspeed="300">
+                                <div class="promo-like"><img src="/static/assets_old/onepage/img/silder/slider-caption01.png"/></div>
+
+                            </div>
+                            <div class="caption lft start"
+                                 data-y="center"
+                                 data-voffset="0"
+                                 data-x="center"
+                                 data-hoffset="400"
+                                 data-speed="600"
+                                 data-start="500"
+                                 data-easing="easeOutBack"><a href="/shop/" target="_blank"><img src="/static/assets_old/onepage/img/silder/slider-caption02.png" alt=""></a>
+                            </div>
+                        </li>
+                        <li data-transition="fade" data-slotamount="5" data-masterspeed="2000" data-delay="3000" class="slider-item-1">
+                            <img src="/static/assets_old/onepage/img/silder/slide6.jpg" alt="" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                            <div class="tp-caption large_text customin customout start"
+                                 data-x="50"
+                                 data-hoffset="0"
+                                 data-y="center"
+                                 data-voffset="0"
+                                 data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                                 data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                 data-speed="1000"
+                                 data-start="500"
+                                 data-easing="Back.easeInOut"
+                                 data-endspeed="300">
+                                <div class="promo-like"><img src="/static/assets_old/onepage/img/silder/slider-caption01.png"/></div>
+
+                            </div>
+                            <div class="caption lft start"
+                                 data-y="center"
+                                 data-voffset="0"
+                                 data-x="center"
+                                 data-hoffset="400"
+                                 data-speed="600"
+                                 data-start="500"
+                                 data-easing="easeOutBack"><a href="/shop/" target="_blank"><img src="/static/assets_old/onepage/img/silder/slider-caption02.png" alt=""></a>
+                            </div>
+                        </li>
+                        <li data-transition="fade" data-slotamount="5" data-masterspeed="2000" data-delay="3000" class="slider-item-1">
+                            <img src="/static/assets_old/onepage/img/silder/slide7.jpg" alt="" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                            <div class="tp-caption large_text customin customout start"
+                                 data-x="50"
+                                 data-hoffset="0"
+                                 data-y="center"
+                                 data-voffset="0"
+                                 data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                                 data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                 data-speed="1000"
+                                 data-start="500"
+                                 data-easing="Back.easeInOut"
+                                 data-endspeed="300">
+                                <div class="promo-like"><img src="/static/assets_old/onepage/img/silder/slider-caption01.png"/></div>
+
+                            </div>
+                            <div class="caption lft start"
+                                 data-y="center"
+                                 data-voffset="0"
+                                 data-x="center"
+                                 data-hoffset="400"
+                                 data-speed="600"
+                                 data-start="500"
+                                 data-easing="easeOutBack"><a href="/shop/" target="_blank"><img src="/static/assets_old/onepage/img/silder/slider-caption02.png" alt=""></a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Promo block END -->
+
+        <!-- About block BEGIN -->
+        <div class="about-block content content-center" id="about">
+            <div id="horizontalTab">
+                <ul>
+                    <li><a href="#tab-1"><span><i class="fa fa-file-photo-o"></i></span>Beautiful Shop</a></li>
+                    <li><a href="#tab-2"><span><i class="fa fa-sitemap"></i></span>Dashboard</a></li>
+                    <li><a href="#tab-3"><span><i class="fa fa-mobile"></i></span>Instant Processing</a></li>
+                    <li><a href="#tab-4"><span><i class="fa fa-share-alt"></i></span>Inventory management</a></li>
+                    <li><a href="#tab-5"><span><i class="fa fa-bar-chart-o"></i></span>Advanced Analytics</a></li>
+                    <li><a href="#tab-6"><span><i class="fa fa-user"></i></span>Customers</a></li>
+                    <li><a href="#tab-7"><span><i class="fa fa-shopping-cart"></i></span>Shopping Cart</a></li>
+                    <li><a href="#tab-8"><span><i class="fa fa-reorder"></i></span>Marketing & SEO </a></li>
+
+
+                </ul>
+
+                <div id="tab-1">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="content-slider features-slider">
+                                    <div id="myCarousel" class="carousel slide featuer-slider" data-ride="carousel">
+                                        <!-- Indicators -->
+                                        <ol class="carousel-indicators feature-indivators">
+                                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                                        </ol>
+                                        <div class="carousel-inner">
+                                            <div class="item active">
+                                                <img src="static/assets_old/onepage/img/features-slide01.png" class="img-responsive" alt="Berry Lace Dress">
+                                            </div>
+                                            <div class="item">
+                                                <img src="static/assets_old/onepage/img/features-slide02.png" class="img-responsive" alt="Berry Lace Dress">
+                                            </div>
+                                            <div class="item">
+                                                <img src="static/assets_old/onepage/img/features-slide03.png" class="img-responsive" alt="Berry Lace Dress">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="feature_box_left">
+                                    <h1>beautiful shop front-end</h1>
+                                    <p>We have a variety of beautiful front end designs for you to choose from. All our designs are beautiful and minimal. Your customer will be tempted to buy from you because we will help you bring out the beauty of your products.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="tab-2">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="feature_box_left"><img src="static/assets_old/onepage/img/dashboard.jpg"/></div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="feature_box_left">
+                                    <h1>Manage your business with ease</h1>
+                                    <p>A very user friendly admin dashboard lets you manage the shop very easily. It helps you add products, manage your orders and take reports.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="tab-3">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="feature_box_left"><img src="static/assets_old/onepage/img/instant-processing.jpg" ></div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="feature_box_left">
+                                    <h1>Instant order processing</h1>
+                                    <p>Delight your customers with fastser order deliveries. Get instant alerts when a customer buys a product.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="tab-4">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="feature_box_left"><img src="static/assets_old/onepage/img/invertory-management.jpg"/></div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="feature_box_left">
+                                    <h1>Efficient inventory management</h1>
+                                    <p>Adding products to your shop is incredibly smooth. Set alerts and get notified when the stocks go below the threshold level.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="tab-5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="feature_box_left"><img src="static/assets_old/onepage/img/advanced-analytics.jpg"/></div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="feature_box_left">
+                                    <h1>Advanced Analytics and Reporting Module</h1>
+                                    <p>Our Analytics and Reporting module helps you take relevant reports, there by enabling you to fine tune your business to the changing trends.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="tab-6">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="feature_box_left"><img src="static/assets_old/onepage/img/customer.jpg"/></div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="feature_box_left">
+                                    <h1>Understand your customers</h1>
+                                    <p><b>Complete customer details</b> - We understand how important your customers are for you. Shop7 gathers a detailed information about the customer to make you aware of his shopping behaviour.</p>
+                                    <p><b>Retain your customers</b> - Increase the customer return rates by enabling easy account creation at check out. Customer can log in back easily for future buying.</p>
+                                    <p><b>Care your customers and they stay with you forever</b> - Delight your customers with customized coupons and discounts.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="tab-7">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="feature_box_left"><img src="static/assets_old/onepage/img/shopping-cart.jpg"/></div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="feature_box_left">
+                                    <h1>Secure and Smooth transactions</h1>
+                                    <p>Shop7 comes with a scalable payment module. It seamlessly integrates with a wide variety of payment gateways.</p>
+                                    <p>Convert customer wish to actual buying.</p>
+                                    <p>Multiple Languages and Currencies.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="tab-8">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="feature_box_left"><img src="static/assets_old/onepage/img/seo-analytics.jpg"/></div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="feature_box_left">
+                                    <h1>Leave no stone un turned</h1>
+                                    <p>Shop7 is developed following the best SEO practices. It helps you reach out to your potential customers while they search your products on search engines. When it comes to boosting business, let's leave no stone un turned</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+
+            </div>
+        </div>
+        <!-- About block END -->
+
+        <!-- why shop 7 block start -->
+        <div class="why-shop-block" id="why_shop">
+            <div class="container">
+                <h1>Why shop7</h1>
+                <div class="row why-blocks">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 why-shop-img"><img src="/static/assets_old/onepage/img/ownership-icon.png"/></div>
+                    <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12">
+                        <h3>Ownership</h3>
+                        <p> Once purchased, the platform is entirely yours. You can host it in your own server in the name you prefer.Hence, your data is secure with you.</p>
+                    </div>
+                </div>
+                <div class="row why-blocks">
+
+                    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                        <h3>Technically Up to date</h3>
+                        <p>Shop7 built on Python. Its technically strong and advanced.</p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 why-shop-img"><img src="/static/assets_old/onepage/img/update-icon.png"/></div>
+                </div>
+                <div class="row why-blocks">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 why-shop-img"><img src="/static/assets_old/onepage/img/scale-icon.png"/></div>
+                    <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12">
+                        <h3>Scalable</h3>
+                        <p>The platform is built in a scalable manner. Once purchased, you can upgrade, modify our platform without much trouble.</p>
+                    </div>
+                </div>
+                <div class="row why-blocks">
+
+                    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                        <h3>Mobile commerce</h3>
+                        <p>Shop7 is mobile friendly and it lets your customers buy your products using their mobile phone.</p>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 why-shop-img"><img src="/static/assets_old/onepage/img/ecommerce-icon.png"/></div>
+                </div>
+                <div class="row why-blocks">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 why-shop-img"><img src="/static/assets_old/onepage/img/24x7.png"/></div>
+                    <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12">
+                        <h3>24X7 Support</h3>
+                        <p>We know how important your business is. We will be available around the clock to assist you in your need.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- why shop 7 block start -->
+
+
+        <!-- Prices block BEGIN -->
+        <div class="prices-block content content-center" id="prices">
+            <div class="container">
+                <h2 class="margin-bottom-50">Pricing</h2>
+                <div class="row">
+                    <!-- Pricing item BEGIN -->
+                    {% for pricing in pricing_list %}
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="pricing-item">
+                            <div class="pricing-head">
+                                <h3>{{ pricing.title }}</h3>
+                                <div class="price2 priceContainer">
+                                    <p class="line-thrgh-text">${{ pricing.price }}</p>
+                                    <span>${{ pricing.discount_price }}</span>
+
+
+                                </div>
+                            </div>
+                            <div class="pricing-content">
+                                {% if forloop.first %}
+                                <table class="pricingTableContent">
+                                    <tr><td><h3>Highlighted Features</h3></td></tr>
+                                    <tr><td><img src="static/assets_old/onepage/img/table-tick.png"/>Unlimited Products</td></tr>
+                                    <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Offers</td></tr>
+                                    <tr><td><img src="static/assets_old/onepage/img/table-tick.png"/>Reviews & Rating</tr>
+                                    <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-cross.png"/>Custom Template</td></tr>
+                                    <tr><td><img src="static/assets_old/onepage/img/table-cross.png"/>Facebook Shop</td></tr>
+                                </table>
+                                <div style="display:none;">
+                                    <table class="pricingTableContent">
+                                        <tr><td><h3>All</h3></td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Unlimited Products</td></tr>
+                                        <tr><td><img src="static/assets_old/onepage/img/table-cross.png"/>Custom templates</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Payment(COD, Paypal)</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-cross.png"/>Newsletter</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-cross.png"/>Live Support</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Reviews & Rating</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Abandoned cart revovery</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-cross.png"/>Mobile Responsive</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-cross.png"/>Built in blog</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-cross.png"/>Advanced product search</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-cross.png"/>Facebook Shop</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-cross.png"/>Gift Module</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-cross.png"/>Wishlist</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-cross.png"/>Messaging</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>SEO</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-cross.png"/>Logistics Integration</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-cross.png"/>POS Integration</td></tr>
+                                    </table>
+                                </div>
+                                <a href="javascript:void(0)" class="more">All Features</a>
+                                {% elif forloop.last %}
+                                <table class="pricingTableContent">
+                                    <tr><td><h3>Highlighted Features</h3></td></tr>
+                                    <tr><td><img src="static/assets_old/onepage/img/table-tick.png"/>Unlimited Products</td></tr>
+                                    <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Custom Template</td></tr>
+                                    <tr><td><img src="static/assets_old/onepage/img/table-tick.png"/>Logistics integration</tr>
+                                    <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>POS integration</td></tr>
+                                    <tr><td><img src="static/assets_old/onepage/img/table-tick.png"/>Message integration</td></tr>
+                                </table>
+                                <div style="display:none;">
+                                    <table class="pricingTableContent">
+                                        <tr><td><h3>All</h3></td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Unlimited Products</td></tr>
+                                        <tr><td><img src="static/assets_old/onepage/img/table-tick.png"/>Custom templates</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Payment(COD, Paypal, CC/DB)</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>5 Newsletter Templates</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>24x7 Live Support</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Reviews & Rating</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Abandoned cart revovery</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Mobile Responsive</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Built in blog</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Advanced product search</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Facebook Shop</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Gift Module</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Wishlist</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Messaging</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>SEO</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Logistics Integration</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>POS Integration</td></tr>
+                                    </table>
+                                </div>
+                                <a href="javascript:void(0)" class="more">All Features</a>
+                                {% else %}
+                                <table class="pricingTableContent">
+                                    <tr><td><h3>Highlighted Features</h3></td></tr>
+                                    <tr><td><img src="static/assets_old/onepage/img/table-tick.png"/>Unlimited Products</td></tr>
+                                    <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Offers</td></tr>
+                                    <tr><td><img src="static/assets_old/onepage/img/table-tick.png"/>Custom Template</td></tr>
+                                    <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Facebook Shop</td></tr>
+                                    <tr><td><img src="static/assets_old/onepage/img/table-cross.png"/>Logistics Integration</td></tr>
+                                </table>
+                                <div style="display:none;">
+                                    <table class="pricingTableContent">
+                                        <tr><td><h3>All</h3></td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Unlimited Products</td></tr>
+                                        <tr><td><img src="static/assets_old/onepage/img/table-tick.png"/>Custom templates</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Payment(COD, Paypal, CC/DB)</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>3 Newsletter Templates</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Live Support</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Reviews & Rating</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Abandoned cart revovery</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Mobile Responsive</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Built in blog</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Advanced product search</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Facebook Shop</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Gift Module</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Wishlist</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>Messaging</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/>SEO</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-cross.png"/>Logistics Integration</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-cross.png"/>POS Integration</td></tr>
+                                    </table>
+                                </div>
+                                <a href="javascript:void(0)" class="more">All Features</a>
+                                {% endif %}
+                            </div>
+                            <div class="pricing-footer">
+                                <a class="btn btn-default sign-up-ico fancybox-fast-view" href="#price_pop">Sign Up</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <!-- Pricing item END -->
+                    <!-- Pricing item BEGIN -->
+                    <!--<div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="pricing-item">
+                            <div class="pricing-head">
+                                <h3>Beginner</h3>
+                                <div class="price2 priceContainer">
+                                    <p class="line-thrgh-text">$1500.00</p>
+                                    <span>$999</span>
+
+                                </div>
+                            </div>
+                            <div class="pricing-content">
+
+                                <table class="pricingTableContent">
+                                    <tr><td><h3>Featured Categories</h3></td></tr>
+                                    <tr><td><img src="static/assets_old/onepage/img/table-tick.png"/><strong>100MB</strong> Disk Space</td></tr>
+                                    <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/><strong>200MB</strong> Monthly Traffic</td></tr>
+                                    <tr><td><img src="static/assets_old/onepage/img/table-cross.png"/><strong>100MB</strong> Disk Space</td></tr>
+                                    <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/><strong>200MB</strong> Monthly Traffic</td></tr>
+                                    <tr><td><img src="static/assets_old/onepage/img/table-cross.png"/><strong>100MB</strong> Disk Space</td></tr>
+                                </table>
+                                <div style="display:none;">
+                                    <table class="pricingTableContent">
+                                        <tr><td><h3>All</h3></td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/><strong>200MB</strong> Monthly Traffic</td></tr>
+                                        <tr><td><img src="static/assets_old/onepage/img/table-tick.png"/><strong>100MB</strong> Disk Space</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/><strong>200MB</strong> Monthly Traffic</td></tr>
+                                    </table>
+                                </div>
+                                <a href="javascript:void(0)" class="more">Read more</a>
+                            </div>
+                            <div class="pricing-footer">
+                                <a class="btn btn-default sign-up-ico fancybox-fast-view" href="#submit-pop">Sign Up</a>
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- Pricing item END -->
+                    <!-- Pricing item BEGIN -->
+                    <!--<div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="pricing-item">
+                            <div class="pricing-head">
+                                <h3>Beginner</h3>
+                                <div class="price2 priceContainer">
+                                    <p class="line-thrgh-text">$1500.00</p>
+                                    <span>$999</span>
+
+
+                                </div>
+                            </div>
+                            <div class="pricing-content">
+
+                                <table class="pricingTableContent">
+                                    <tr><td><h3>Featured Categories</h3></td></tr>
+                                    <tr><td><img src="static/assets_old/onepage/img/table-tick.png"/><strong>100MB</strong> Disk Space</td></tr>
+                                    <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/><strong>200MB</strong> Monthly Traffic</td></tr>
+                                    <tr><td><img src="static/assets_old/onepage/img/table-cross.png"/><strong>100MB</strong> Disk Space</td></tr>
+                                    <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/><strong>200MB</strong> Monthly Traffic</td></tr>
+                                    <tr><td><img src="static/assets_old/onepage/img/table-cross.png"/><strong>100MB</strong> Disk Space</td></tr>
+                                </table>
+                                <div style="display:none;">
+                                    <table class="pricingTableContent">
+                                        <tr><td><h3>All</h3></td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/><strong>200MB</strong> Monthly Traffic</td></tr>
+                                        <tr><td><img src="static/assets_old/onepage/img/table-tick.png"/><strong>100MB</strong> Disk Space</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/><strong>200MB</strong> Monthly Traffic</td></tr>
+                                    </table>
+                                </div>
+                                <a href="javascript:void(0)" class="more">Read more</a>
+
+                            </div>
+                            <div class="pricing-footer">
+                                <a class="btn btn-default sign-up-ico fancybox-fast-view" href="#price_pop">Sign Up</a>
+                             </div>
+          </div>
+        </div>-->
+                    <!-- Pricing item END -->
+                    <!-- Pricing item BEGIN -->
+
+                    <!-- Pricing item END -->
+                </div>
+            </div>
+        </div>
+        <!-- Prices block END -->
+
+        <!-- Prices block BEGIN -->
+
+        <div class="faq_block" id="faq">
+            <div class="container">
+                <h1 class="margin-bottom-50">FAQ</h1>
+                <div class="panel-group accordion" id="accordion1">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_1">
+										Can I use my name for my Shop?
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse_1" class="panel-collapse in">
+                            <div class="panel-body">
+                                <p>
+                                    Yes, Your shop is entirely yours and you can choose the name you want. The only thing is       you need to have the domain ( eg. www.example.com) ready with you.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_2">
+										Can I host it on my server?</a>
+                            </h4>
+                        </div>
+                        <div id="collapse_2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>
+												Yes. You can host it on your server.</p>
+                                <p>
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_3">
+										Is it a Saas? (cloud hosted)</a>
+                            </h4>
+                        </div>
+                        <div id="collapse_3" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>No, It is not.
+                                </p>
+                                <p>
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_4">
+										How do I get the front end designs? </a>
+                            </h4>
+                        </div>
+                        <div id="collapse_4" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>You can choose from a wide variety of templates. We will get it integrated</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_5">
+										Can I use my domain name?</a>
+                            </h4>
+                        </div>
+                        <div id="collapse_5" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>
+				Yes. you can use your domain name.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_6">
+										How long will it take to set up my online shop?</a>
+                            </h4>
+                        </div>
+                        <div id="collapse_6" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>
+				Without much customization, your shop will be ready in a week.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_7">
+										How the payment is handled ? </a>
+                            </h4>
+                        </div>
+                        <div id="collapse_7" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>
+				Shop7 is compatible with a range payment gateways. We will integrate your preferred gateway.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_8">
+										 Is cost of payment gateways included in your pricing?</a>
+                            </h4>
+                        </div>
+                        <div id="collapse_8" class="panel-collapse in">
+                            <div class="panel-body">
+                                <p>
+				No, the payment gateway cost is not included in our pricing.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Message block BEGIN -->
+        <div class="message-block content content-center valign-center" id="services">
+            <div class="valign-center-elem">
+                <div class="container">
+                    <div class="row demo_sections">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="demo_right_sec">
+                                <h1>Front-End<span>How your customers see it</span></h1>
+                                <div class="demo_image_sec">
+                                    <a class="view_image_button" href="{% url 'promotions:home' %}">
+                                        <a class="btn demo_link view-popup" href="{% url 'promotions:home' %}" target="_blank">view</a>
+                                    </a>
+                                    <img src="static/assets_old/onepage/img/blocks/front-end-image.png"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="demo_right_sec">
+                                <h1 class="dashboard_icon">Dashboard<span>How you see it</span></h1>
+                                <div class="demo_image_sec">
+                                    <a class="view_image_button" href="/dashboard/">
+                                        <a class="btn demo_link view-popup" href="/dashboard/" target="_blank">view</a>
+                                    </a>
+                                    <img src="static/assets_old/onepage/img/blocks/dashboard-image.png"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 need_assistance">
+                            <h1>Need assistance ? <a href="#contact"> Contact us</a></h1>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Message block END -->
+
+
+        <div class="clearfix"></div>
+        <!-- BEGIN PRE-FOOTER -->
+        <div class="pre-footer" id="contact">
+            <div class="container">
+                <div class="row">
+                    <!-- BEGIN BOTTOM ABOUT BLOCK -->
+                    <div class="col-md-4 col-sm-6 pre-footer-col">
+                        <h2>About us</h2>
+                        <p>You love your shop. And they love to buy from you. Don't let the barriers decide your
+                            customers. Blur the barriers and reach out globally.
+                            Shop7 is a robust e-commerce platform to take your shop to the global customers.
+                            Its an effective way to reach out to the people who love what you sell.
+                            Lets explore what we have in Store for you and be poised to
+                            transform your shop to a global one.</p>
+                        <address class="margin-bottom-20">
+                            SayOne Technolgoies Pvt Ltd,<br>
+                            7/401(I), 2nd Floor, Cyber house,<br>
+                            Old Civil lane Rd, Kakkand,<br>
+                            Kochi, India<br>
+                            Pin:682030<br>
+                            Phone:  +91484 403 7171<br>
+                            Email: <a href="mailto:hello@goshop7.com">hello@goshop7.com</a><br>
+                        </address>
+                    </div>
+                    <!-- END BOTTOM ABOUT BLOCK -->
+
+                    <!-- BEGIN TWITTER BLOCK -->
+                    <form action="{% url 'contactus' %}" method="post" id="contact_form">{% csrf_token %}
+                        <div class="col-md-4 col-sm-6 pre-footer-col">
+                            <h2>Contact Us</h2>
+                            <div class="content-form-page footer-form">
+                                <div class="form-group">
+                                    <input type="text" name="name" class="form-control" id="id_name" placeholder="Name">
+                                </div>
+
+                            </div>
+                            <div class="content-form-page footer-form">
+                                <div class="form-group">
+                                    <input type="email" name="email" class="form-control" id="id_email" placeholder="Email">
+                                </div>
+
+                            </div>
+                            <div class="content-form-page footer-form">
+                                <div class="form-group">
+                                    <input type="text" name="subject" class="form-control" id="id_subject" placeholder="Subject">
+                                </div>
+
+                            </div>
+                            <div class="content-form-page footer-form">
+                                <div class="form-group">
+                                    <textarea type="text" name="msg" class="form-control" id="id_message" placeholder="Message"></textarea>
+                                </div>
+
+                            </div>
+                            <div class="content-form-page footer-form">
+                                <div class="form-group">
+                                    <button type="submit" id="contact_submit_id" class="btn btn-primary login-button" name="contact_submit">Submit</button>
+                                    <div id="contact_loading" style="background:url(/static/assets_old/onepage/img/ajax-loader.gif) no-repeat #03B621; display:none; width:100px; height:34px; padding:5px 0; background-position:41px 8px;"></div>
+                                </div>
+                                <span id="success_message_id" style="color:green;"></span>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- END TWITTER BLOCK -->
+
+                    <div class="col-md-4 col-sm-6 pre-footer-col">
+                        <!-- BEGIN BOTTOM CONTACTS -->
+
+                        <!-- END BOTTOM CONTACTS -->
+
+                        <div class="pre-footer-subscribe-box">
+                            <h2>Newsletter</h2>
+                            <form action="{% url 'newsletter_subscription' %}" method="post" id="newsletter-form">{% csrf_token %}
+                                <div class="input-group">
+                                    <input type="text" placeholder="youremail@mail.com" class="form-control" id="newsletter-email" name="email">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" id="sbscribe_button" type="submit" id="news">Subscribe</button>
+                                        <div id="loading" style="background:url(/static/assets_old/onepage/img/ajax-loader.gif) no-repeat #03B621; display:none; width:100px; height:34px; padding:5px 0; background-position:41px 8px;"></div>
+                                    </span>
+                            </form>
+                        </div>
+
+                        <div class="pre-footer-subscribe-box">
+                            <h2>Powered by</h2>
+                            <div class="powered-images">
+                                <a href="http://sayonetech.com/" target="_blank" ><img src="static/assets_old/onepage/img/logo_sayone.png"/></a>
+
+                                <a href="http://djangorockstars.com/" target="_blank"><img src="static/assets_old/onepage/img/logo_djanko.png"/></a>
+                            </div>
+                        </div>
+
+
+                        <span id="msg" style="color:red"></span>
+                    </div>
+
+                    </form>
+                </div>
+                <span id="msg" style="color:red"></span>
+            </div>
+        </div>
+<!--    </div>
+</div>-->
+<!-- END PRE-FOOTER -->
+
+<!-- BEGIN FOOTER -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN COPYRIGHT -->
+            <div class="col-md-6 col-sm-6">
+                <div class="copyright">2014 © Shop7. All Rights Reserved.</div>
+            </div>
+            <!-- END COPYRIGHT -->
+            <!-- BEGIN SOCIAL ICONS -->
+            <div class="col-md-6 col-sm-6 pull-right">
+                <ul class="social-icons">
+
+                    <li><a class="facebook" data-original-title="facebook" href="javascript:void(0);"></a></li>
+                    <li><a class="twitter" data-original-title="twitter" href="javascript:void(0);"></a></li>
+                    <li><a class="googleplus" data-original-title="googleplus" href="javascript:void(0);"></a></li>
+
+                </ul>
+            </div>
+            <!-- END SOCIAL ICONS -->
+        </div>
+    </div>
+</div>
+<!-- END FOOTER -->
+<div id="price_pop" style="display: none;">
+    <a class="nice btn btn-default sign-up-ico fancybox-fast-view" href="#submit-pop" style="display: none;">Sign Up</a>
+    <div class="container">
+        <form action="{% url 'pricing' %}" class="package-form change-package-box" method="post" id="pricing_form">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="change-package-box">
+
+                        <div class="price-circle">
+                            <span class="line-thrgh-text line-through-span" id="price">${{ first_price }}</span>
+                            <span id="discount_price">${{ first_discount_price }}</span>
+                        </div>
+                        <div class="package-container">
+                            <p>
+                                {{ pricing_form.demopricing }}
+                            </p>
+                            <!--<p><a class="btn btn-default package-btn">Upgrade</a></p>-->
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <form class="package-form change-package-box">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                        <input type="text" class="form-control" id="mobile_no" name="mobile_no" placeholder="Mobile-No">
+                        <textarea id="price_mess" name="message" placeholder="Message"></textarea>
+                        <p><a class="btn btn-default package-btn" id="pricing_sbmit">Submit</a></p>
+                    </form>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="submit-pop" style="display: none;">
+    <div class="container" style="max-width:400px;">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 submit-pop-content">
+                <p><img src="static/assets_old/onepage/img/submit-tick.png"/></p>
+                <p>Thank you for your request. We will contact you soon.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="#promo-block" class="go2top scroll"><i class="fa fa-arrow-up"></i></a>
+
+<!--[if lt IE 9]>
+  <script src="static/assets/plugins/respond.min.js"></script>
+<![endif]-->
+
+<!-- Load JavaScripts at the bottom, because it will reduce page load time -->
+<!-- Core plugins BEGIN (For ALL pages) -->
+<script src="static/assets_old/plugins/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script src="static/assets_old/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+<script src="static/assets_old/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<!-- Core plugins END (For ALL pages) -->
+
+<!-- BEGIN RevolutionSlider -->
+<script src="static/assets_old/plugins/slider-revolution-slider/rs-plugin/js/jquery.themepunch.plugins.min.js" type="text/javascript"></script>
+<script src="static/assets_old/plugins/slider-revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js" type="text/javascript"></script>
+<script src="static/assets_old/onepage/scripts/revo-ini.js" type="text/javascript"></script>
+<!-- END RevolutionSlider -->
+
+<!-- Core plugins BEGIN (required only for current page) -->
+<script src="static/assets_old/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script><!-- pop up -->
+<script src="static/assets_old/plugins/jquery.easing.js"></script>
+<script src="static/assets_old/plugins/jquery.parallax.js"></script>
+<script src="static/assets_old/plugins/jquery.scrollTo.min.js"></script>
+<script src="static/assets_old/onepage/scripts/jquery.nav.js"></script>
+<!-- Core plugins END (required only for current page) -->
+
+<!-- Global js BEGIN -->
+<script src="static/assets_old/onepage/scripts/layout.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function() {
+        Layout.init();
+    });
+</script>
+
+<!-- Global js END -->
+
+<!-- Responsive Tabs JS -->
+<script src="static/assets_old/onepage/scripts/jquery.responsiveTabs.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+            
+        $('.package-drop').change(function(){
+            var pricing_id = $(this).val()
+            $.ajax({
+                type: $('#pricing_form').attr('method'), // GET or POST
+                url: $('#pricing_form').attr('action'),
+                data : {'pricing_id':pricing_id, 'type': 'pricing'},
+                success:function(response) {
+                    $('#price').html(response.price);
+                    $('#discount_price').html(response.discount_price);
+                },
+                error: function(e, x, r) { // on error..
+
+                    //alert($('#newsletter-form').serialize());
+                    //alert(error);
+                }
+            });
+            return false;
+        });
+        var count = 0;
+        $('#pricing_sbmit').on('click', function(){
+            var data = $('#pricing_form').serialize();
+            $.ajax({
+                type: $('#pricing_form').attr('method'), // GET or POST
+                url: $('#pricing_form').attr('action'),
+                data : data,
+                success:function(response) {
+                    if (response.status=='success'){
+                        $("#pricing_form :input:not(input[type='hidden'],input[type='submit'])").each(function(){
+                            $(this).val('');
+                            $('.fancybox-close').trigger('click');
+                            $.fancybox({href : '#submit-pop'});
+                        });
+
+                    }
+
+                    else{
+                        if (count >=1){
+                            $('.error').remove();
+                        }
+                        $("#pricing_form :input:not(input[type='hidden'],input[type='submit'])").each(function(){
+                            var current = $(this)
+                            var current_name  = $(this).attr('name');
+                            $.each(response.errors, function( index, value ){
+
+                                if(current_name == index) {
+
+                                    var div =current.after( "<div class=error style='color:red;font-size:13px;margin-top:8px;margin-bottom:16px;'></div>");
+                                    current.next().html(value);
+                                    count++
+
+                                }
+                            });
+                        });
+                    }
+                },
+                error: function(e, x, r) { // on error..
+
+                    //alert($('#newsletter-form').serialize());
+                    //alert(error);
+                }
+            });
+            return false;
+        });
+
+        $('#horizontalTab').responsiveTabs({
+            rotate: false,
+            startCollapsed: 'accordion',
+            collapsible: 'accordion',
+            setHash: true,
+
+            activate: function(e, tab) {
+                $('.info').html('Tab <strong>' + tab.id + '</strong> activated!');
+            }
+        });
+
+        $('#start-rotation').on('click', function() {
+            $('#horizontalTab').responsiveTabs('active');
+        });
+        $('#stop-rotation').on('click', function() {
+            $('#horizontalTab').responsiveTabs('stopRotation');
+        });
+        $('#start-rotation').on('click', function() {
+            $('#horizontalTab').responsiveTabs('active');
+        });
+        $('.select-tab').on('click', function() {
+            $('#horizontalTab').responsiveTabs('activate', $(this).val());
+        });
+
+
+        $('#newsletter-form').submit(function(event){
+            event.preventDefault();
+            var email=$('#newsletter-email').val();
+            $('#sbscribe_button').hide();
+            $('#loading').show();
+            if (email==''){
+                $('#msg').html('Enter Valid Email!!');
+            }
+
+            var url = "{% url 'newsletter_subscription' %}"
+            $.ajax({
+                type: $('#newsletter-form').attr('method'), // GET or POST
+                url: $('#newsletter-form').attr('action'),
+                data : {email:email,
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                    submit:''
+                },
+
+                success:function(response) {
+                    $('#sbscribe_button').show();
+                    $('#loading').hide();
+
+                    if (response.status=='success'){
+                        $('#newsletter-email').val('');
+                        $('#msg').html(response.message);
+
+                    }
+
+                    else if(response.status=='validation_errors'){
+                        console.log(response);
+                        $('#msg').html(response.message);
+                        $("#loading").hide();
+                        $("#sbscribe_button").show();
+                    }
+                    else{
+
+                        $('#msg').html(response.message);
+                        $("#loading").hide();
+                        $("#sbscribe_button").show();
+                    }
+                },
+                error: function(e, x, r) { // on error..
+
+                    //alert($('#newsletter-form').serialize());
+                    //alert(error);
+                }
+            });
+            return false;
+        });
+
+        var count=0
+        $('#contact_form').submit(function(event){
+            event.preventDefault();
+            var data=$('#contact_form').serialize();
+            $('#contact_submit_id').hide();
+            $('#contact_loading').show();
+                    
+            $.ajax({
+                type: $('#contact_form').attr('method'), // GET or POST
+                url: $('#contact_form').attr('action'),
+                data :data,
+                success:function(response) {
+                    $('#contact_submit_id').show();
+                    $('#contact_loading').hide();
+
+                    if (response.status=='success'){
+                        $("#contact_form :input:not(input[type='hidden'],input[type='submit'])").each(function(){
+                            $(this).val('');
+                        });
+                        $('#success_message_id').html(response.message);
+
+                    }
+
+                    else{
+                        if (count >=1){
+                            $('.error').remove();
+                        }
+                        $("#contact_form :input:not(input[type='hidden'],input[type='submit'])").each(function(){
+                            var current = $(this)
+                            var current_name  = $(this).attr('name');
+                            $.each(response.errors, function( index, value ){
+                                        
+                                if(current_name == index) {
+
+                                    var div =current.after( "<div class=error style='color:red;font-size:13px;margin-top:8px;margin-bottom:16px;'></div>");
+                                    current.next().html(value);
+                                    count++
+
+                                }
+                            });
+                        });
+                    }
+                },
+                error: function(e, x, r) { // on error..
+
+                    //alert($('#newsletter-form').serialize());
+                    //alert(error);
+                }
+            });
+            return false;
+        });
+
+    });
+</script>
+</body>
+</html>

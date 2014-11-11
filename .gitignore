@@ -1,0 +1,9 @@
+*.svn
+*.log
+*.pyc
+media/*
+site.wsgi
+server_settings.py
+resource.cgn
+static/
+nbproject/

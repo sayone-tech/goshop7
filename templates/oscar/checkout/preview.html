@@ -1,0 +1,41 @@
+{% extends "checkout/checkout.html" %}
+{% load i18n %}
+
+{% block title %}
+{% trans "Order preview" %} | {{ block.super }}
+{% endblock %}
+
+{% block checkout_nav %}
+{% include 'checkout/nav.html' with step=4 %}
+{% endblock %}
+
+{% block checkout_title %}
+{% trans "Preview order" %}
+{% endblock %}
+
+{% block place_order %}
+<div class="panel-body row">
+    <div class="col-md-12 clearfix">
+            
+            {% comment %}
+            When submitting sensitive data on the payment details page (eg a bankcard)
+            we don't want to save the data and so we pass the bound form to the preview
+            template and render it in a hidden div.  Then the payment information will
+            get re-submitted when the user confirms the order.
+            {% endcomment %}
+            <div style="display:none">
+                {% block hiddenforms %}{% endblock %}
+            </div>
+
+            <form method="post" action="{% if payment_method == 'cod' %}{% url 'cod_payment' %}{% else %}{% url 'checkout:preview' %}{% endif %}">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="place_order" />
+        <input type="hidden" name="payer_id" value="{{ payer_id }}" />
+        <input type="hidden" name="token" value="{{ token }}" />
+        <div class="form-actions">
+            <input id='place-order' type="submit" value="{% trans "Place order" %}" class="pull-right btn btn-primary btn-large js-disable-on-click" />
+        </div>
+    </form>
+    </div>
+</div>
+{% endblock place_order %}

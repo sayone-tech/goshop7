@@ -1,0 +1,9 @@
+<html>
+    <body>
+        <h2>{{title}}</h2>
+        <span>{{message|safe}}</span>
+        Regards<br>
+        {{site}}
+        <a href="{{ site }}{% url 'newsletter_unsubscription_confirm' key=key %}"><h4>To Unsubscribe Please Click this link.</h4></a>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+{% load history_tags %}
+{% load basket_tags %}
+{% load currency_filters %}
+{% load thumbnail %}
+{% load i18n %}
+{% load staticfiles %}
+<div id="replace_whishlist_popup">
+<div class="top-cart-content-wrapper">
+            <div class="top-cart-content">
+                {% if wishs %}
+              <ul class="scroller" style="height: 250px;">
+                  {% for list in wishs %}
+                <li>
+                  <a href="">
+                      {% with image=list.product.primary_image %}
+                        {% thumbnail image.original "37x34" upscale=False as thumb %}
+                      <img src="{{ thumb.url }}" alt="{{ list.product.get_title }}" width="37" height="34"></a>
+                      {% endthumbnail %}
+                        {% endwith %}
+                    <span class="cart-content-count">x {{ list.quantity }}</span>
+                  <strong><a href="/shop/catalogue/{{ list.product.slug }}__{{ list.product.id }}">{{ list.product }}</a></strong>
+                  <em>{{ list.product.price.unit_price_excl_tax|currency:request.basket.currency }}</em>
+                  <a onclick="deleteWhishLine('{{ list.id }}')"  class="del-goods" data-url="">&nbsp;</a>
+                </li>
+                {% endfor %}
+              </ul>
+              <div class="text-right">
+                <a href="/shop/accounts/wishlists/" class="btn btn-primary">View Wishlist</a>
+              </div>
+                {% else %}
+
+                <div class="empty">
+                {% include 'basket/partials/wishlist_empty.html' %}
+                </div>
+                {% endif %}
+            </div>
+          </div>
+</div>
+<script>
+    function deleteWhishLine(prod_id){
+
+        ajaxdeleteWhishLine(prod_id);
+    }
+
+    function ajaxdeleteWhishLine(prod_id)
+    {
+        //alert(url)
+        $.ajax({
+            url:"{% url 'whish_delete_line' %}",
+            type:'POST',
+            data:{'prod_id':prod_id},
+            success:function(data){
+                if(data.context.status=='wish'){
+                    $('#replace_whishlist_popup').replaceWith(data.context.html)
+                }
+
+else if(data.context.status=='no_wish'){
+                    $('#replace_whishlist_popup').replaceWith(data.context.html)
+                }
+
+
+            }
+
+
+        });
+    }</script>

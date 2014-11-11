@@ -1,0 +1,75 @@
+{% load basket_tags %}
+{% load i18n %}
+{% load purchase_info_tags %}
+
+{% purchase_info_for_product request product as session %}
+
+{% if session.availability.is_available_to_buy %}
+
+{% basket_form request product as basket_form %}
+<div class="product-page-cart">
+    <form id="add_to_basket_form" action="{% url 'basket:add' %}" method="post" class="form-stacked add-to-basket">
+        {% csrf_token %}
+        <input id="id_product_id" name="product_id" type="hidden" value="{{product.id}}">
+        <div class="product-quantity">
+            <input id="product-quantity" type="text" value="1" name="quantity" readonly class="form-control input-sm">
+        </div>
+        {% for field in basket_form %}
+        {% if not field.name == 'quantity' and not field.name == 'product_id'  %}
+        <div class="">
+        {% include "partials/form_field.html" %}
+        </div>
+        {% endif %}
+        
+        {% endfor %}
+        <button class="btn btn-primary" type="submit">{% trans "Add to cart" %}</button>
+        {% if not detail %}
+        <a href="{{ product.get_absolute_url }}" class="btn btn-default">More details</a>
+        {% endif %}
+        <div class="wish">
+        <a href="{% url 'customer:wishlists-add-product' product_pk=product.pk %}">Add to Wishlist</a>
+        </div>
+    </form>
+    
+
+</div>
+{% else %}
+<form id="alert_form" method="post" action="{% url 'customer:alert-create' pk=product.id %}" class="add-to-basket">
+    {% csrf_token %}
+    <p>{% trans "You can get an email alert when this product is back in stock." %}</p>
+    {% include "partials/form_fields.html" with form=alert_form %}
+    <button type="submit" class="btn btn-large btn-info btn-block">{% trans "Notify me" %}</button>
+</form>
+{% endif %}
+{% block extrastyles %}
+<style>
+    .wish
+    {
+        padding-top:20px;
+    }
+</style>
+{% endblock %}
+{% comment %}
+<div class="product-page-cart">
+    {% include "catalogue/partials/add_to_wishlist.html" %}
+</div>
+{% else %}
+{% if has_active_alert %}
+<div class="product-page-cart">
+<p>{% trans "You have an active stock alert for this product." %}</p>
+</div>
+{% else %}
+<div class="product-page-cart">
+<form id="alert_form" method="post" action="{% url 'customer:alert-create' pk=product.id %}" class="add-to-basket">
+    {% csrf_token %}
+    <p>{% trans "You can get an email alert when this product is back in stock." %}</p>
+    {% include "partials/form_fields.html" with form=alert_form %}
+    <button type="submit" class="btn btn-large btn-info btn-block">{% trans "Notify me" %}</button>
+</form>
+    </div>
+{% endif %}
+<div class="product-page-cart">
+    {% include "catalogue/partials/add_to_wishlist.html" %}
+</div>
+{% endif %}
+{% endcomment %}

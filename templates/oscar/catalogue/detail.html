@@ -1,0 +1,312 @@
+{% extends "layout.html" %}
+
+{% load history_tags %}
+{% load currency_filters %}
+{% load reviews_tags %}
+{% load staticfiles %}
+{% load product_tags %}
+{% load display_tags %}
+{% load i18n %}
+{% load purchase_info_tags %}
+{% load category_tags %}
+
+{% block title %}
+{{ product.title }} | {{ block.super }}
+{% endblock %}
+
+{% block description %}
+{{ product.description|default:""|striptags }}
+{% endblock %}
+
+{% block breadcrumbs %}
+<ul class="breadcrumb">
+    <li>
+        <a href="{{ homepage_url }}">{% trans "Home" %}</a>
+    </li>
+    {% with category=product.categories.all.0 %}
+    {% for c in category.get_ancestors %}
+    <li>
+        <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+    </li>
+    {% endfor %}
+    <li class="active">{{ product.title }}</li>
+
+    {% get_back_button as backbutton %}
+    {% if backbutton %}
+    <li class="pull-right">
+        <a href="{{ backbutton.url }}">
+            <i class="icon-arrow-left"></i> {{ backbutton.title }}
+        </a>
+    </li>
+    {% endif %}
+    {% endwith %}
+</ul>
+{% endblock %}
+
+{% block header %}
+{% endblock header %}
+
+{% block content %}
+
+<!-- BEGIN SIDEBAR & CONTENT -->
+<div class="row margin-bottom-40">
+    <!-- BEGIN SIDEBAR -->
+    <div class="sidebar col-md-3 col-sm-5">
+        {% category_tree depth=1 as tree_categories %}
+        {% if tree_categories %}
+        
+        <ul class="list-group margin-bottom-25 sidebar-menu">
+            {% for tree_category, info in tree_categories %}
+        {% for sec_cat in tree_category.get_children %}
+            <li class="list-group-item {% if sec_cat.get_children %}dropdown{% endif %} clearfix {% if tree_category.pk == category.pk %}active{% endif %}">
+                <a href="{{ sec_cat.get_absolute_url }}" class="{% if sec_cat.get_children %}collapsed{% endif %}"><i class="fa fa-angle-right"></i> {{sec_cat.name}}<i class="fa fa-angle-down"></i></a>
+                
+                {% if sec_cat.get_children %}
+                <ul class="dropdown-menu" style="display: block; ">
+                    {% for third_cat in sec_cat.get_children %}
+                    <li class="list-group-item  clearfix ">
+                        <a href="{{third_cat.get_absolute_url}}" class="">
+                            <i class="fa fa-angle-right"></i>
+                            {{third_cat.name}}
+                        </a>
+                    </li>
+                    {% endfor %}                
+
+                </ul>
+                {% endif %}
+            </li>
+            {% endfor %}
+        {% endfor %}
+        </ul>
+        
+        {% endif %}
+        {% include 'catalogue/partials/best_selling_products.html' %}
+    </div>
+    <!-- END SIDEBAR -->
+
+    <!-- BEGIN CONTENT -->
+    <div class="col-md-9 col-sm-7">
+        <div class="product-page">
+            <div class="row">
+                {% block product_gallery %}
+                <div class="col-md-6 col-sm-6">
+                    {% include "catalogue/partials/gallery.html" %}
+                </div>
+                {% endblock %}
+                {% block product_main %}
+                <div class="col-md-6 col-sm-6">
+                    {% comment %}
+                    This is a but clunky here.  Better to have some kind of JS-driven dashboard menu that
+                    pops out when clicked.  A bit like the Django-Debug-Toolbar button
+                    {% endcomment %}
+                    {% if user.is_authenticated and user.is_staff %}
+                    <a class="pull-right hidden-phone" href="{% url 'dashboard:catalogue-product' pk=product.id %}"><small><i class="icon-edit"></i> {% trans "Edit this product" %}</small></a>
+                    {% endif %}
+                    <h1>{{ product.get_title }}</h1>
+
+                    {% block product_stock_record %}
+                    {% include "catalogue/partials/stock_record.html" with verbose=1 %}
+                    {% endblock %}
+
+                    <div class="description">
+                        <p>{{ product.description|striptags|truncatewords:50 }}</p>
+                    </div>
+                    {# currently size and color not implementing. Will implement in future#}
+                    <div class="product-page-options">
+                        {% with size_list=product.get_size_list my_size=product.get_my_size %}
+                        {% if size_list %}
+                        <div class="pull-left">
+                            <label class="control-label">Size:</label>
+                            <select name="size" class="form-control input-sm" id="idSize">
+                                {% for size in size_list %}
+                                <option data-url="{{size.1}}" value="{{size.0}}" {% if my_size == size.0 %}selected{% endif %}>{{size.0}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        {% endif %}
+                        {% endwith %}
+                        {% with color_list=product.get_color_list my_color=product.get_my_color %}
+                        {% if color_list %}
+                        <div class="pull-left">
+                            <label class="control-label">Color:</label>
+                            <select class="form-control input-sm" name="color" id="idColor">
+                                    {% for color in color_list %}
+                                    <option data-url="{{color.1}}" value="{{color.0}}" {% if my_color == color.0 %}selected{% endif %} >{{color.0}}</option>
+                                    {% endfor %}
+                            </select>
+                        </div>
+                        {% endif %}
+                    {% endwith %}
+                    </div>
+
+                    {% block product_basket_form %}
+                    {% include "catalogue/partials/add_to_basket_form.html" with detail=1%}
+                    {% endblock %}
+                    {% iffeature "reviews" %}
+                    <div class="review">
+                        {% if product.rating != None %}
+                        <input type="range" value="{{product.rating}}" step="0.25" id="backing4">
+                        {% else %}
+                        <input type="text" value="0" step="0.25" id="backing4">
+                        {% endif %}
+                        <div class="rateit" data-rateit-backingfld="#backing4" data-rateit-resetable="false" data-rateit-readonly="true"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5">
+                        </div>
+                        <a href="{% url 'catalogue:reviews-list' product_slug=product.slug product_pk=product.id %}">
+                            {% blocktrans count product.num_approved_reviews as num_reviews %}
+                            1 review
+                            {% plural %}
+                            {{ num_reviews }} reviews
+                            {% endblocktrans %}
+                        </a>&nbsp;&nbsp;
+                        {% if product|is_review_permitted:user %}
+                        |&nbsp;&nbsp;<a href="{% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id %}?tab=review#addreview">{% trans "Write a review" %}</a>
+                        {% endif %}
+                    </div>
+                    {% endiffeature %}
+                    <ul class="social-icons">
+                        <li><a class="facebook" data-original-title="facebook" onclick="javascript:window.open(this.href,'','menubar=no,toolbar=no,height=600,width=600');return false;" href="http://www.facebook.com/share.php?u={{request.build_absolute_uri}}"></a></li>
+                        <li><a class="twitter" data-original-title="twitter" onclick="javascript:window.open(this.href,'','menubar=no,toolbar=no,height=600,width=600');return false;" href="http://twitter.com/intent/tweet?text={{ product.get_title }} {{request.build_absolute_uri}}"></a></li>
+                        <li><a class="googleplus" data-original-title="googleplus" onclick="javascript:window.open(this.href,'','menubar=no,toolbar=no,height=600,width=600');return false;" href="https://plus.google.com/share?url={{request.build_absolute_uri}}"></a></li>
+                    </ul>
+                </div>
+                {% endblock %}
+
+                <div class="product-page-content">
+                    <ul id="myTab" class="nav nav-tabs">
+                        {% if product.description %}
+                        <li class="{% if  request.GET.tab == 'desc' %}active{% endif %}"><a href="#Description"  data-toggle="tab">{% trans "Description" %}</a></li>
+                        {% endif %}
+                        <li  class="{% if not  request.GET.tab == 'desc' and not  request.GET.tab == 'review' %}active{% endif %}"><a href="#Information" data-toggle="tab">{% trans "Information" %}</a></li>
+                        {% iffeature "reviews" %}
+                        <li class="{% if  request.GET.tab == 'review' %}active{% endif %}" ><a href="#addreview" data-toggle="tab">{% trans "Reviews" %} ({{ product.num_approved_reviews }})</a></li>
+                        {% endiffeature %}
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        {% block product_description %}
+                        {% if product.description %}
+                        <div class="tab-pane fade {% if  request.GET.tab == 'desc' %}in active{% endif %}" id="Description">
+                            <p>{{ product.description|safe }}</p>
+                        </div>
+                        {% endif %}
+                        {% endblock %}
+                        {% block product_info %}
+                        <div class="tab-pane fade {% if not  request.GET.tab == 'desc' and not  request.GET.tab == 'review' %}in active{% endif %}" id="Information">
+                            <table class="datasheet">
+                                <tr>
+                                    <th colspan="2">{% trans "Additional features" %}</th>
+                                </tr>
+                                <tr>
+                                    <td class="datasheet-features-type">{% trans "Product Type" %}</td>
+                                    <td>{{ product.get_product_class.name }}</td>
+                                </tr>
+                                {% purchase_info_for_product request product as session %}
+                                {% if session.price.exists %}
+                                <tr>
+                                    <td class="datasheet-features-type">{% trans "Price (excl. tax)" %}</td>
+                                    <td>{{ session.price.excl_tax|currency:session.price.currency }}</td>
+                                </tr>
+                                {% if session.price.is_tax_known %}
+                                <tr>
+                                    <td class="datasheet-features-type">{% trans "Price (incl. tax)" %}</td>
+                                    <td>{{ session.price.incl_tax|currency:session.price.currency }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="datasheet-features-type">{% trans "Tax" %}</td>
+                                    <td>{{ session.price.tax|currency:session.price.currency }}</td>
+                                </tr>
+                                {% endif %}
+                                <tr>
+                                    <td class="datasheet-features-type">{% trans "Availability" %}</td>
+                                    <td>{{ session.availability.message }}</td>
+                                </tr>
+                                {% endif %}
+                                {% for av in product.attribute_values.all %}
+                                <tr>
+                                    <td class="datasheet-features-type">{{ av.attribute.name }}</td>
+                                    <td>{{ av.value_as_html }}</td>
+                                </tr>
+                                {% endfor %}
+                                {% iffeature "reviews" %}
+                                <tr>
+                                    <td class="datasheet-features-type">{% trans "Number of reviews" %}</td>
+                                    <td>{{ product.num_approved_reviews }}</td>
+                                </tr>
+                                {% endiffeature %}
+                            </table>
+                        </div>
+                        {% endblock %}
+                        {% iffeature "reviews" %}
+                        <div class="tab-pane fade {% if  request.GET.tab == 'review' %}in active{% endif %}" id="addreview">
+                        {% block product_review %}
+                            <!--<p>There are no reviews for this product.</p>-->
+                            <div id="reviews" class="sub-header">
+                                {% if product.num_approved_reviews > 3 %}
+                                <a href="{% url 'catalogue:reviews-list' product_slug=product.slug product_pk=product.id %}" class="btn pull-right">{% trans "See all reviews" %}</a>
+                                {% endif %}
+                                {% if product.num_approved_reviews == 0 %}
+                                <p>
+                                    {% if product|is_review_permitted:user %}
+                                    {% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id as add_review_url %}
+                                    {% blocktrans %}This product does not have any reviews yet -
+                                    <a href="{{ add_review_url }}?tab=review#addreview">be the first to write one</a>.
+                                    {% endblocktrans %}
+                                    {% else %}
+                                    {% trans "This product does not have any reviews yet" %}.
+                                    {% endif %}
+                                </p>
+                                {% endif %}
+                            </div>
+                            {% for review in reviews|slice:":3" %}
+                            {% include 'catalogue/partials/review.html' %}
+                            {% endfor %}
+                        {% endblock product_review %}
+                        </div>
+                        {% endiffeature %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- END CONTENT -->
+</div>
+<!-- END SIDEBAR & CONTENT -->
+
+<!-- BEGIN RECENTLY VIEWED PRODUCTS -->
+{% recently_viewed_products %}
+
+ 
+ 
+ 
+<!-- BEGIN RECENTLY VIEWED PRODUCTS -->
+{% endblock content %}
+
+{% block extrascripts %}
+{{ block.super }}
+<script>
+    $(document).ready(function(){
+        $('.imagegalchange').on('hover,click',function(){
+            imge = $('.imageplacer');
+            imge.trigger('zoom.destroy');
+            normal = $(this).attr('data-normal-image');
+            large = $(this).attr('data-large-image');
+            imge.attr('src',normal);
+            $('.imagegalchange').removeClass('active');
+            $(this).addClass('active');
+            $('.product-main-image').zoom({url:large});
+            return false;
+        });
+    });
+$(document).ready(function(){
+    $('#idColor').change(function(){
+        window.location = $('option:selected', this).attr('data-url')
+    })
+    $('#idSize').change(function(){
+        window.location = $('option:selected', this).attr('data-url')
+    })
+    $(".removedata").click(function(){
+        $("#display_product").hide();
+    });
+});
+</script>
+{% endblock %}

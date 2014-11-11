@@ -1,0 +1,69 @@
+{% load history_tags %}
+{% load basket_tags %}
+{% load currency_filters %}
+{% load thumbnail %}
+{% load i18n %}
+{% load staticfiles %}
+
+<div class="top-cart-content-wrapper">
+            <div class="top-cart-content">
+                {% if request.basket.num_lines %}
+              <ul class="scroller" style="height: 250px;">
+                  {% for line in request.basket.all_lines %}
+                <li>
+                  <a href="{{ line.product.get_absolute_url }}">
+                      {% with image=line.product.primary_image %}
+                        {% thumbnail image.original "37x34" upscale=False as thumb %}
+                      <img src="{{ thumb.url }}" alt="{{ line.product.get_title }}" width="37" height="34"></a>
+                      {% endthumbnail %}
+                        {% endwith %}
+                    <span class="cart-content-count">x {{ line.quantity }}</span>
+                  <strong><a href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></strong>
+                  <em>{{ line.unit_price_excl_tax|currency:request.basket.currency }}</em>
+                  <a onclick="deleteCartItem('/basket/delete-line/?prod={{ line.id }}'); return false;" class="del-goods" data-url="{% url 'remove_line' %}?prod={{ line.id }}">&nbsp;</a>
+                </li>
+                {% endfor %}
+              </ul>
+              <div class="text-right">
+                <a href="{% url 'basket:summary' %}" class="btn btn-default">View Cart</a>
+                <a href="{% url 'checkout:index' %}" class="btn btn-primary">Checkout</a>
+              </div>
+                {% else %}
+
+                <div class="empty">
+                <p>Your shopping cart is empty!</p>
+                </div>
+                {% endif %}
+            </div>
+          </div>
+<script>
+
+    function deleteCartItem(url){
+        ajaxdelete(url);
+    }
+
+    function ajaxdelete(url)
+    {
+        //alert(url)
+        $.ajax({
+            url:url,
+            type:'GET',
+            success:function(data){
+                console.log(data)
+                if(data.status=='success')
+                {
+                   $('.empty').html(data.html)
+                   location.reload();
+                }
+                else
+                {
+                    alert('error');
+                }
+            }
+
+
+        })
+    }
+
+
+</script>

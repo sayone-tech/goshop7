@@ -1,0 +1,43 @@
+{% extends 'oscar/customer/baseaccountpage.html' %}
+{% load currency_filters %}
+{% load display_tags %}
+{% load i18n %}
+{% load reviews_tags %}
+
+{% block title %}Newsletter Unsubscription{% endblock %}
+{% block tabcontent %}
+
+<h2 class="title" style="text-align:left">Newsletter Unsubscription</h2>
+<div class="content-form-page">
+              <div class="row">
+                <div class="col-md-7 col-sm-7">
+                    <form class="form-horizontal form-without-legend" role="form" action="{% url 'newsletter_unsubscription' %}" method="post" id="newsletter-form1">
+                    {% csrf_token %}
+                        <div class="form-group">
+                      <label for="email" class="col-lg-4 control-label" style="text-align:left; width: 75px;">Email</label>
+                      <div class="col-lg-8" style="text-align:left;">
+                          <input type="email" class="form-control" id="newsletter-email" name="email">
+                          <span id="msg">
+                              
+                          </span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-5" style="margin-left: 75px;">
+                          <input type="submit" class="btn btn-primary" value="Unsubscribe" name="submit" id="news" />
+                      </div>
+                    </div>
+                    
+                  </form>
+                </div>
+
+              </div>
+            </div>
+{% endblock %}
+{% block extra_css %}
+<style>
+.title{
+    padding-right:284px;
+}
+</style>
+{% endblock %}

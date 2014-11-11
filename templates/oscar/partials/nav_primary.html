@@ -1,0 +1,78 @@
+{% load currency_filters %}
+{% load category_tags %}
+{% load i18n %}
+
+<div class="main_menu">
+       <div class="container">
+       <div class="header-navigation">
+    <ul>
+        {% block nav_dropdown %}
+        {% category_tree depth=1 as tree_categories %}
+        {% if tree_categories %}
+        {% for tree_category, info in tree_categories %}
+        {% for sec_cat in tree_category.get_children %}
+        
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" data-target='' href="{{ sec_cat.get_absolute_url }}">
+               {{sec_cat.name}}
+                <i class="fa fa-angle-down"></i>
+            </a>
+            {% if sec_cat.get_children %}
+            <!-- BEGIN DROPDOWN MENU -->
+            <ul class="dropdown-menu">
+                <li>
+                    <div class="header-navigation-content">
+                      <div class="row">
+                      {% for third_cat in sec_cat.get_children %}
+                        
+                        <div class="col-md-4 header-navigation-col">
+                        <!-- BEGIN DROPDOWN MENU - COLUMN -->
+                            <h4><a href="{{third_cat.get_absolute_url}}">{{third_cat.name}}</a></h4>
+                            
+                        <!-- END DROPDOWN MENU - COLUMN -->
+                        </div>
+                       {% endfor %}
+                        <!-- BEGIN DROPDOWN MENU - BRANDS -->
+                        <div class="col-md-12 nav-brands">
+                            <ul>
+                                <li><a href="#"><img title="esprit" alt="esprit" src="{{ STATIC_URL }}assets/frontend/pages/img/brands/apple.jpg"></a></li>
+                                <li><a href="#"><img title="gap" alt="gap" src="{{ STATIC_URL }}assets/frontend/pages/img/brands/lg.jpg"></a></li>
+                                <li><a href="#"><img title="next" alt="next" src="{{ STATIC_URL }}assets/frontend/pages/img/brands/micromax.jpg"></a></li>
+                                <li><a href="#"><img title="puma" alt="puma" src="{{ STATIC_URL }}assets/frontend/pages/img/brands/samsung.jpg"></a></li>
+                                <li><a href="#"><img title="zara" alt="zara" src="{{ STATIC_URL }}assets/frontend/pages/img/brands/windows.jpg"></a></li>
+                            <li><a href="#"><img title="zara" alt="zara" src="{{ STATIC_URL }}assets/frontend/pages/img/brands/sony-erricson.jpg"></a></li>
+                            </ul>
+                        </div>
+                        <!-- END DROPDOWN MENU - BRANDS -->
+                    </div>
+                    </div>
+                </li>
+            </ul>
+            {% endif %}
+            <!-- END DROPDOWN MENU -->
+        </li>
+        {% endfor %}
+        {% endfor %}
+        
+        {% else %}
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" data-delay="0" data-close-others="false" data-target="{% url 'catalogue:index' %}" href="{% url 'catalogue:index' %}">
+                {% trans "All products" %}
+                <i class="fa fa-angle-down"></i>
+            </a>
+        </li>
+        {% endif %}
+        {% block nav_dropdown_extra_items %}
+        <li><a href="{% url 'offer:list' %}">{% trans "Offers" %}</a></li>
+        {% endblock %}
+        {% block nav_extra %}
+        {% endblock %}
+        {% endblock %}
+        <!-- BEGIN TOP SEARCH -->
+        
+        <!-- END TOP SEARCH -->
+    </ul>
+</div>
+</div>
+</div>
+

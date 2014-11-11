@@ -1,0 +1,49 @@
+
+{% load i18n %}
+{% load currency_filters %}
+
+<div id="shopping-total">
+    {% with offer_discounts=basket.offer_discounts voucher_discounts=basket.grouped_voucher_discounts %}
+    <ul>
+                    <li>
+                      <em>Sub total</em>
+                      <strong class="price">{% if basket.is_tax_known and not show_tax_separately %}
+                                    {{ basket.total_incl_tax_excl_discounts|currency:basket.currency }}
+                                {% else %}
+                                    {{ basket.total_excl_tax_excl_discounts|currency:basket.currency }}
+                                {% endif %}</strong>
+                    </li>
+                   {% for discount in offer_discounts %}
+                    <li>
+                        <em>Discount</em>
+                        <strong class="price">{{ discount.discount|currency:basket.currency }}</strong>
+                    </li>
+                    {% endfor %}
+                    
+                    <li>
+                      <em>Shipping cost</em>
+                      {% if not shipping_method.is_discounted %}
+                      <strong class="price">{% if not show_tax_separately and shipping_method.is_tax_known %}
+                                {{ shipping_method.charge_incl_tax|currency:basket.currency }}
+                            {% else %}
+                                {{ shipping_method.charge_excl_tax|currency:basket.currency }}
+                            {% endif %}</strong>
+                      {% else %}
+                      <strong class="price">{% if not show_tax_separately %}
+                                {{ shipping_method.charge_incl_tax_before_discount|currency:basket.currency }}
+                            {% else %}
+                                {{ shipping_method.charge_excl_tax_before_discount|currency:basket.currency }}
+                            {% endif %}</strong>
+                      {% endif %}
+                    </li>
+                    <li class="shopping-total-price">
+                      <em>Total</em>
+                      <strong class="price">{% if order_total.is_tax_known %}
+                                {{ order_total.incl_tax|currency:basket.currency }}
+                            {% else %}
+                                {{ order_total.excl_tax|currency:basket.currency }}
+                            {% endif %}</strong>
+                    </li>
+                  </ul>
+    {% endwith %}
+</div>

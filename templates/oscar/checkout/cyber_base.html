@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block layout %}
+<header class="header container-fluid">
+        <div class="page_inner">
+            <div class="row-fluid">
+                {% include "partials/brand.html" %}
+            </div><!-- /row-fluid -->
+        </div>
+        {% block checkout_nav1 %}{% endblock %}
+    </header>
+<div class="main">
+      <div class="container">
+{% block content %}
+{% endblock %}
+      </div>
+</div>
+{% endblock %}

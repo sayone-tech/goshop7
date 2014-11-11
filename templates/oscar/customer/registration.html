@@ -1,0 +1,118 @@
+{% extends "layout_2_col.html" %}
+
+{% load i18n %}
+
+{% block title %}
+{% trans 'Register' %} | {{ block.super }}
+{% endblock %}
+
+{% block breadcrumbs %}
+<ul class="breadcrumb">
+    <li>
+        <a href="{{ homepage_url }}">{% trans 'Home' %}</a>
+    </li>
+    <li class="active">{% trans 'Register' %}</li>
+</ul>
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<div class="main">
+      <div class="container">
+
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40">
+
+
+          <!-- BEGIN CONTENT -->
+          <div class="col-md-12 col-sm-12">
+            <h1>Become a member</h1>
+            <div class="content-form-page">
+              <div class="row">
+                <div class="col-md-12 col-sm-12">
+                  <form class="form-horizontal login-form register-page" role="form" id="register_form" action="." method="post">{% csrf_token %}
+                      {% if form.is_bound and not form.is_valid %}
+                        <div class="alert alert-error">
+                            <strong>{% trans "Oops! We found some errors" %}</strong> - {% trans "please check the error messages below and try again" %}
+                        </div>
+                        {% endif %}
+                    <fieldset>
+
+                      <div class="form-group">
+    <label for="exampleInputEmail1">Email<span class="require">*</span></label>
+    <input type="text" name="email" class="form-control" id="id_email">
+                                    {% for error in form.email.errors %}
+                                    <span class="error-block"><i class="icon-exclamation-sign"></i> {{ error }}</span>
+                                    {% endfor %}
+  </div>
+                      <div class="form-group">
+    <label for="exampleInputEmail1">Password<span class="require">*</span></label>
+    <input type="password" name="password1" class="form-control" id="id_password1">
+                                    {% for error in form.password1.errors %}
+                                    <span class="error-block"><i class="icon-exclamation-sign"></i> {{ error }}</span>
+                                    {% endfor %}
+  </div>
+                      <div class="form-group">
+    <label for="exampleInputEmail1">Confirm Password<span class="require">*</span></label>
+    <input type="password" name="password2" class="form-control" id="id_password1">
+    {% for error in form.password2.errors %}
+                                    <span class="error-block"><i class="icon-exclamation-sign"></i> {{ error }}</span>
+                                    {% endfor %}
+  </div>
+                    </fieldset>
+
+
+                    <div class="row">
+                      <div class="col-lg-8 col-md-offset-4 padding-left-0 padding-top-20">
+                        <button type="submit" class="btn btn-primary login-button">Sign Up</button>
+                        {% if cancel_url %}
+                                <a href="{{ cancel_url }}" class="btn btn-default">Cancel</a>
+                                {% endif %}
+                      </div>
+                    </div>
+                  </form>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+      </div>
+    </div>
+{% endblock content %}
+{% block extrascripts %}
+<script>
+            $(document).ready(function(e){
+        $(".register-page").validate({
+            rules: {
+                'email':
+                    {
+                    required:true,
+
+                },
+                'password1' : {
+                    required: true
+                },
+                'password2' : {
+                    required: true
+                },
+
+            },
+            messages: {
+                'email': "{% trans 'Please Enter Email' %}",
+                'password1': "{%trans 'Please Enter Password' %}",
+                'password2': "{%trans 'Please Retype Password' %}",
+
+            },
+            //submitHandler: function(form) {
+              //  form.submit();
+            //}
+        });
+
+    });
+        </script>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% load reviews_tags %}
+{% load thumbnail %}
+{% load i18n %}
+{% load display_tags %}
+{% load staticfiles %}
+{% load purchase_info_tags %}
+{% load currency_filters %}
+
+{% block product %}
+    {% with product=product.get_product %}
+    <div class="product-item">
+        <div class="pi-img-wrapper">
+            {% block product_image %}
+            {% with image=product.primary_image %}
+            {% thumbnail image.original "238x317" crop='center' as thumb %}
+            <img src="{{ thumb.url }}" class="img-responsive" alt="{{ product.get_title }}" width="{{thumb.width}}" height="{{thumb.height}}">
+            {% endthumbnail %}
+            {% endwith %}
+            {% endblock %}
+            <div>
+                <a href="#product-pop-up" data-url="{{ product.get_absolute_url }}" class="btn btn-default fancybox-fast-view classquickview">{% trans "Quick View" %}</a>
+            </div>
+        </div>
+        {% block product_title %}
+        <h3><a href="{{ product.get_absolute_url }}">{{ product.get_title|truncatewords:4 }}</a></h3>
+        {% endblock %}
+        {% block product_price %}
+        <div class="pi-price">
+            {% with product=product.stockrecords.all %}{% for pro in product %}{{ pro.price_excl_tax|currency:pro.price_currency }}{% endfor %}{% endwith %}
+            {% comment %}
+            {% purchase_info_for_product request product as session %}
+
+            {% if session.price.exists %}
+            {% if session.price.is_tax_known %}
+            {{ session.price.incl_tax|currency:session.price.currency }}
+            {% else %}
+            { session.price.excl_tax|currency:session.price.currency }}
+            {% endif %}
+            {% endif %}
+            {% endcomment %}
+        </div>
+        {% endblock %}
+        <a href="{{ product.get_absolute_url }}" class="btn btn-default add2cart fancybox-fast-view">{% trans "Add to cart" %}</a>
+    </div>
+    {% endwith %}
+{% endblock %}
+
+

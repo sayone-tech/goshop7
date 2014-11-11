@@ -1,0 +1,354 @@
+{% extends "layout_2_col.html" %}
+{% load endless %}
+{% load basket_tags %}
+{% load promotion_tags %}
+{% load category_tags %}
+{% load product_tags %}
+{% load i18n %}
+{% block title %}
+{% if category %}{{ category.name }}{% else %}All Products{% endif %} | {{ block.super }}
+{% endblock %}
+
+{% block description %}
+{{ category.description|default:""|striptags }}
+{% endblock %}
+
+{% block headertext %}{{ summary }}{% endblock %}
+{% block banner_content %}
+<div class="title-wrapper">
+    <div class="container"><div class="container-inner">
+            <h1>
+                <span>{% if category %}{{ category.name }}{% else %}{% trans "All products" %}{% endif %}</span> {% trans "CATEGORY" %}</h1>
+            <em>Over 4000 Items are available here {{ category.name }}</em>
+        </div></div>
+</div>
+{% endblock %}
+
+{% block breadcrumbs %}
+<ul class="breadcrumb">
+    <li><a href="{{ homepage_url }}">Home</a></li>
+    {% if not category %}
+    <li class="active">All Products</li>
+    {% else %}
+    {% for category in category.get_ancestors|slice:":-1" %}
+    <li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
+    {% endfor %}
+    <li class="active">{{ category.name }}</li>
+    {% endif %}
+</ul>
+
+{% endblock breadcrumbs %}
+{% block column_left %}
+{% category_tree depth=1 as tree_categories %}
+{% if tree_categories %}
+<div class="sidebar col-md-3 col-sm-5">
+    <ul class="list-group margin-bottom-25 sidebar-menu">
+        {% for tree_category, info in tree_categories %}
+        {% for sec_cat in tree_category.get_children %}
+        <li class="list-group-item {% if sec_cat.get_children %}dropdown{% endif %} clearfix {% if tree_category.pk == category.pk %}active{% endif %}">
+                <a href="{{ sec_cat.get_absolute_url }}" class="{% if sec_cat.get_children %}collapsed{% endif %}"><i class="fa fa-angle-right"></i> {{sec_cat.name}}<i class="fa fa-angle-down"></i></a>
+
+                {% if sec_cat.get_children %}
+                <ul class="dropdown-menu" style="display: block; ">
+                    {% for third_cat in sec_cat.get_children %}
+                    <li class="list-group-item  clearfix ">
+                        <a href="{{third_cat.get_absolute_url}}" class="">
+                            <i class="fa fa-angle-right"></i>
+                            {{third_cat.name}}
+                        </a>
+                    </li>
+                    {% endfor %}
+
+                </ul>
+                {% endif %}
+            </li>
+            {% endfor %}
+{% endfor %}
+    </ul>
+
+
+{% endif %}
+
+
+<div class="sidebar-filter margin-bottom-25">
+    <h2>Filter</h2>
+    <h3>Availability</h3>
+    <div class="checkbox-list">
+        <label class="out"><input type="radio" name="stok_repo" class="outstock" value='outofstock' {% if request.GET.type == 'outofstock' %}checked{% endif %}> Not Available ({{ outofstock }})</label>
+        <label class="in"><input type="radio" name="stok_repo" class="stock" value='stock' {% if request.GET.type == 'stock' %}checked{% endif %}> In Stock ({{ stock }})</label>
+    </div>
+
+    <h3>Price</h3>
+    <p>
+        <label for="amount">Range:</label>
+        <input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;" readonly>
+        <input type="hidden" id="price_get_in" value="{{ request.GET.price }}">
+    </p>
+    <div id="slider-range"></div>
+</div>
+{% include 'catalogue/partials/best_selling_products.html' %}
+
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="col-md-9 col-sm-7">
+    <div class="row list-view-sorting clearfix">
+        <div class="col-md-2 col-sm-2 list-view">
+            <a href="#"><i class="fa fa-th-large"></i></a>
+            <a href="#"><i class="fa fa-th-list"></i></a>
+        </div>
+        <div class="col-md-10 col-sm-10">
+            <div class="pull-right">
+                <label class="control-label">Sort&nbsp;By:</label>
+                <select class="form-control input-sm sort" id="sort">
+                    <option value=".?sort=p.sort_order&amp;order=ASC" selected="selected" >Default</option>
+                    <option value=".?sort=pd.nameASC"{% if request.GET.sort == 'pd.nameASC' %}selected="selected" {% endif %}>Name (A - Z)</option>
+                    <option value=".?sort=pd.nameDESC"{% if request.GET.sort == 'pd.nameDESC' %}selected="selected" {% endif %}>Name (Z - A)</option>
+                    <option value=".?sort=p.priceASC"{% if request.GET.sort == 'p.priceASC' %}selected="selected" {% endif %}>Price (Low &gt; High)</option>
+                    <option value=".?sort=p.priceDESC"{% if request.GET.sort == 'p.priceDESC' %}selected="selected" {% endif %}>Price (High &gt; Low)</option>
+                    <option value=".?sort=ratingDESC"{% if request.GET.sort == 'ratingDESC' %}selected="selected" {% endif %}>Rating (Highest)</option>
+                    <option value=".?sort=ratingASC"{% if request.GET.sort == 'ratingASC' %}selected="selected" {% endif %}>Rating (Lowest)</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="product-list">
+        <span id="loading" style="display:none"><img src="{{ STATIC_URL }}assets/global/img/loading-spinner-blue.gif"></span>
+        {% include 'catalogue/partials/product_list.html' %}
+    </div>
+</div>
+{% endblock content %}
+{% block extrascripts %}
+<script src="{{ STATIC_URL }}endless_pagination/js/endless-pagination.js"></script>
+<script>$.endlessPaginate({
+    paginateOnScroll: true,
+    paginateOnScrollMargin: 20
+});
+</script>
+<script>
+$(document).ready(function(){
+    $('.sort').click(function(){
+        var val=this.options[this.selectedIndex].value;
+        var price=$( "#amount" ).val();
+        var val1=$( ".checkbox-list .out input:checkbox:checked" ).val();
+        var val2=$( ".checkbox-list .in input:checkbox:checked" ).val();
+        if (val1)
+        {
+            url=val + '&type' + '=' + val1
+            location.href=url
+        }
+        else if(val2)
+        {
+            url=val + '&type' + '=' + val2
+            location.href=url
+        }
+        else if(location.href.indexOf('?price')>-1)
+        {
+            var amount = location.href.split("?").pop();
+            url=val+'&'+amount
+            location.href=url
+        }
+        else
+        {
+            if(location.href.indexOf('&price')>-1)
+            {
+                var amount = location.href.split("&").pop();
+                var url=val+'&'+amount
+                location.href=url;
+            }
+            else{
+                location.href=val
+            }
+            
+        }
+        
+    });
+});
+</script>
+<script>
+$(document).ready(function(){
+    $('.checkbox-list input').on('change',function(){
+        var radio = $("input:radio[name=stok_repo]:checked").val();
+        var val=$( ".checkbox-list .out input:checkbox:checked" ).val();
+        var val2=$( ".checkbox-list .in input:checkbox:checked" ).val();
+        var url=location.href;
+        var value=$('.outstock').prop('checked');
+        var value1=$('.stock').prop('checked');
+        if (radio=='outofstock')
+        {
+            if(url.indexOf('?')>-1)
+            {
+                if (url.indexOf('&type=stock')>-1)
+                {
+                    url=url.replace('&type=stock','&type=outofstock')
+                    location.href=url
+                }
+                else if (url.indexOf('?type=stock')>-1)
+                {
+                    url=url.replace('?type=stock','?type=outofstock')
+                    location.href=url
+                }
+
+                else
+                {
+                    var url=location.href + '&type' + '=' + radio;
+                    location.href=url
+
+                }
+                    
+            }
+
+            else{
+                var url=location.href + '?type' + '=' + radio;
+                location.href=url
+                   
+            }
+            $('.stock').attr('disabled')
+        }
+        else if(radio=='stock')
+        {
+            if(url.indexOf('?')>-1)
+            {
+                       
+                if (url.indexOf('&type=outofstock')>-1)
+                {
+                    url=url.replace('&type=outofstock','&type=stock')
+                    location.href=url
+                }
+                else if (url.indexOf('?type=outofstock')>-1)
+                {
+                    url=url.replace('?type=outofstock','?type=stock')
+                    location.href=url
+                }
+                
+            }
+               
+            else{
+                var url=location.href + '?type' + '=' + radio;
+                location.href=url;
+
+               }
+           }         
+    });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+    $('#slider-range .ui-slider-handle').click(function(){
+        var price=$( "#amount" ).val();
+        $('ui-slider-handle ui-state-default ui-corner-all ui-state-hover').addClass('pos')
+        var width=$('.ui-slider .ui-state-hover').css('left')
+        var width2=$('.ui-slider .ui-slider-range').css('width')
+        localStorage.setItem('left',width)
+        localStorage.setItem('width',width2)
+        if(location.href.indexOf('price')>-1)
+        {
+            var amount='&price'+'='+price
+            var val=$('.sort').val()
+            url=val + amount
+            location.href=url
+        }
+        {
+                
+            var amount='?price'+"="+price
+            location.href=amount
+        }
+
+    });
+});
+</script>
+<script>
+$(document).ready(function(){
+    if(location.href.indexOf('price')>-1)
+    {
+
+    }
+    else{
+        localStorage.clear();
+    }
+})
+</script>
+<script>
+    $.widget( "custom.catcomplete", $.ui.autocomplete, {
+        _create: function() {
+            this._super();
+            this.widget().menu( "option", "items", "> :not(.ui-autocomplete-category)" );
+        },
+        _renderMenu: function( ul, items ) {
+            var that = this,
+            currentCategory = "";
+            $.each( items, function( index, item ) {
+                var li;
+                if ( item.category != currentCategory ) {
+                    ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+                    currentCategory = item.category;
+                }
+                li = that._renderItemData( ul, item );
+                if ( item.category ) {
+                    li.attr( "aria-label", item.category + " : " + item.label );
+                    if(window.location.href.indexOf("search") > -1) {
+                   li.children().attr('href','?q='+item.label)
+                    }
+                    else{
+                        li.children().attr('href','/shop/search/?q='+item.label)
+                    }
+                }
+            });
+        }
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#searchInput').keydown(function(e) {
+            var q = $(this).val();
+            var search_results = [];
+               var i;
+
+            $.ajax({
+                type: 'POST', // GET or POST
+                url: "{% url 'advanced_search'%}",
+                data : {'query':q
+                },
+                success:function(response)
+                {
+                    $.each(response, function(key,value){
+                        for(i=0;i<value.length;i++){
+                         search_results.push({ 'label': key,'category':value[i]  });
+                        }
+                    });
+                    console.log(response)
+                    $( "#searchInput" ).catcomplete({
+                        source: search_results
+                    });
+                },
+                error: function(e, x, r) {
+                }
+            });
+
+        });
+    });
+</script>
+{% endblock %}
+{% block extrastyles %}
+<style>
+    .ui-state-default, .ui-state-default:hover
+    {
+        background-color:gray !important;
+    }
+
+   
+    .ui-autocomplete-category {
+        font-weight: bold;
+        padding: .2em .4em;
+        margin: .8em 0 .2em;
+        line-height: 1.5;
+    }
+
+</style>
+{% endblock %}
+
+

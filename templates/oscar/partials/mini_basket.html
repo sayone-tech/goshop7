@@ -1,0 +1,23 @@
+{% load currency_filters %}
+{% load i18n %}
+<div class="top-cart-block wish-list">
+          <div class="top-cart-info hide-cart">
+            <a href="{% url 'basket:summary' %}" class="top-cart-info-count">&nbsp;</a>
+            
+          </div>
+          <i class="fa fa-heart"></i>
+            {% include "basket/partials/wishlist_quick.html" %}
+        </div>
+<div class="top-cart-block cart">
+          <div class="top-cart-info">
+            <a href="{% url 'basket:summary' %}" class="top-cart-info-count">{{request.basket.num_items}} items</a>
+            <a href="{% url 'basket:summary' %}" class="top-cart-info-value">{% if request.basket.is_tax_known %}
+                {{ request.basket.total_incl_tax|currency:request.basket.currency }}
+            {% else %}
+                {{ request.basket.total_excl_tax|currency:request.basket.currency }}
+            {% endif %}</a>
+          </div>
+          <i class="fa fa-shopping-cart"></i>
+            {% include "basket/partials/basket_quick.html" %}
+        </div>
+

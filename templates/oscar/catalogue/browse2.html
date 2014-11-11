@@ -1,0 +1,36 @@
+{% category_tree as tree_categories %}
+{% if tree_categories %}
+<ul class="list-group margin-bottom-25 sidebar-menu">
+    {% for tree_category, info in tree_categories %}
+    <li class="list-group-item {% if info.has_children %}dropdown{% endif %} clearfix {% if tree_category.pk == category.pk %}active{% endif %}">
+        <a href="{% if info.has_children %}javascript:void(0);{% else %}{{ tree_category.get_absolute_url }}{% endif %}" class="{% if info.has_children %}collapsed{% endif %}" >
+            <i class="fa fa-angle-right"></i>
+            {{ tree_category.name }}
+            {% if info.has_children %}<i class="fa fa-angle-down"></i>{% endif %}
+        </a>
+        {% if info.has_children %}<ul class="dropdown-menu" style="display:block;">{% else %}</li>{% endif %}
+    {% for n in info.num_to_close %}
+</ul></li>
+{% endfor %}
+{% endfor %}
+</ul>
+{% endif %}
+<div class="sidebar-filter margin-bottom-25">
+    <h2>Filter</h2>
+    <h3>Availability</h3>
+    <div class="checkbox-list">
+        <label><input type="checkbox"> Not Available (3)</label>
+        <label><input type="checkbox"> In Stock (26)</label>
+    </div>
+
+    <h3>Price</h3>
+    <p>
+        <label for="amount">Range:</label>
+        <input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;">
+    </p>
+    <div id="slider-range"></div>
+</div>
+{% include 'catalogue/partials/best_selling_products.html' %}
+
+{% endcomment %}
+{% endblock %}

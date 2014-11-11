@@ -1,0 +1,47 @@
+{% extends "socialaccount/base.html" %}
+{% load url from future %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+<div class="row margin-bottom-40">
+    <div class="sidebar col-md-3 col-sm-3">
+        <ul class="list-group margin-bottom-25 sidebar-menu">
+            <li class="list-group-item clearfix"><a href="{% url 'customer:register' %}"><i class="fa fa-angle-right"></i>Register</a></li>
+            <li class="list-group-item clearfix"><a href="{% url 'password-reset' %}"><i class="fa fa-angle-right"></i> Restore Password</a></li>
+        </ul>
+    </div>
+    <div class="col-md-9 col-sm-9">
+        <div class="content-form-page">
+            <div class="row">
+                <div class="col-md-7 col-sm-7">
+                    <h1>{% trans "Sign Up" %}</h1>
+
+                    <p>{% blocktrans with provider_name=account.get_provider.name site_name=site.name %}You are about to use your {{provider_name}} account to login to
+                        {{site_name}}. As a final step, please complete the following form:{% endblocktrans %}</p>
+
+                    <form class="form-horizontal form-without-legend" id="signup_form" method="post" action="{% url 'socialaccount_signup' %}">
+                        {% csrf_token %}
+                        {% include "partials/form_fields.html" with form=form %}
+                        {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                        {% endif %}
+                        <button type="submit" class="btn btn-primary">{% trans "Sign Up" %} &raquo;</button>
+                    </form>
+
+                </div>
+                <div class="col-md-4 col-sm-4 pull-right">
+                    <div class="form-info">
+                        <h2><em>Important</em> Information</h2>
+                        <p>Duis autem vel eum iriure at dolor vulputate velit esse vel molestie at dolore.</p>
+
+                        <button type="button" class="btn btn-default">More details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,169 @@
+{% load i18n %}
+<!-- BEGIN BRANDS -->
+{% block footer %}
+
+<div class="brands">
+    <div class="container">
+        <div class="owl-carousel owl-carousel6-brands">
+            <a href="#"><img title="esprit" alt="esprit" src="{{ STATIC_URL }}assets/frontend/pages/img/brands/apple.jpg"></a>
+            <a href="#"><img title="gap" alt="gap" src="{{ STATIC_URL }}assets/frontend/pages/img/brands/lg.jpg"></a>
+            <a href="#"><img title="next" alt="next" src="{{ STATIC_URL }}assets/frontend/pages/img/brands/micromax.jpg"></a>
+            <a href="#"><img title="puma" alt="puma" src="{{ STATIC_URL }}assets/frontend/pages/img/brands/samsung.jpg"></a>
+            <a href="#"><img title="zara" alt="zara" src="{{ STATIC_URL }}assets/frontend/pages/img/brands/windows.jpg"></a>
+            <a href="#"><img title="zara" alt="zara" src="{{ STATIC_URL }}assets/frontend/pages/img/brands/sony-erricson.jpg"></a>
+            <a href="#"><img title="esprit" alt="esprit" src="{{ STATIC_URL }}assets/frontend/pages/img/brands/apple.jpg"></a>
+            <a href="#"><img title="gap" alt="gap" src="{{ STATIC_URL }}assets/frontend/pages/img/brands/lg.jpg"></a>
+            <a href="#"><img title="next" alt="next" src="{{ STATIC_URL }}assets/frontend/pages/img/brands/micromax.jpg"></a>
+
+        </div>
+    </div>
+</div>
+<!-- END BRANDS -->
+
+<!-- BEGIN STEPS -->
+<div class="steps-block steps-block-red">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 steps-block-col">
+                <i class="fa fa-truck"></i>
+                <div>
+                    <h2>Free shipping</h2>
+                    <em>Express delivery withing 3 days</em>
+                </div>
+                <span>&nbsp;</span>
+            </div>
+            <div class="col-md-4 steps-block-col">
+                <i class="fa fa-gift"></i>
+                <div>
+                    <h2>Daily Gifts</h2>
+                    <em>3 Gifts daily for lucky customers</em>
+                </div>
+                <span>&nbsp;</span>
+            </div>
+            <div class="col-md-4 steps-block-col">
+                <i class="fa fa-phone"></i>
+                <div>
+                    <h2>+91484 403 7171</h2>
+                    <em>24/7 customer care available</em>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END STEPS -->
+
+<!-- BEGIN PRE-FOOTER -->
+<div class="pre-footer">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN BOTTOM ABOUT BLOCK -->
+            <div class="col-md-3 col-sm-6 pre-footer-col">
+                <h2>About us</h2>
+                <p>You love your shop. And they love to buy from you. Don't let the barriers decide your
+                            customers. Blur the barriers and reach out globally.
+                            Shop7 is a robust e-commerce platform to take your shop to the global customers.
+                            Its an effective way to reach out to the people who love what you sell.
+                            Lets explore what we have in Store for you and be poised to
+                            transform your shop to a global one.</p>
+            </div>
+            <!-- END BOTTOM ABOUT BLOCK -->
+            <!-- BEGIN BOTTOM INFO BLOCK -->
+            <div class="col-md-3 col-sm-6 pre-footer-col">
+                <h2>Information</h2>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-angle-right"></i> <a href="#">Delivery Information</a></li>
+                    <li><i class="fa fa-angle-right"></i> <a href="#">Customer Service</a></li>
+                    <li><i class="fa fa-angle-right"></i> <a href="#">Order Tracking</a></li>
+                    <li><i class="fa fa-angle-right"></i> <a href="#">Shipping & Returns</a></li>
+                    <li><i class="fa fa-angle-right"></i> <a href="contacts.html">Contact Us</a></li>
+                    <li><i class="fa fa-angle-right"></i> <a href="#">Careers</a></li>
+                    <li><i class="fa fa-angle-right"></i> <a href="#">Payment Methods</a></li>
+                </ul>
+            </div>
+            <!-- END INFO BLOCK -->
+            <!-- BEGIN TWITTER BLOCK -->
+            
+            <!-- END TWITTER BLOCK -->
+            <!-- BEGIN BOTTOM CONTACTS -->
+            <div class="col-md-3 col-sm-6 pre-footer-col">
+                <h2>Our Contacts</h2>
+                <address class="margin-bottom-40">
+                    SayOne Technolgoies Pvt Ltd,<br>
+                    7/401(I), 2nd Floor, Cyber house,<br>
+                    Old Civil lane Rd, Kakkand,<br>
+                    Kochi, India<br>
+                    Pin:682030<br>
+                    Phone:  +91484 403 7171<br>
+                    Email: <a href="mailto:hello@goshop7.com">hello@goshop7.com</a><br>
+                </address>
+            </div>
+            <!-- END BOTTOM CONTACTS -->
+        </div>
+        <hr>
+        <div class="row">
+            <!-- BEGIN SOCIAL ICONS -->
+            <div class="col-md-6 col-sm-6">
+                <ul class="social-icons">
+                    {% load social_links %}
+                    {% get_social_links as links %}
+                    {% for link in links %}
+                    <!--<li><a class="rss" data-original-title="rss" href="#"></a></li>-->
+                    {% if link.title == 'facebook' %}<li><a class="facebook" data-original-title="facebook" href="#"></a></li>{% endif %}
+                    {% if link.title == 'twitter' %}<li><a class="twitter" data-original-title="twitter" href="#"></a></li>{% endif %}
+                    {% if link.title == 'google' %}<li><a class="googleplus" data-original-title="googleplus" href="#"></a></li>{% endif %}
+                    <!--<li><a class="linkedin" data-original-title="linkedin" href="#"></a></li>
+                    <li><a class="youtube" data-original-title="youtube" href="#"></a></li>
+                    <li><a class="vimeo" data-original-title="vimeo" href="#"></a></li>
+                    <li><a class="skype" data-original-title="skype" href="#"></a></li>-->
+                    {% endfor %}
+                </ul>
+            </div>
+            <!-- END SOCIAL ICONS -->
+            <!-- BEGIN NEWLETTER -->
+            <div class="col-md-6 col-sm-6">
+                <div class="pre-footer-subscribe-box pull-right">
+                    <h2>Newsletter</h2>
+                    <form action="{% url 'newsletter_subscription' %}" method="post" id="newsletter-form">{% csrf_token %}
+                        <div class="input-group">
+                            <input type="text" placeholder="youremail@mail.com" class="form-control" id="newsletter-email" name="email">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary"  id="sbscribe_button" type="submit" id="news">Subscribe</button>
+                                <div id="loading" style="background:url(/static/assets_old/onepage/img/ajax-loader.gif) no-repeat #03B621; display:none; width:100px; height:34px; padding:5px 0; background-position:41px 8px;"></div>
+                            </span>
+                        </div>
+                        <span id="msg" style="color:red"></span>
+                    </form>
+                </div>
+            </div>
+            <!-- END NEWLETTER -->
+        </div>
+    </div>
+</div>
+<!-- END PRE-FOOTER -->
+
+<!-- BEGIN FOOTER -->
+<div class="footer padding-top-15">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN COPYRIGHT -->
+            <div class="col-md-6 col-sm-6 padding-top-10">
+                2014 © Shop7. All Rights Reserved. 
+            </div>
+            <!-- END COPYRIGHT -->
+            <!-- BEGIN PAYMENTS -->
+            <div class="col-md-6 col-sm-6">
+                <ul class="list-unstyled list-inline pull-right margin-bottom-15">
+                    <li><img src="{{ STATIC_URL }}assets/frontend/layout/img/payments/western-union.jpg" alt="We accept Western Union" title="We accept Western Union"></li>
+              <li><img src="{{ STATIC_URL }}assets/frontend/layout/img/payments/american-express.jpg" alt="We accept American Express" title="We accept American Express"></li>
+              <li><img src="{{ STATIC_URL }}assets/frontend/layout/img/payments/MasterCard.jpg" alt="We accept MasterCard" title="We accept MasterCard"></li>
+              <li><img src="{{ STATIC_URL }}assets/frontend/layout/img/payments/PayPal.jpg" alt="We accept PayPal" title="We accept PayPal"></li>
+              <li><img src="{{ STATIC_URL }}assets/frontend/layout/img/payments/visa.jpg" alt="We accept Visa" title="We accept Visa"></li>
+                </ul>
+            </div>
+            <!-- END PAYMENTS -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+<!-- END FOOTER -->

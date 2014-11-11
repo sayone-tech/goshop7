@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+{% load thumbnail %}
+{% load i18n %}
+{% load oscar_extra_tags %}
+{% load product_tags %}
+
+{% block title %}
+{% trans "Basket" %} | {{ block.super }}
+{% endblock %}
+
+{% block breadcrumbs %}
+<ul class="breadcrumb">
+    <li>
+        <a href="{{ homepage_url }}">{% trans "Home" %}</a>
+    </li>
+    <li class="active">{% trans "Basket" %}</li>
+</ul>
+{% endblock %}
+
+{# Hide mini-basket so we don't have two baskets to keep in sync #}
+{% block mini_basket %}{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+{# Use a partial template so that AJAX can be used to re-render basket #}
+{% include 'basket/partials/basket_content.html' %}
+<!-- BEGIN SIMILAR PRODUCTS -->
+{% get_bestselling_products as products %}
+<div class="row margin-bottom-40">
+    <div class="col-md-12 col-sm-12">
+        <h2>{% trans "Most popular products" %}</h2>
+        <ul class="owl-carousel owl-carousel4">
+            {% for product in products|slice:":8" %}
+           
+                {% render_product product %}
+           
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<!-- END SIMILAR PRODUCTS -->
+{% endblock content %}
+
+{% block onbodyload %}
+{{ block.super }}
+{# We pass in the URL to send AJAX requests to #}
+var options = {
+'basketURL': '{% url 'basket:summary' %}'
+};
+oscar.basket.init(options);
+{% endblock %}
+{% comment %}
+{% block extrascripts %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.bootstrap-touchspin-up').click(function() {
+            var ele = $(this);
+            var stock = parseInt(ele.siblings('.input-group-addon bootstrap-touchspin-prefix').children('input:text').val());
+            var parents = ele.parents('.input-group-sm');
+
+            var old_number = parseInt($('.input-group-addon bootstrap-touchspin-prefix input:text', parents).val());
+            var new_number = old_number;
+            if (!(new_number > stock))
+            {
+                $('.input-group-addon bootstrap-touchspin-prefix input:text', parents).val(new_number);
+                $('#basket_formset').submit();
+            }
+            else
+            {
+                var error_div = '<div class="help-block">A maximum of '+stock+' can be bought</div>';
+                ele.closest('td').children('.help-block').html(error_div);
+            }
+
+
+        });
+    });
+    $(document).ready(function(){
+        $('.plus').click(function() {
+            var ele = $(this);
+
+            var parents = ele.parents('.quantity-control');
+
+            var old_number = parseInt($('.quantity-number input:text', parents).val());
+            var new_number = old_number;
+
+            if (new_number < 1)
+
+            return false;
+
+
+        $('.quantity-number input:text', parents).val(new_number);
+        $('#basket_formset').submit();
+
+    });
+});
+</script>
+{% endblock %}
+{% endcomment %}

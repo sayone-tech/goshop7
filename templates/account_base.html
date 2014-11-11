@@ -1,0 +1,81 @@
+{% extends "layout_2_col.html" %}
+
+{% load i18n %}
+
+{% block title %}
+{{ page_title }} | {% trans 'Account' %} | {{ block.super }}
+{% endblock %}
+
+{% block body_class %}ecommerce{% endblock %}
+
+{% block breadcrumbs %}
+<ul class="breadcrumb">
+    <li>
+        <a href="{{ homepage_url }}">{% trans 'Home' %}</a>
+    </li>
+    <li>
+        <a href="{% url 'customer:summary' %}">{% trans 'Account' %}</a>
+    </li>
+    {% block extra_breadcrumbs %}{% endblock %}
+    <li class="active">{{ page_title }}</li>
+</ul>
+{% endblock %}
+
+{% block headertext %}{{ page_title }}{% endblock %}
+
+<ul class="list-group margin-bottom-25 sidebar-menu">
+    <li class="list-group-item clearfix{% if active_tab == 'profile' %} active{% endif %}">
+        <a href="{% url 'customer:profile-view' %}"><i class="fa fa-angle-right"></i>{% trans "Profile" %}</a>
+    </li>
+    <li class="list-group-item clearfix{% if active_tab == 'orders' %} active{% endif %}">
+        <a href="{% url 'customer:order-list' %}"><i class="fa fa-angle-right"></i>{% trans "Order History" %}</a>
+    </li>
+    <li class="list-group-item clearfix{% if active_tab == 'addresses' %} active{% endif %}">
+        <a href="{% url 'customer:address-list' %}"><i class="fa fa-angle-right"></i>{% trans "Address Book" %}</a>
+    </li>
+    <li class="list-group-item clearfix{% if active_tab == 'emails' %} active{% endif %}">
+        <a href="{% url 'customer:email-list' %}"><i class="fa fa-angle-right"></i>{% trans "Email History" %}</a>
+    </li>
+    <li class="list-group-item clearfix{% if active_tab == 'alerts' %} active{% endif %}">
+        <a href="{% url 'customer:alerts-list' %}"><i class="fa fa-angle-right"></i>{% trans "Product Alerts" %}</a>
+    </li>
+    <li class="list-group-item clearfix{% if active_tab == 'notifications' %} active{% endif %}">
+        <a href="{% url 'customer:notifications-inbox' %}"><i class="fa fa-angle-right"></i>{% trans "Notifications" %}</a>
+    </li>
+    <li class="list-group-item clearfix{% if active_tab == 'wishlists' %} active{% endif %}">
+        <a href="{% url 'customer:wishlists-list' %}"><i class="fa fa-angle-right"></i>{% trans "Wish Lists" %}</a>
+    </li>
+</ul>
+
+{% block content %}
+<div class="content-form-page">
+    <div class="main">
+      <div class="container">
+        
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40">
+          <!-- BEGIN SIDEBAR -->
+          <div class="sidebar col-md-3 col-sm-3">
+            <ul class="list-group margin-bottom-25 sidebar-menu">
+              <li class="list-group-item clearfix"><a href="{% url 'customer:profile-view' %}"><i class="fa fa-angle-right"></i> My account</a></li>
+              <li class="list-group-item clearfix"><a href="{% url 'customer:change-password' %}"><i class="fa fa-angle-right"></i> Restore Password</a></li>
+              <li class="list-group-item clearfix"><a href="{% url 'customer:address-list' %}"><i class="fa fa-angle-right"></i> Address book</a></li>
+              <li class="list-group-item clearfix {% if page_title == 'Wish Lists' %} active {% endif %}"><a href="{% url 'customer:wishlists-list' %}"><i class="fa fa-angle-right"></i> Wish list</a></li>
+              <!--<li class="list-group-item clearfix"><a href="#"><i class="fa fa-angle-right"></i> Returns</a></li>-->
+              <li class="list-group-item clearfix {% if page_title == 'Newsletter' %} active {% endif %}"><a href="{% url 'newsletter' %}"><i class="fa fa-angle-right"></i> Newsletter</a></li>
+            </ul>
+          </div>
+          <!-- END SIDEBAR -->
+
+          <!-- BEGIN CONTENT -->
+          <div class="col-md-9 col-sm-7">
+            {% block tabcontent %}{% endblock tabcontent %}
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+      </div>
+    </div>
+
+</div>
+{% endblock content %}

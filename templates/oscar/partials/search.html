@@ -1,0 +1,14 @@
+{% load i18n %}
+
+<div class="col-lg-8 col-md-7 col-sm-8 search">
+    <div class="top_search">
+        <form id="search" class="search fl pos-rel z-indx30" action="{% url 'search:search' %}" method="get" name="submitform">
+            <input id="searchInput" placeholder="Search by typing the product or brand name..." class="form-text fl sel-search-input fs11 c98 f-italic placeholder" name="q" type="text" autocomplete="off">
+            <span class="input-group-btn"></span>
+            <a href="javascript:submitform()" id="qa-searchBtn" class="d-block new-search-btn fl cursor sel-search-button"><i class="fa fa-search search-btn"></i></a>
+            <div class="search-suggestion d-none" id="searchSuggestResult"></div>
+        </form>
+
+    </div>
+</div>
+

@@ -1,0 +1,23 @@
+{% load i18n %}
+{% load product_tags %}
+
+{% block content %}
+<div class="container">
+<div class="row margin-bottom-40 margin-top-10">
+    <div class="col-md-12 sale-product">
+        <h2>{{ promotion.name }}</h2>
+        <p>{{ promotion.description|safe }}</p>
+        <div class="bxslider-wrapper">
+            <ul class="bxslider">
+                {% for product in products %}
+                <li>{% render_product product %}</li>
+                {% endfor %}
+            </ul>
+            {% if block.link_url %}
+            <a href="{{ block.link_url }}">{% trans "See more" %}</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

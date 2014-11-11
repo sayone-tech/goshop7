@@ -1,0 +1,61 @@
+{% extends 'checkout/layout.html' %}
+{% block content %}
+{% load i18n %}
+<section class="checkout_container">
+    <div class="wrapper wrapper1130">
+        <h2>{% trans 'Cybersource' %}</h2>
+        <div class="checkout_content">
+                <table cellspacing="0" cellpadding="0"  align="center" >
+                    <!--header -->
+                    <tr>
+                        <td  ><!-- -->
+
+                            <table cellspacing="0" cellpadding="0"  align="center" width="598" border="0">
+                                <tr>
+                                    <td width="578" height="47" valign="middle"  ><p>{% trans 'Cybersource Error' %} error is: {{ error }}</p></td>
+                                </tr>
+                                <tr>
+                                    <td><!-- -->
+
+                                        <table cellspacing="0" cellpadding="0"  align="center" width="578" border="0">
+                                            <tr>
+                                                <td><p><strong>{% trans 'Amount' %}:</strong>{{ tr.grandTotalAmount }}</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td><p><strong>{% trans 'Result' %}:</strong>{{ tr.decision }}</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td><p><strong>{% trans 'Transaction ID' %}:</strong>{{ tr.requestID }}</p></td>
+                                            </tr>
+                                            {% if tr.merchantReferenceCode %}
+                                            <tr>
+                                                <td><p><strong>{% trans 'Reference ID' %}:</strong>{{ tr.merchantReferenceCode }}</p></td>
+                                            </tr>
+                                            {% endif %}
+                                            <tr>
+                                                <td><p><strong>{% trans 'Order Date and Time' %}:</strong> {{ tr.time_stamp }}</p></td>
+                                            </tr>
+                                            {% if tr.reconciliationID %}
+                                            <tr>
+                                                <td><p><strong>{% trans 'Payment ID' %}:</strong>{{ tr.reconciliationID }}</p></td>
+                                            </tr>
+                                            {% endif %}
+
+                                            </table>
+                                </tr>
+                                <tr>
+                                    <td><p><strong>{% trans 'Order Date' %}:</strong> {{ tr.time_stamp|date:"d/m/y" }}</p></td>
+                                </tr>
+
+                            </table>
+                                    </td>
+                    </tr>
+                    <tr>
+                        <td>{% trans 'Cybersource returned with error, Please' %} <a href="{% url 'to_cyber' %}">{% trans 'retry' %}</a></td>
+                    </tr>
+
+                </table>
+            </div>
+    </div>
+</section>
+{% endblock %}

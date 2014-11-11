@@ -1,0 +1,1 @@
+from shop7.settings.local import *

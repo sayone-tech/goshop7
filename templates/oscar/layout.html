@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% load compress %}
+{% load promotion_tags %}
+{% block extrastyles %}
+<style>
+    .ui-autocomplete-category {
+        font-weight: bold;
+        padding: .2em .4em;
+        margin: .8em 0 .2em;
+        line-height: 1.5;
+    }
+</style>
+{% endblock %}
+{% block layout %}
+{# Top-horizontal bar with account, notifictions, dashboard links #}
+{% include "partials/nav_accounts.html" %}
+
+{# Site logo/title, mini-basket, browse dropdown and searchbox #}
+<!-- BEGIN HEADER -->
+<div class="header">
+    <div class="container">
+        <div class="row">
+            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+            <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!-- END RESPONSIVE MENU TOGGLER -->
+            {% include "partials/brand.html" %}<!-- LOGO -->
+            {% include "partials/search.html" %}
+            {% block mini_basket %}
+            <div class="basket">
+                {% include "partials/mini_basket.html" %}
+            </div>
+            {% endblock %}
+        </div>
+        <!-- BEGIN CART -->
+        {# Mini-basket wrapped in a block so some templates can now display it #}
+
+        <!-- END CART -->
+        <!-- BEGIN NAVIGATION -->
+
+        <!-- END NAVIGATION -->
+    </div>
+    {% block navigation %}
+    {% include "partials/nav_primary.html" %}
+    {% endblock %}
+</div>
+<!-- END HEADER -->
+
+{# Main content of page - other layout templates may override this block #}
+{% block home_banner %}{% endblock %}
+{% block content_wrapper %}
+{% comment %}
+{# Render promotions #}
+<div id="promotions" class="margin-left-20">
+    {% for promotion in promotions_page %}
+    {% render_promotion promotion %}
+    {% endfor %}
+</div>
+{% endcomment %}
+<div class="main">
+    <div class="container">
+        {% block breadcrumbs %}{% endblock %}
+        <div class="row margin-bottom-40">
+            {% block header %}
+            <div class="page-header action">
+                <h1>{% block headertext %}{% endblock %}</h1>
+            </div>
+            {% endblock %}
+            {% include "partials/alert_messages.html" %}
+            {% block subnavigation %}{% endblock %}
+            <div class="content">
+                {% block subheader %}{% endblock subheader %}
+
+                {# Div exists for AJAX updates to entire content section #}
+                <div id="content_inner">{% block content %}{% endblock %}</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% include "partials/footer.html" %}
+{% endblock %}
+
+{% block extrascripts %}
+{% include "partials/extrascripts.html" %}
+{{ block.super }}
+
+
+
+<script>
+    $.widget( "custom.catcomplete", $.ui.autocomplete, {
+        _create: function() {
+            this._super();
+            this.widget().menu( "option", "items", "> :not(.ui-autocomplete-category)" );
+        },
+        _renderMenu: function( ul, items ) {
+            var that = this,
+            currentCategory = "";
+            $.each( items, function( index, item ) {
+                var li;
+                if ( item.category != currentCategory ) {
+                    ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+                    currentCategory = item.category;
+                }
+                li = that._renderItemData( ul, item );
+                if ( item.category ) {
+                    li.attr( "aria-label", item.category + " : " + item.label );
+                    if(window.location.href.indexOf("search") > -1) {
+                   li.children().attr('href','?q='+item.label)
+                    }
+                    else{
+                        li.children().attr('href','/shop/search/?q='+item.label)
+                    }
+                }
+            });
+        }
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#searchInput').keydown(function(e) {                        
+            var q = $(this).val();
+            var search_results = [];
+               var i;
+            
+            $.ajax({
+                type: 'POST', // GET or POST
+                url: "{% url 'advanced_search'%}",
+                data : {'query':q
+                },
+                success:function(response)
+                {
+                    $.each(response, function(key,value){
+                        for(i=0;i<value.length;i++){
+                         search_results.push({ 'label': key,'category':value[i]  });
+                        }
+                    });
+                    console.log(response)
+                    $( "#searchInput" ).catcomplete({                        
+                        source: search_results
+                    });
+                },
+                error: function(e, x, r) {
+                }
+            });
+
+        });
+    });
+</script>
+{% endblock %}

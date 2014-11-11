@@ -1,0 +1,30 @@
+{% extends "checkout/cyber_base.html" %}
+{% load staticfiles i18n %}
+
+{% block title %}{% trans 'Pay with CyberSource' %}{% endblock %}
+
+{% block bread_crumb %}<a href="#"><span class="bcrumbtxtlarge">{% trans 'Checkout' %}</span></a>{% endblock %}
+{% block extra_css %}
+{% endblock %}
+
+{% block content %}
+        <h2>{% trans 'Pay with CyberSource' %}</h2>
+        <div style="text-align:center;margin-bottom: 21px;"><span style="color:red;">WARNING !</span> : DO NOT use the original details.This is for demonstration purpose only.</div>
+        <div class="checkout_content">
+        <form action="." class='form-style clearfix' id="cyber_form" method="post">{% csrf_token %}
+            {{ form.non_field_errors }}
+            {% for field in form %}
+            <div class='form-group'>
+                {{ field }}
+                {{ field.errors }}
+            </div>
+            {% endfor %}
+            <div class="actions align-right">
+                <a class="btn align-center cufon btn-72px" style="width: 71px" href="{% url 'checkout:preview' %}?back=True">{% trans 'BACK' %}</a>
+                <button type="submit" class="btn btn-primary">{% trans 'NEXT' %}</button>
+            </div>
+        </form>
+        </div>
+{% endblock %}
+
+{% block extra_js %}{% endblock %}

@@ -1,0 +1,37 @@
+{% load i18n %}
+{% load oscar_extra_tags %}
+{% load purchase_info_tags %}
+{% load currency_filters %}
+{% load thumbnail %}
+
+{% get_bestselling_products as products %}
+{% if products %}
+<div class="sidebar-products clearfix">
+    <h2>{% trans 'Bestsellers' %}</h2>
+    {% for product in products|slice:":3" %}
+    {% with product=product.get_product %}
+    <div class="item">
+        <a href="{{ product.get_absolute_url }}">
+            {% with image=product.primary_image %}
+            {% thumbnail image.original "x120" upscale=False  as thumb %}
+            <img src="{{ thumb.url }}" alt="{{ product.get_title }}">
+            {% endthumbnail %}
+            {% endwith %}
+        </a>
+        <h3><a href="{{ product.get_absolute_url }}">{{ product.get_title}}</a></h3>
+        <div class="price">
+            {% purchase_info_for_product request product as session %}
+
+            {% if session.price.exists %}
+            {% if session.price.is_tax_known %}
+            {{ session.price.incl_tax|currency:session.price.currency }}
+            {% else %}
+            { session.price.excl_tax|currency:session.price.currency }}
+            {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    {% endwith %}
+     {% endfor %}
+</div>
+{% endif %}

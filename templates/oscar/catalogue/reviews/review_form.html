@@ -1,0 +1,30 @@
+{% extends "catalogue/detail.html" %}
+{% load i18n %}
+
+{% block product_review %}
+<form method="post" action="./?tab=review#addreview" class="reviews-form" role="form">{% csrf_token %}
+    <h2>{% trans "Write a review" %}</h2>
+    <div class="form-group">
+        <label for="name">{% trans "Review title" %} <span class="require">*</span></label>
+        <input type="text" class="form-control" value="{{form.title.value|default:""}}" name="title" id="id_title">
+        {{form.title.errors}}
+    </div>
+    <div class="form-group">
+        <label for="review">{% trans "Review" %} <span class="require">*</span></label>
+        <textarea class="form-control" name="body" rows="8" id="id_body">{{form.body.value|default:""}}</textarea>
+        {{form.body.errors}}
+    </div>
+    <div class="form-group">
+        <label for="email">{% trans "Rating" %}</label>
+        <input type="range" name="score" value="{{form.score.value|default:"0"}}" step="1" id="id_score">
+        <div class="rateit" data-rateit-backingfld="#id_score" data-rateit-resetable="false"  data-rateit-ispreset="true" data-rateit-min="0" data-rateit-max="5">
+        </div>
+        {{form.score.errors}}
+    </div>
+    <div class="padding-top-20">
+        <button type="submit" class="btn btn-primary">{% trans "Send" %}</button>
+        {% trans "or" %}
+        <a href="{{ product.get_absolute_url }}" >{% trans "cancel" %}</a>
+    </div>
+</form>
+{% endblock %}

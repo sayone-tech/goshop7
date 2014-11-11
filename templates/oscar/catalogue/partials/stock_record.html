@@ -1,0 +1,27 @@
+{% load currency_filters %}
+{% load i18n %}
+{% load purchase_info_tags %}
+{% load cache %}
+
+{% purchase_info_for_product request product as session %}
+
+<div class="price-availability-block clearfix">
+    <div class="price">
+        {% if session.price.exists %}
+            {% if session.price.is_tax_known %}
+            <strong>{{ session.price.incl_tax|currency:session.price.currency }}</strong>
+            {% else %}
+            <strong>{{ session.price.excl_tax|currency:session.price.currency }}</strong>
+            {% endif %}
+        {% else %}
+        <strong></strong>
+        {% endif %}
+    </div>
+    <div class="availability">
+        {% if verbose %}
+        {{ session.availability.message }}
+        {% else %}
+        {{ session.availability.short_message }}
+        {% endif %}
+    </div>
+</div>

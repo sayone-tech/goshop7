@@ -1,0 +1,231 @@
+{% extends "checkout/layout.html" %}
+{% load currency_filters %}
+{% load thumbnail %}
+{% load i18n %}
+{% load purchase_info_tags %}
+{% load staticfiles %}
+{% load oscar_extra_tags  %}
+
+{% block title %}
+{% trans "Checkout" %} | {{ block.super }}
+{% endblock %}
+
+{% block checkout_nav %}
+{% include 'checkout/nav.html' %}
+{% endblock %}
+{% block extrastyles %}
+<style>
+    .header a.navbar-brand {
+padding-top: 10px;
+}
+</style>
+{% endblock %}
+{% block extrascripts %}
+<script>
+    $(document).ready(function(){
+        if(window.location.href.indexOf("#confirm") <= -1) {
+        window.location.href += "#confirm";
+        }
+    });
+</script>
+{% endblock %}
+{% block content %}
+
+{% if error %}
+<div class="alert alert-error">
+    {{ error }}
+</div>
+{% endif %}
+
+<div class="panel-group checkout-page accordion scrollable" id="checkout-page">
+
+    <!-- BEGIN CHECKOUT -->
+    <div id="checkout" class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">
+                <a data-toggle="collapse" data-parent="#checkout-page" href="#checkout-content" class="accordion-toggle">
+                    Step 1: Checkout Options
+                </a>
+            </h2>
+        </div>
+        {% block checkout_login %}
+        {% endblock checkout_login %}
+    </div>  
+
+    <!-- BEGIN SHIPPING ADDRESS -->
+    <div id="shipping-address" class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">
+                <a data-toggle="" data-parent="#checkout-page" href="{% url 'checkout:shipping-address' %}" class="accordion-toggle">
+                    Step 2: Delivery Details
+                </a>
+            </h2>
+        </div>
+        {% block shipping_address %}
+        <div class="span6">
+            {% if shipping_address %}
+            <div class="well well-info">
+                <h4>{% trans "Address" %}</h4>
+                <address>
+                    {% for field in shipping_address.active_address_fields %}
+                    {{ field }}<br/>
+                    {% endfor %}
+                </address>
+
+                {% if shipping_address.phone_number %}
+                <h4>{% trans "Contact" %}</h4>
+                <p>
+                    {% trans "Phone" %}: {{ shipping_address.phone_number }}
+                    {% if guest_email %}
+                    <br/>{% trans "Email" %}: {{ guest_email }}
+                    {% endif %}
+                </p>
+                {% endif %}
+
+                {% if shipping_address.notes %}
+                <h4>{% trans "Instructions" %}</h4>
+                <p>{{ shipping_address.notes|linebreaks }}</p>
+                {% endif %}
+
+                {% block shipping_address_actions %}
+                <div class="alert-actions">
+                    <a href="{% url 'checkout:shipping-address' %}" class="btn">{% trans "Change shipping address" %}</a>
+                </div>
+                {% endblock %}
+            </div>
+            {% endif %}
+
+            {% if shipping_method %}
+            <div class="well well-info">
+                <h4>{% trans "Shipping method" %}</h4>
+                <p>{{ shipping_method.name }}
+                    {% if shipping_method.description %}
+                    - {{ shipping_method.description|safe }}
+                    {% endif %}
+                </p>
+
+                {% block shipping_method_actions %}
+                <div class="alert-actions">
+                    <a href="{% url 'checkout:shipping-method' %}" class="btn">{% trans "Change shipping method" %}</a>
+                </div>
+                {% endblock %}
+            </div>
+            {% endif %}
+        </div>
+        {% endblock shipping_address %}
+    </div>
+    <!-- END SHIPPING ADDRESS -->
+    {% comment %}
+    <!-- BEGIN SHIPPING METHOD -->
+    <div id="shipping-method" class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">
+                <a data-toggle="collapse" data-parent="#checkout-page" href="#shipping-method-content" class="accordion-toggle">
+                    Step 4: Delivery Method
+                </a>
+            </h2>
+        </div>
+        {% block shipping_method %}
+        {% endblock shipping_method %}
+    </div>
+    <!-- END SHIPPING METHOD -->
+    {% endcomment %}
+    <!-- BEGIN PAYMENT METHOD -->
+    <div id="payment-method" class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">
+                <a data-toggle="" data-parent="#checkout-page" href="{% url 'checkout:payment-method' %}" class="accordion-toggle">
+                    Step 3: Payment Method
+                </a>
+            </h2>
+        </div>
+        {% block payment_method %}
+        <div class="span6">
+            <div class="well well-success">
+                <h4>{% trans "Payment Method" %}</h4>
+                <p>{% get_payment_method payment_method %}</p>
+                <div class="alert-actions">
+                    <a href="{% url 'checkout:payment-method' %}" class="btn">{% trans "Change payment details" %}</a>
+                </div>
+            </div>
+        </div>
+        {% endblock payment_method %}
+        {% block payment_details %}
+        {% endblock payment_details %}
+    </div>
+    <!-- END PAYMENT METHOD -->
+
+    <!-- BEGIN CONFIRM -->
+    <div id="confirm" class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">
+                <a data-toggle="collapse" data-parent="#checkout-page" href="#confirm-content" class="accordion-toggle">
+                    Step 4: Confirm Order
+                </a>
+            </h2>
+        </div>
+        {% block order_contents %}
+        <div class="panel-body row">
+            <div class="col-md-12 clearfix">
+                <div class="table-wrapper-responsive">
+                    <table>
+                        <tr>
+                            <th class="checkout-image">Image</th>
+                            <th class="checkout-description">Description</th>
+                            <th class="checkout-quantity">{% trans "Quantity" %}</th>
+                            <th class="checkout-price">{% trans "Price" %}</th>
+                            <th class="checkout-total">{% trans "Total" %}</th>
+                        </tr>
+                         {% for line in basket.all_lines %}
+                        {% purchase_info_for_line request line as session %}
+                        <tr>
+                            <td class="checkout-image">
+                                {% with image=line.product.primary_image %}
+                                {% thumbnail image.original "100x100" upscale=False as thumb %}
+                                <a href="{{ form.instance.product.get_absolute_url }}"><img class="thumbnail" src="{{ thumb.url }}" alt="{{ product.get_title }}"></a>
+                                {% endthumbnail %}
+                                {% endwith %}
+                            </td>
+                            <td class="checkout-description">
+                                <h3><a href="{{ line.product.get_absolute_url }}">{{ line.description }}</a></h3>
+                                <p>{{ session.availability.message }}</p>
+                            </td>
+                            <td class="checkout-quantity">{{ line.quantity }}</td>
+                            <td class="checkout-price"><strong>
+                                    {% if not show_tax_separately and line.is_tax_known %}
+                                    {{ line.line_price_incl_tax|currency:basket.currency }}
+                                    {% else %}
+                                    {{ line.line_price_excl_tax|currency:basket.currency }}
+                                    {% endif %}
+                                </strong></td>
+                            <td class="checkout-total"><strong>
+                                    {% if line.is_tax_known %}
+                                        {{ line.line_price_incl_tax|currency:line.price_currency }}
+                                        {% else %}
+                                        {{ line.line_price_excl_tax|currency:line.price_currency }}
+                                        {% endif %}
+                                </strong></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                <div class="checkout-total-block">
+                    {% include 'basket/partials/basket_totals.html' %}
+                </div>
+                <div class="clearfix"></div>
+                {% block order_contents_actions %}
+                <div class="form-actions">
+                    <a href="{% url 'basket:summary' %}" class="btn">{% trans "Edit order contents" %}</a>
+                </div>
+                {% endblock %}
+            </div>
+        </div>
+        {% endblock order_contents %}
+        {% block place_order %}
+    {% endblock place_order %}
+    </div>
+    <!-- END CONFIRM -->
+    
+</div>
+
+{% endblock content %}
