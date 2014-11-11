@@ -4,7 +4,8 @@ from oscar.apps.dashboard import views
 from oscar.core.application import Application
 from oscar.core.loading import get_class
 
-from django.contrib.admin.views.decorators import staff_member_required as django_staff_member_required
+from django.contrib.admin.views.decorators import staff_member_required \
+    as django_staff_member_required
 
 
 class DashboardApplication(Application):

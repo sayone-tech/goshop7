@@ -15,6 +15,7 @@ ProductSelect = get_class('dashboard.catalogue.widgets', 'ProductSelect')
 ProductSelectMultiple = get_class('dashboard.catalogue.widgets',
                                   'ProductSelectMultiple')
 
+
 class ProductForm(CoreProductForm):
 
     # We need a special field to distinguish between group and standalone
@@ -27,6 +28,5 @@ class ProductForm(CoreProductForm):
                    'recommended_products', 'product_options',
                    'attributes', 'categories')
         widgets = {
-#            'parent': ProductSelect,
             'related_products': ProductSelectMultiple,
         }
