@@ -22,3 +22,14 @@ class JSONResponseMixin(object):
         # objects -- such as Django model instances or querysets
         # -- can be serialized as JSON.
         return json.dumps(context)
+
+
+class GetProfileView(object):
+    def get_profile(self):
+        return get_profile(self.request.user)
+
+def get_profile(user):
+    try:
+        return user
+    except:
+        pass

@@ -1,6 +1,6 @@
-{% load i18n %}
+{% load i18n oscar_extra_tags %}
 <!-- BEGIN TOP BAR -->
-
+{% user_demo_validation request.user as user_demo %}
 <div class="top_strip"></div>
 <div class="pre-header">
         <div class="container">
@@ -44,7 +44,7 @@
                             {# If user has new notifications - we change account link to go to inbox #}
                             <a href="{% url 'customer:notifications-inbox' %}">My Account</a></li>
                             {% else %}
-                            {% if request.user.username == 'demo' %}{% else %}
+                            {% if user_demo == 'demo' %}{% else %}
                             <a href="{% url 'customer:summary' %}"><i class="icon-user"></i> {% trans "Account" %}</a>{% endif %}
                             {% endif %}
                         <li><a href="{% url 'customer:wishlists-list' %}">My Wishlist</a></li>

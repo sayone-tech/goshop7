@@ -48,3 +48,10 @@ def addcss(field, css):
 @register.simple_tag
 def get_payment_method(code):
     return dict(settings.OSCAR_PAYMENT_METHODS)[code]
+
+@register.assignment_tag
+def user_demo_validation(user):
+    if user.groups.filter(name="Demo").exists():
+        return 'demo'
+    else:
+        return 'admin'
