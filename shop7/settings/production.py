@@ -61,6 +61,7 @@ MIDDLEWARE_CLASSES = (
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'oscar.apps.basket.middleware.BasketMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'apps.utils.middleware.AdminForceRedirect', # demo user denied to access the admin site
 )
 #DEBUG_TOOLBAR_PANELS = (
 #    'debug_toolbar.panels.version.VersionDebugPanel',

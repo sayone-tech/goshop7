@@ -31,6 +31,7 @@ MIDDLEWARE_CLASSES = (
 
     'oscar.apps.basket.middleware.BasketMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'apps.utils.middleware.AdminForceRedirect', # demo user denied to access the admin site
 )
 
 # Application definition
