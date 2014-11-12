@@ -43,8 +43,9 @@
                             {% if num_unread_notifications > 0 %}
                             {# If user has new notifications - we change account link to go to inbox #}
                             <a href="{% url 'customer:notifications-inbox' %}">My Account</a></li>
-                        {% else %}
-                            <a href="{% url 'customer:summary' %}"><i class="icon-user"></i> {% trans "Account" %}</a>
+                            {% else %}
+                            {% if request.user.username == 'demo' %}{% else %}
+                            <a href="{% url 'customer:summary' %}"><i class="icon-user"></i> {% trans "Account" %}</a>{% endif %}
                             {% endif %}
                         <li><a href="{% url 'customer:wishlists-list' %}">My Wishlist</a></li>
                         <li><a href="{% url 'checkout:shipping-address' %}">Checkout</a></li>

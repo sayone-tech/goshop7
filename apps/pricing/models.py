@@ -16,15 +16,15 @@ class Features(models.Model):
     demopricing = models.ForeignKey(DemoPricing, related_name='demo_features')
     feature = models.CharField(max_length=100)
 
+
 class ActiveDemoPricing(models.Model):
     demopricing = models.ForeignKey(DemoPricing, related_name='active_demos')
-    name = models.CharField(('Nmae'),max_length=100)
-    email = models.EmailField(('Email'),max_length=100)
-    mobile_no = models.CharField(('Mobile Number'),max_length=255)
-    message=models.TextField(('Message'))
-    activated_date=models.DateTimeField(('Acitvated date'),null=True,blank=True,default=datetime.datetime.now())
+    name = models.CharField(('Nmae'), max_length=100)
+    email = models.EmailField(('Email'), max_length=100)
+    mobile_no = models.CharField(('Mobile Number'), max_length=255)
+    message = models.TextField(('Message'))
+    activated_date = models.DateTimeField(('Acitvated date'),
+        null=True, blank=True, default=datetime.datetime.now())
 
     def __unicode__(self):
         return self.demopricing.title
-
-

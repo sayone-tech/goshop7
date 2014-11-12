@@ -16,7 +16,7 @@ class PricingView(View):
         return super(PricingView, self).dispatch(*args, **kwargs)
 
     def post(self, request, *args, **kwargs):
-        if request.method=='POST':
+        if request.method == 'POST':
             ctx = {}
             type = self.request.POST.get('type')
             if type == 'pricing':
@@ -29,8 +29,7 @@ class PricingView(View):
                 if pricing_form.is_valid():
                     pricing_data = pricing_form.save()
                     pricing_form.send_email(pricing_data)
-                    ctx['status']='success'
+                    ctx['status'] = 'success'
                 else:
-                    print "errors",pricing_form.errors.as_text()
-                    ctx['errors']=pricing_form.errors
-        return HttpResponse(json.dumps(ctx, cls=DjangoJSONEncoder),mimetype='application/json')
+                    ctx['errors'] = pricing_form.errors
+        return HttpResponse(json.dumps(ctx, cls=DjangoJSONEncoder), mimetype='application/json')
