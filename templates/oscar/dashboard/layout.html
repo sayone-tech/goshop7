@@ -42,12 +42,17 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
-
+                
+                {% user_demo_validation request.user as user_demo %}
                 <div class="nav-collapse nav-accounts collapse">
                     <ul class="nav pull-right">
+                        {% if not user_demo == 'demo' %}
                         <li><span>{% trans "Welcome" %} <em>{{ request.user.get_full_name|default:request.user.email }}</em></span></li>
+                        {% else %}
+                        <li><span>{% trans "Welcome" %} <em>Guest!</em></span></li>
+                        {% endif %}
                         <li><a href="{{ homepage_url }}"><i class="icon-home"></i> {% trans "Return to site" %}</a></li>
-                        {% user_demo_validation request.user as user_demo %}{% if not user_demo == 'demo' %}<li><a href="{% url 'customer:summary' %}"><i class="icon-user"></i> {% trans "Account" %}</a></li>{% endif %}
+                        {% if not user_demo == 'demo' %}<li><a href="{% url 'customer:summary' %}"><i class="icon-user"></i> {% trans "Account" %}</a></li>{% endif %}
                         <li><a href="{% url 'customer:logout' %}"><i class="icon-signout"></i> {% trans "Log out" %}</a></li>
                     </ul>
                 </div>

@@ -1109,6 +1109,19 @@ pre code {
   .col-md-6 {
     width: 50%;
   }
+  .col-md-50 {
+    width: 100%;
+    float: left;
+    osition: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
   .col-md-5 {
     width: 41.66666667%;
   }
