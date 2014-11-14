@@ -1122,6 +1122,9 @@ pre code {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
+  .col-md-51 {
+    width: 24.7%;
+  }
   .col-md-5 {
     width: 41.66666667%;
   }
