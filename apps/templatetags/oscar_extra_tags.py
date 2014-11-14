@@ -1,5 +1,10 @@
+import datetime
+import time
+from datetime import timedelta
+
 from django import template
 from django.conf import settings
+
 from oscar.apps.offer.models import ConditionalOffer
 from oscar.core.loading import get_model
 from oscar.apps.customer import history
@@ -55,3 +60,15 @@ def user_demo_validation(user):
         return 'demo'
     else:
         return 'admin'
+
+
+@register.assignment_tag
+def new_product(product):
+    date = product.date_created
+    created_date = date.replace(tzinfo=None)
+    now = datetime.datetime.now()
+    diff = now - created_date
+    if diff > timedelta(days = 10):
+        return 'old'
+    else:
+        return 'new'

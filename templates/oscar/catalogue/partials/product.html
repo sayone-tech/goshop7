@@ -1,5 +1,5 @@
 {% load reviews_tags %}
-{% load thumbnail %}
+{% load thumbnail oscar_extra_tags %}
 {% load i18n %}
 {% load display_tags %}
 {% load staticfiles %}
@@ -41,6 +41,13 @@
         </div>
         {% endblock %}
         <a href="{{ product.get_absolute_url }}" class="btn btn-default add2cart fancybox-fast-view">{% trans "Add to cart" %}</a>
+        {% if product.is_available_to_buy %}
+        <div class="sticker sticker-sale"></div>
+        {% endif %}
+        {% new_product product as new %}
+        {% if new == "new" %}
+        <div class="sticker sticker-new"></div>
+        {% endif %}
     </div>
     {% endwith %}
 {% endblock %}
