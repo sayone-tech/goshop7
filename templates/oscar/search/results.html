@@ -106,7 +106,7 @@ Products matching "{{ q }}"
 {% if page.object_list %}
 <div class="row product-list">
     {% for result in page.object_list %}
-    <div class="col-md-4 col-sm-6 col-xs-12">{% render_product result.object %}</div>
+    <div class="col-md-3 col-sm-6 col-xs-12">{% render_product result.object %}</div>
     {% endfor %}
     {% include "partials/pagination.html" with page_obj=page %}
 </div>

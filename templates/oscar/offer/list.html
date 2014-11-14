@@ -40,7 +40,7 @@
         {% if offer.has_products %}
             <div class="row product-list">
                 {% for product in offer.products|slice:":12" %}
-                <div class="col-md-4 col-sm-6 col-xs-12">{% render_product product %}</div>
+                <div class="col-md-3 col-sm-6 col-xs-12">{% render_product product %}</div>
                 {% endfor %}
             </div>
             <p>
