@@ -64,11 +64,14 @@ def user_demo_validation(user):
 
 @register.assignment_tag
 def new_product(product):
-    date = product.date_created
-    created_date = date.replace(tzinfo=None)
-    now = datetime.datetime.now()
-    diff = now - created_date
-    if diff > timedelta(days = 10):
-        return 'old'
-    else:
+    Product = get_model('catalogue', 'Product')
+    qs = Product.browsable.base_queryset()
+    products = qs.order_by('-date_created')[:30]
+#    date = product.date_created
+#    created_date = date.replace(tzinfo=None)
+#    now = datetime.datetime.now()
+#    diff = now - created_date
+    if product in products:
         return 'new'
+    else:
+        return 'old'
