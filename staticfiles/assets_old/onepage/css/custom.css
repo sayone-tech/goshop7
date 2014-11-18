@@ -167,6 +167,9 @@ vertical-align: middle;}
         .package-container{padding: 2px 46px;}
         .package-form input{height: 30px;}
         .package-form textarea{height:55px;}
+
+        .view-popup{top: 6em;left: 8em;}
+        .demo_right_sec{margin-top: 20px;}
 	}
 
 @media (min-width:241px) and (max-width:399px){
@@ -180,6 +183,9 @@ vertical-align: middle;}
         .package-container{padding: 2px 46px;}
         .package-form input{height: 30px;}
         .package-form textarea{height:55px;}
+
+        .view-popup{top: 6em;left: 8em;}
+        .demo_right_sec{margin-top: 20px;}
 	}
 
 
