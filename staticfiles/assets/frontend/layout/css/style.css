@@ -3322,3 +3322,7 @@ border-radius: 16px !important;
 right: 0;
 position: absolute;
 }
+
+.brands a img{height:70px;}
+.brands .owl-item{width: 175px!important;}
+.brands .owl-item a{text-align:center;}

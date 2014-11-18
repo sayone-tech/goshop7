@@ -422,9 +422,8 @@ a:hover {
   display: none;
 }
 .header .mobi-toggler:hover {
-  background: #e34f00 url(../img/toggler.png) no-repeat 6px -28px;
-  border-color: #e34f00;
-  color: #fff;
+  
+  
 }
 
 .header-navigation {
