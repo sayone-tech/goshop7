@@ -140,6 +140,8 @@ vertical-align: middle;}
 	.featuer-slider{padding:41% 0px 0 0;}
 	.features-slider{ background-position:0px;}
 	.carousel-inner{width: 91%;margin: 0 auto;}
+
+        .view-popup{top: 7em;left: 9em;}
 	}
 
 
@@ -155,7 +157,7 @@ vertical-align: middle;}
         .package-form input{height: 30px;}
         .package-form textarea{height:55px;}
         
-        .view-popup{top: 7em;left: 10em;}
+        .view-popup{top: 14em;left: 24em;}
 
 
 	}
@@ -171,7 +173,7 @@ vertical-align: middle;}
         .package-form input{height: 30px;}
         .package-form textarea{height:55px;}
 
-        .view-popup{top: 6em;left: 8em;}
+        .view-popup{top: 9em;left: 16em;}
         .demo_right_sec{margin-top: 20px;}
 	}
 
