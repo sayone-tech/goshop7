@@ -46,8 +46,21 @@ class BasketRemoveView(View):
             basket._lines = None
 
 
-def custom_404(request):
-    return render_to_response('404.html')
+def custom_404(request, template='404.html'):
+    """
+    Customized view for 404 page
+    """
+    response =  render(request, template,{'code':'404','message':_("")})
+    response.status_code = 404
+    return response
+
+def custom_500(request, template='500.html'):
+    """
+    Customized view for 500 page.
+    """
+    response = render(request, template,{'code':'500','message':_("")})
+    response.status_code = 500
+    return response
 
 
 class AutoCompSearchView(View):
