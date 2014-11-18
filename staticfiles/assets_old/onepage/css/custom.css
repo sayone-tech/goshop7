@@ -24,7 +24,7 @@
 .why_shop_img{ text-align:center; margin:30px 0;}
 
 .faq_block{background:#fe9f2d;padding: 60px 0 40px;}
-.powered-images a{float:left; padding:0 5px;}
+.powered-images a{padding: 0 5px;display: block;}
 .powered-images a img{ width:120px;}
 
 
@@ -146,13 +146,38 @@ vertical-align: middle;}
 @media (min-width:541px) and (max-width:767px){
 	.features-slider{ background-position:center center; background-size:inherit;}
 	.featuer-slider{padding:84px 0px 0 0;max-width: 470px;}
+        .why-shop-block, .faq_block{padding: 10px 0 40px;}
+        .prices-block{padding: 0px 0 40px;}
+        .pre-footer .top-footer {padding: 80px 20px;}
+         .tp-banner-container{height:400px!important;}
+         .price-circle{font-size: 26px;line-height: 93px;width: 135px;height: 135px;}
+        .package-container{padding: 2px 46px;}
+        .package-form input{height: 30px;}
+        .package-form textarea{height:55px;}
 
 	}
 
 @media (min-width:400px) and (max-width:540px){
 	.features-slider{height: 330px;background-position: 0px -39px;}
+        .why-shop-block, .faq_block{padding: 10px 0 40px;}
+        .prices-block{padding: 0px 0 40px;}
+        .pre-footer .top-footer {padding: 80px 20px;}
+         .tp-banner-container{height:330px!important;}
+         .price-circle{font-size: 26px;line-height: 93px;width: 135px;height: 135px;}
+        .package-container{padding: 2px 46px;}
+        .package-form input{height: 30px;}
+        .package-form textarea{height:55px;}
 	}
 
 @media (min-width:241px) and (max-width:399px){
 	.features-slider{ height:260px;background-position: 0px -31px;}
+        .why-shop-block, .faq_block{padding: 10px 0 40px;}
+        .prices-block{padding: 0px 0 40px;}
+        .pre-footer .top-footer {padding: 80px 20px;}
+
+        .tp-banner-container{height:330px!important;}
+        .price-circle{font-size: 26px;line-height: 93px;width: 135px;height: 135px;}
+        .package-container{padding: 2px 46px;}
+        .package-form input{height: 30px;}
+        .package-form textarea{height:55px;}
 	}

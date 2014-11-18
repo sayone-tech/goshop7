@@ -814,7 +814,7 @@
 
         <!-- Message block BEGIN -->
         <div class="message-block content content-center valign-center" id="services">
-            <div class="valign-center-elem">
+           
                 <div class="container">
                     <div class="row demo_sections">
                         <div class="col-lg-6 col-md-6 col-sm-6">
@@ -846,7 +846,7 @@
                     </div>
                 </div>
 
-            </div>
+           
         </div>
         <!-- Message block END -->
 
@@ -878,8 +878,9 @@
                     <!-- END BOTTOM ABOUT BLOCK -->
 
                     <!-- BEGIN TWITTER BLOCK -->
+                     <div class="col-md-4 col-sm-6 pre-footer-col">
                     <form action="{% url 'contactus' %}" method="post" id="contact_form">{% csrf_token %}
-                        <div class="col-md-4 col-sm-6 pre-footer-col">
+                        <div class="pre-footer-col">
                             <h2>Contact Us</h2>
                             <div class="content-form-page footer-form">
                                 <div class="form-group">
@@ -914,6 +915,7 @@
                             </div>
                         </div>
                     </form>
+                         </div>
                     <!-- END TWITTER BLOCK -->
 
                     <div class="col-md-4 col-sm-6 pre-footer-col">
