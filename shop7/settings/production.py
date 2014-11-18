@@ -1,5 +1,7 @@
 from shop7.settings.base import *
 
+DEBUG=False
+
 SECRET_KEY = 'ka9=k&4z2y!g#2@b&a7v5j-27q8*lt#grjt8e*o6c+-&i7^9ef'
 
 

@@ -9,6 +9,9 @@ from django.views.generic import TemplateView
 from django.template.loader import render_to_string
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
+from django.shortcuts import render
+from django.utils.translation import ugettext_lazy as _
+
 from oscar.apps.catalogue.models import Product
 from oscar.apps.wishlists.models import Line, WishList
 
