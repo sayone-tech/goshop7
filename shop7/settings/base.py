@@ -137,15 +137,15 @@ INSTALLED_APPS = [
     'apps.contact',
     'apps.pricing',
 #    'sentry',
-    'raven.contrib.django',
-    'raven.contrib.django.raven_compat',
+#    'raven.contrib.django',
+#    'raven.contrib.django.raven_compat',
 ]+ get_core_apps()
 
 
-RAVEN_CONFIG = {
-    'dsn': 'http://321fb5a669604f0e9cb38ce36bfd21c6:eca12dc7b5da4f1eb7a40177e8963b20@sentry.127.0.0.1:8000/2',
-}
-
+#RAVEN_CONFIG = {
+#    'dsn': 'http://321fb5a669604f0e9cb38ce36bfd21c6:eca12dc7b5da4f1eb7a40177e8963b20@sentry.127.0.0.1:8000/2',
+#}
+#
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
