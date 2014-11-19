@@ -9,13 +9,14 @@
 <!--[if gt IE 8]><!--> <html lang="{{ LANGUAGE_CODE|default:"en-gb" }}" class="no-js"> <!--<![endif]-->
                              <head>
         <title>{% if display_version %}[{% trans "Build" %} {{ version }}] {% endif %}{% block title %}{{ shop_name }} - {{ shop_tagline }}{% endblock %}</title>
-
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
         <meta name="created" content="{% now "jS M Y h:i" %}" />
               <meta name="description" content="Buy various products like electronics,fabrics,Household items etc." />
         <meta name="keywords" content="" />
         <meta name="viewport" content="" />
         <meta name="google-site-verification" content="JVpiCgBwYXqOf5c_JAfItzljTd90tJIAMm489uGSEpY" />
+
 
 
         <link rel="shortcut icon" href="{{ STATIC_URL }}assets/frontend/layout/img/favicon.ico" type="image/x-icon" />

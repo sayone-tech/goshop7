@@ -30,7 +30,7 @@ SECRET_KEY = 'ka9=k&4z2y!g#2@b&a7v5j-27q8*lt#grjt8e*o6c+-&i7^9ef'
 TEST_PEP8_EXCLUDE = ['migrations', ] # Exclude this paths from tests
 TEST_PEP8_IGNORE = ['E128', ] # Ignore this tests
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*','127.0.0.1:8000','127.0.0.1:9000']
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
@@ -136,7 +136,15 @@ INSTALLED_APPS = [
     'apps.socialmedias',
     'apps.contact',
     'apps.pricing',
+#    'sentry',
+    'raven.contrib.django',
+    'raven.contrib.django.raven_compat',
 ]+ get_core_apps()
+
+
+RAVEN_CONFIG = {
+    'dsn': 'http://321fb5a669604f0e9cb38ce36bfd21c6:eca12dc7b5da4f1eb7a40177e8963b20@sentry.127.0.0.1:8000/2',
+}
 
 
 MIDDLEWARE_CLASSES = (
