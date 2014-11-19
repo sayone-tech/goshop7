@@ -803,3 +803,20 @@
 	}
 }
 /* END max width 320px */
+
+
+
+@media (min-width:541px) and (max-width:767px){
+
+    .search{width:85%;}
+}
+
+@media (min-width:400px) and (max-width:540px){
+
+    .search{width:85%;}
+}
+
+@media (min-width:241px) and (max-width:399px){
+
+    .search{width:85%;}
+}
