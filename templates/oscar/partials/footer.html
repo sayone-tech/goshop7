@@ -108,9 +108,9 @@
                     {% get_social_links as links %}
                     {% for link in links %}
                     <!--<li><a class="rss" data-original-title="rss" href="#"></a></li>-->
-                    {% if link.title == 'facebook' %}<li><a class="facebook" data-original-title="facebook" href="#"></a></li>{% endif %}
-                    {% if link.title == 'twitter' %}<li><a class="twitter" data-original-title="twitter" href="#"></a></li>{% endif %}
-                    {% if link.title == 'google' %}<li><a class="googleplus" data-original-title="googleplus" href="#"></a></li>{% endif %}
+                    {% if link.title == 'facebook' %}<li><a class="facebook" data-original-title="facebook" target="{{link.targt}}" href="{{link.link}}"></a></li>{% endif %}
+                    {% if link.title == 'twitter' %}<li><a class="twitter" data-original-title="twitter" target="{{link.targt}}" href="{{link.link}}"></a></li>{% endif %}
+                    {% if link.title == 'google' %}<li><a class="googleplus" data-original-title="googleplus" target="{{link.targt}}" href="{{link.link}}"></a></li>{% endif %}
                     <!--<li><a class="linkedin" data-original-title="linkedin" href="#"></a></li>
                     <li><a class="youtube" data-original-title="youtube" href="#"></a></li>
                     <li><a class="vimeo" data-original-title="vimeo" href="#"></a></li>
