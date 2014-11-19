@@ -3,7 +3,7 @@ from settings import *
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = False
-ALLOWED_HOSTS = ['goshop7.com','75.126.24.85']
+ALLOWED_HOSTS = ['goshop7.com','75.126.24.85','www.goshop7.com']
 
 ADMINS = (
      ('Shebin', 'shebinoutlook@gmail.com'),
