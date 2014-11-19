@@ -3060,7 +3060,7 @@ Styler Panel
 
 /*====================================================added by biyas================================================*/
 .top_strip{ height:2px; display:block;}
-.search {margin:13px 0 0;z-index: 27;width:100%;}
+.search {margin:13px 0 0;z-index: 27;width:640px;margin-left:30px;}
 .search .form-text {
 width: 92%;
 border: 1px solid #ccc;
