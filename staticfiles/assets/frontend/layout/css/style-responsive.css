@@ -808,15 +808,15 @@
 
 @media (min-width:541px) and (max-width:767px){
 
-    .search{width:85%;}
+    .search{width:100%!important; margin:20px 0 0 !important;}
 }
 
 @media (min-width:400px) and (max-width:540px){
 
-    .search{width:85%;}
+    .search{width:100%!important; margin:20px 0 0 !important;}
 }
 
 @media (min-width:241px) and (max-width:399px){
 
-    .search{width:85%;}
+    .search{width:100%!important; margin:20px 0 0 !important;}
 }
