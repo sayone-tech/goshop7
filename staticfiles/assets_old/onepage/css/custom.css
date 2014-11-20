@@ -188,6 +188,7 @@ vertical-align: middle;}
          #newsletter-form{margin-bottom: 35px;}
          .powered-images a img{margin-bottom: 15px;}
          .pre-footer .pre-footer-subscribe-box{ max-width: 99%;}
+         .demo_right_sec h1{font-size:35px;}
 	}
 
 @media (min-width:241px) and (max-width:399px){
@@ -210,6 +211,7 @@ vertical-align: middle;}
         #newsletter-form{margin-bottom:35px;}
         .powered-images a img{margin-bottom: 15px;}
         .pre-footer .pre-footer-subscribe-box{ max-width: 99%;}
+        .demo_right_sec h1{font-size:35px;}
 	}
 
 
