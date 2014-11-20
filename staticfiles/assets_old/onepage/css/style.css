@@ -901,7 +901,7 @@ a:hover {
 /* Pricing */
 .prices-block {
   background: #fff;
-padding: 60px 0 40px;
+
 }
 
 .pricing-head {
@@ -1190,7 +1190,7 @@ letter-spacing: 1px;
 }
 
 .pre-footer .top-footer {
-  padding: 80px 0;
+  padding:0;
 }
 .pre-footer a {
   color: #57c8eb;
@@ -1203,6 +1203,14 @@ letter-spacing: 1px;
 .pre-footer li {
   margin-bottom: 6px;
 }
+
+
+.top-footer h1 {
+color: #3E3E3E;
+margin: 40px 0;
+}
+
+
 
 /* pre-footer twitter block */
 .pre-footer dl.f-twitter {
@@ -1687,7 +1695,7 @@ Styler Panel
 .feature_image_frame img{ }
 .feature_box_left h1{ color:#FFF; text-align:left; border-bottom: solid 2px #25aae1;}
 .feature_box_left p{ color:#FFF; text-align:left; font-family:Arial, Helvetica, sans-serif;}
-.prices-block h2{ color:#3E3E3E;}
+.prices-block h2{ color:#3E3E3E; margin:40px 0;}
 .demo_link{background: #d91a5d;border-radius: 3px!important;padding: 5px 15px;margin-top: -6px;color: #fff!important;}
 .demo_sections{/* margin-top:-23%;*/margin-top: 40px;background: rgba(255, 255, 255, 0.4); border-radius:3px!important; padding:22px 10px;}
 .demo_right_sec h1{ background:url(../img/blocks/demo_front_end.png) no-repeat; height:73px; padding-left:85px; color:#FFF; text-align:left;text-shadow: 1px 1px 3px #646565;}

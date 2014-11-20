@@ -18,12 +18,12 @@
 .why-blocks h3{ color:#fff;font-size: 19px;font-weight: bold;}
 
 
-.why-shop-block {background: #fff;padding: 60px 0 40px;}
-.why-shop-block h1{ color:#3E3E3E;font-weight: bold; text-align:center; text-transform:uppercase; margin-bottom:30px; font-family: 'ostrich_sanscondensed_light';font-size: 52px;}
+.why-shop-block {background: #fff;padding:0;}
+.why-shop-block h1{ color:#3E3E3E;font-weight: bold; text-align:center; text-transform:uppercase;margin:40px 0;font-family: 'ostrich_sanscondensed_light';font-size: 52px;}
 .why-shop-block p{ color:#fff; font-size:14px; font-family:Arial, Helvetica, sans-serif; margin-bottom:15px;}
 .why_shop_img{ text-align:center; margin:30px 0;}
 
-.faq_block{background:#fe9f2d;padding: 60px 0 40px;}
+.faq_block{background:#fe9f2d;padding: 40px 0 40px;}
 .powered-images a{padding: 0 5px;display: block;}
 .powered-images a img{ width:120px;}
 
