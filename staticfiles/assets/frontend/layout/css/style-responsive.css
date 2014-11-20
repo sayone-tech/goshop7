@@ -650,13 +650,7 @@
 		float: none;
 	}
 
-	.top-cart-block {
-		clear: both;
-		float: left;
-		padding-top: 0;
-		margin: 0 0 29px;
-		width: 100%;
-	}
+	
 	.top-cart-info {
 		float: none;
 	}
@@ -720,9 +714,7 @@
 		margin: 0 30px 10px 0;
 	}
 
-	.header .top-cart-block {
-		margin-top: 0;
-	}
+	
 	.reduce-header .top-cart-block {
 		margin-top: 0;
 		margin-bottom: 19px;
@@ -814,9 +806,13 @@
 @media (min-width:400px) and (max-width:540px){
 
     .search{width:100%!important; margin:20px 0 0 !important;}
+     .header .top-cart-block{width:44%; margin:10px 10px;}
+     .wish-list{ margin-top:0px!important;}
 }
 
 @media (min-width:241px) and (max-width:399px){
 
     .search{width:100%!important; margin:20px 0 0 !important;}
+    .header .top-cart-block{width:40%; margin:10px 10px;}
+    .wish-list{ margin-top:0px!important;}
 }
