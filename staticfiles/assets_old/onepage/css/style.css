@@ -1031,6 +1031,7 @@ border-top: solid 4px #C90F4F;
   position: static;
   margin: 27px 0 0;
   width: 100%;
+  display:none;
 }
 .carousel-indicators li {
   width: 12px !important;
@@ -1731,3 +1732,20 @@ left: 16em;}
 .footer-form textarea{ border:solid 1px #DADADA !important; height:80px;}
 
 #newsletter-form{ margin-bottom:15px;}
+
+
+
+/*====================================================added in 25/11/2014==================================================*/
+.banner-section{ padding-top:60px;}
+.banner-area{ margin:0;}
+.banner-caption{ padding:4em 0;}
+.banner-caption h1{ font-size:72px; color:#545454; line-height:95px;}
+.banner-caption h1 span{ color:#f0008f;}
+.banner-image img{ width:112%;}
+.demo-button{ border:solid 1px #ed008c; color:#545454; font-size:34px; border-radius:10px !important; margin-top:10px;
+-webkit-transition: 0.2s linear all;
+-moz-transition: 0.2s linear all;
+-ms-transition: 0.2s linear all;
+-o-transition: 0.2s linear all;
+transition: 0.2s linear all;}
+.demo-button:hover{ background:#ed008c; color:#FFF; border:solid 1px #ed008c;}
