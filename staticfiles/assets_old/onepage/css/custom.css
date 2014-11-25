@@ -183,7 +183,7 @@ vertical-align: middle;}
         .prices-block{padding: 0px 0 40px;}
         .pre-footer .top-footer {padding: 80px 20px;}
          .tp-banner-container{height:330px!important;}
-         .price-circle{font-size: 26px;line-height: 93px;width: 135px;height: 135px;}
+        .price-circle{font-size: 22px;line-height: 67px;width: 110px;height: 110px;}
         .package-container{padding: 2px 46px;}
         .package-form input{height: 30px;}
         .package-form textarea{height:55px;}
@@ -201,6 +201,7 @@ vertical-align: middle;}
          .banner-caption h1{ text-align:center;font-size: 40px;line-height: 70px;}
 	.banner-image{ display:none;}
 	.demo-button{display: block;text-align: center;}
+         .package-drop{height: 30px;font-size: 18px;}
 	}
 
 @media (min-width:241px) and (max-width:399px){
@@ -210,8 +211,8 @@ vertical-align: middle;}
         .pre-footer .top-footer {padding: 80px 20px;}
 
         .tp-banner-container{height:330px!important;}
-        .price-circle{font-size: 26px;line-height: 93px;width: 135px;height: 135px;}
-        .package-container{padding: 2px 46px;}
+        .price-circle{font-size: 22px;line-height: 67px;width: 110px;height: 110px;}
+        .package-container{padding: 2px 1px;}
         .package-form input{height: 30px;}
         .package-form textarea{height:55px;}
 
@@ -228,6 +229,7 @@ vertical-align: middle;}
         .banner-caption h1{ text-align:center;font-size: 40px;line-height: 70px;}
 	.banner-image{ display:none;}
 	.demo-button{display: block;text-align: center;}
+        .package-drop{height: 30px;font-size: 18px;}
 	}
 
 
