@@ -13,13 +13,24 @@
 
 }
 
+@font-face {
+    font-family: 'MyriadProLight';
+    src: url('../fonts/myriadpro-light.eot');
+    src: url('../fonts/myriadpro-light.eot') format('embedded-opentype'),
+         url('../fonts/myriadpro-light.woff2') format('woff2'),
+         url('../fonts/myriadpro-light.woff') format('woff'),
+         url('../fonts/myriadpro-light.ttf') format('truetype'),
+         url('../fonts/myriadpro-light.svg#MyriadProLight') format('svg');
+}
+
+
 .why-shop-img{ text-align:center;}
 .why-blocks{background: #37dae8;padding:25px 0;margin-bottom:10px;border-radius: 6px!important;max-width: 900px;margin: 7px auto;}
 .why-blocks h3{ color:#fff;font-size: 19px;font-weight: bold;}
 
 
 .why-shop-block {background: #fff;padding:0;}
-.why-shop-block h1{ color:#3E3E3E;font-weight: bold; text-align:center; text-transform:uppercase;margin:40px 0;font-family: 'ostrich_sanscondensed_light';font-size: 52px;}
+.why-shop-block h1{ color:#3E3E3E;font-weight: bold; text-align:center; text-transform:uppercase;margin:40px 0;font-family: 'MyriadProLight';font-size: 52px;}
 .why-shop-block p{ color:#fff; font-size:14px; font-family:Arial, Helvetica, sans-serif; margin-bottom:15px;}
 .why_shop_img{ text-align:center; margin:30px 0;}
 

@@ -1,4 +1,7 @@
 /* General body settings */
+
+
+
 body { 
   color: #5f6f7e; 
   direction: ltr;
@@ -9,7 +12,7 @@ body {
 /* h1-h6 */
 .content h1, .content h2 {
   
-  font-family: 'ostrich_sanscondensed_light';
+ font-family: 'MyriadProLight';
 font-size: 52px;
 margin: 0 0 10px;
 text-align: center;
