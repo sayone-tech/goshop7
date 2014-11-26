@@ -73,6 +73,34 @@
             });
 
         </script>
+        <script type="text/javascript">
+        $(document).ready(function () {
+            $('#horizontalTab').responsiveTabs({
+                rotate: false,
+                startCollapsed: 'accordion',
+                collapsible: 'accordion',
+                setHash: true,
+
+                activate: function(e, tab) {
+                    $('.info').html('Tab <strong>' + tab.id + '</strong> activated!');
+                }
+            });
+
+            $('#start-rotation').on('click', function() {
+                $('#horizontalTab').responsiveTabs('active');
+            });
+            $('#stop-rotation').on('click', function() {
+                $('#horizontalTab').responsiveTabs('stopRotation');
+            });
+            $('#start-rotation').on('click', function() {
+                $('#horizontalTab').responsiveTabs('active');
+            });
+            $('.select-tab').on('click', function() {
+                $('#horizontalTab').responsiveTabs('activate', $(this).val());
+            });
+
+        });
+    </script>
 
         <!-- Theme styles END -->
 
@@ -1038,30 +1066,7 @@
                     return false;
                 });
 
-                $('#horizontalTab').responsiveTabs({
-                    rotate: false,
-                    startCollapsed: 'accordion',
-                    collapsible: 'accordion',
-                    setHash: true,
-
-                    activate: function(e, tab) {
-                        $('.info').html('Tab <strong>' + tab.id + '</strong> activated!');
-                    }
-                });
-
-                $('#start-rotation').on('click', function() {
-                    $('#horizontalTab').responsiveTabs('active');
-                });
-                $('#stop-rotation').on('click', function() {
-                    $('#horizontalTab').responsiveTabs('stopRotation');
-                });
-                $('#start-rotation').on('click', function() {
-                    $('#horizontalTab').responsiveTabs('active');
-                });
-                $('.select-tab').on('click', function() {
-                    $('#horizontalTab').responsiveTabs('activate', $(this).val());
-                });
-
+                
 
                 $('#newsletter-form').submit(function(event){
                     event.preventDefault();
