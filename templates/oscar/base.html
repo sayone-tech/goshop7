@@ -10,12 +10,12 @@
                              <head>
         <title>{% if display_version %}[{% trans "Build" %} {{ version }}] {% endif %}{% block title %}{{ shop_name }} - {{ shop_tagline }}{% endblock %}</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0;">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0;">
 
         <meta name="created" content="{% now "jS M Y h:i" %}" />
-        <meta name="description" content="Buy various products like electronics,fabrics,Household items etc." />
-       
-       
+              <meta name="description" content="Buy various products like electronics,fabrics,Household items etc." />
+
+
         <meta name="google-site-verification" content="JVpiCgBwYXqOf5c_JAfItzljTd90tJIAMm489uGSEpY" />
 
 
@@ -107,12 +107,12 @@
             .error{
                 color:red !important;
             }
-           
+
             .cart
             {
                 margin-top:15px !important;
             }
-            
+
             .fa-suitcase{
                 background: #25AAE2 !important;
                 color: white !important;
@@ -195,6 +195,7 @@
             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
             ga('create', 'UA-56378954-1', 'auto');
+            ga('require', 'displayfeatures');
             ga('send', 'pageview');
 
         </script>
