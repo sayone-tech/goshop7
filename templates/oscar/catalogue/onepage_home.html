@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load one_page_tags %}
 <html lang="en">
     <!--<![endif]-->
     <!-- Head BEGIN -->
@@ -167,7 +168,12 @@
                 	<h1>We help you<br>to sell your<br><span>dream</span></h1>
                         <a class="btn-default demo-button" href="http://goshop7.com/shop" target="blank">take a demo</a>
                 </div>
+                {% get_banner_img request as img %}
+                {% if img == 1 %}
                 <div class="col-lg-7 col-md-7 banner-image"><img src="/static/assets_old/onepage/img/silder/banner01.jpg"/></div>
+                {% else %}
+                <div class="col-lg-7 col-md-7 banner-image"><img src="/static/assets_old/onepage/img/silder/banner02.jpg"/></div>
+                {% endif %}
             </div>
         </div>
   </div>
