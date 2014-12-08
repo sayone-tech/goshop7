@@ -132,9 +132,11 @@
         {% block extrastyles %}{% endblock %}
 
         {% block extrahead %}{% endblock %}
+        {% comment %}
         {% if GOOGLE_ANALYTICS_PROPERTY_ID %}
         {% include "google_analytics.html" %}
         {% endif %}
+        {% endcomment %}
     </head>
 
     <body id="{% block body_id %}default{% endblock %}" class="{% block body_class %}ecommerce{% endblock %}">
