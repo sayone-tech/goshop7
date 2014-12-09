@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-{% load one_page_tags %}
 <html lang="en">
     <!--<![endif]-->
     <!-- Head BEGIN -->
@@ -60,46 +59,6 @@
         <link href="static/assets_old/onepage/css/themes/red.css" rel="stylesheet" id="style-color">
         <link href="static/assets_old/onepage/css/custom.css" rel="stylesheet">
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script>
-        <script>
-            $(document).ready(function(){
-            $("#dashboard").click(function() {
-                 window.history.pushState("object or string", "Title", "/dashboard");
-            });
-            $("#beautifulshop").click(function() {
-                 window.history.pushState("object or string", "Title", "/beautifulshop");
-            });
-            $("#instantprocessing").click(function() {
-                 window.history.pushState("object or string", "Title", "/instantprocessing");
-            });
-            $("#inventorymanagement").click(function() {
-                 window.history.pushState("object or string", "Title", "/inventorymanagement");
-            });
-            $("#advancedanalytics").click(function() {
-                 window.history.pushState("object or string", "Title", "/advancedanalytics");
-            });
-            $("#customers").click(function() {
-                 window.history.pushState("object or string", "Title", "/customers");
-            });
-            $("#shoppingcart").click(function() {
-                 window.history.pushState("object or string", "Title", "/shoppingcart");
-            });
-            $("#marketingseo").click(function() {
-                 window.history.pushState("object or string", "Title", "/Marketing&SEO");
-            });
-            
-            });
-        </script>
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-            ga('create', 'UA-56378954-1', 'auto');
-            ga('require', 'displayfeatures');
-            ga('send', 'pageview');
-
-        </script>
         <script type="text/javascript">
             $(document).ready(function(){
                 $('.more').click(function() {
@@ -114,43 +73,15 @@
             });
 
         </script>
-        <script type="text/javascript">
-        $(document).ready(function () {
-            $('#horizontalTab').responsiveTabs({
-                rotate: false,
-                startCollapsed: 'accordion',
-                collapsible: 'accordion',
-                setHash: true,
-
-                activate: function(e, tab) {
-                    $('.info').html('Tab <strong>' + tab.id + '</strong> activated!');
-                }
-            });
-
-            $('#start-rotation').on('click', function() {
-                $('#horizontalTab').responsiveTabs('active');
-            });
-            $('#stop-rotation').on('click', function() {
-                $('#horizontalTab').responsiveTabs('stopRotation');
-            });
-            $('#start-rotation').on('click', function() {
-                $('#horizontalTab').responsiveTabs('active');
-            });
-            $('.select-tab').on('click', function() {
-                $('#horizontalTab').responsiveTabs('activate', $(this).val());
-            });
-
-        });
-    </script>
 
         <!-- Theme styles END -->
 
         <link href="static/assets_old/onepage/css/font-awesome.css" rel="stylesheet">
-        {% comment %}
+
         {% if GOOGLE_ANALYTICS_PROPERTY_ID %}
         {% include "google_analytics.html" %}
         {% endif %}
-        {% endcomment %}
+
     </head>
     <body>
         <!-- BEGIN STYLE CUSTOMIZER -->
@@ -177,7 +108,7 @@
                 <div class="row">
                     <!-- Logo BEGIN -->
                     <div class="col-md-2 col-sm-2">
-                        <a class="scroll site-logo" href="#promo-block"><img src="/static/assets/frontend/layout/img/logos/logo_head.png" alt="Metronic One Page" width="120"></a>
+                        <a class="scroll site-logo" href="#promo-block"><img src="/static/assets/frontend/layout/img/logos/logo-shop-red.png" alt="Metronic One Page"></a>
                     </div>
                     <!-- Logo END -->
 
@@ -202,37 +133,137 @@
         <!-- Header END -->
 
         <!-- Promo block BEGIN -->
-        
-         <div class="banner-section"  id="promo-block">
-  		<div class="container">
-        	<div class="row banner-area">
-            	<div class="col-lg-5 col-md-5 banner-caption">
-                	<h1>We help you<br>to sell your<br><span>dream</span></h1>
-                        <a class="btn-default demo-button" href="http://goshop7.com/shop" target="blank">take a demo</a>
+        <div class="promo-block" id="promo-block">
+
+
+            <div class="tp-banner-container">
+
+                <div class="tp-banner" >
+
+                    <ul>
+                        <li data-transition="fade" data-slotamount="5" data-masterspeed="2000" data-delay="3000" class="slider-item-1">
+                            <img src="/static/assets_old/onepage/img/silder/slide3.jpg" alt="" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                            <div class="tp-caption large_text customin customout start"
+                                 data-x="50"
+                                 data-hoffset="0"
+                                 data-y="center"
+                                 data-voffset="0"
+                                 data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                                 data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                 data-speed="1000"
+                                 data-start="500"
+                                 data-easing="Back.easeInOut"
+                                 data-endspeed="300">
+                                <div class="promo-like"><img src="/static/assets_old/onepage/img/silder/slider-caption01.png"/></div>
+
+                            </div>
+                            <div class="caption lft start"
+                                 data-y="center"
+                                 data-voffset="0"
+                                 data-x="center"
+                                 data-hoffset="400"
+                                 data-speed="600"
+                                 data-start="500"
+                                 data-easing="easeOutBack"><a href="/shop/" target="_blank"><img src="/static/assets_old/onepage/img/silder/slider-caption02.png" alt=""></a>
+                            </div>
+                        </li>
+                        <li data-transition="fade" data-slotamount="5" data-masterspeed="2000" data-delay="3000" class="slider-item-1">
+                            <img src="/static/assets_old/onepage/img/silder/slide5.jpg" alt="" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                            <div class="tp-caption large_text customin customout start"
+                                 data-x="50"
+                                 data-hoffset="0"
+                                 data-y="center"
+                                 data-voffset="0"
+                                 data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                                 data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                 data-speed="1000"
+                                 data-start="500"
+                                 data-easing="Back.easeInOut"
+                                 data-endspeed="300">
+                                <div class="promo-like"><img src="/static/assets_old/onepage/img/silder/slider-caption01.png"/></div>
+
+                            </div>
+                            <div class="caption lft start"
+                                 data-y="center"
+                                 data-voffset="0"
+                                 data-x="center"
+                                 data-hoffset="400"
+                                 data-speed="600"
+                                 data-start="500"
+                                 data-easing="easeOutBack"><a href="/shop/" target="_blank"><img src="/static/assets_old/onepage/img/silder/slider-caption02.png" alt=""></a>
+                            </div>
+                        </li>
+                        <li data-transition="fade" data-slotamount="5" data-masterspeed="2000" data-delay="3000" class="slider-item-1">
+                            <img src="/static/assets_old/onepage/img/silder/slide6.jpg" alt="" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                            <div class="tp-caption large_text customin customout start"
+                                 data-x="50"
+                                 data-hoffset="0"
+                                 data-y="center"
+                                 data-voffset="0"
+                                 data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                                 data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                 data-speed="1000"
+                                 data-start="500"
+                                 data-easing="Back.easeInOut"
+                                 data-endspeed="300">
+                                <div class="promo-like"><img src="/static/assets_old/onepage/img/silder/slider-caption01.png"/></div>
+
+                            </div>
+                            <div class="caption lft start"
+                                 data-y="center"
+                                 data-voffset="0"
+                                 data-x="center"
+                                 data-hoffset="400"
+                                 data-speed="600"
+                                 data-start="500"
+                                 data-easing="easeOutBack"><a href="/shop/" target="_blank"><img src="/static/assets_old/onepage/img/silder/slider-caption02.png" alt=""></a>
+                            </div>
+                        </li>
+                        <li data-transition="fade" data-slotamount="5" data-masterspeed="2000" data-delay="3000" class="slider-item-1">
+                            <img src="/static/assets_old/onepage/img/silder/slide7.jpg" alt="" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">
+                            <div class="tp-caption large_text customin customout start"
+                                 data-x="50"
+                                 data-hoffset="0"
+                                 data-y="center"
+                                 data-voffset="0"
+                                 data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                                 data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                                 data-speed="1000"
+                                 data-start="500"
+                                 data-easing="Back.easeInOut"
+                                 data-endspeed="300">
+                                <div class="promo-like"><img src="/static/assets_old/onepage/img/silder/slider-caption01.png"/></div>
+
+                            </div>
+                            <div class="caption lft start"
+                                 data-y="center"
+                                 data-voffset="0"
+                                 data-x="center"
+                                 data-hoffset="400"
+                                 data-speed="600"
+                                 data-start="500"
+                                 data-easing="easeOutBack"><a href="/shop/" target="_blank"><img src="/static/assets_old/onepage/img/silder/slider-caption02.png" alt=""></a>
+                            </div>
+                        </li>
+
+                    </ul>
                 </div>
-                {% get_banner_img request as img %}
-                {% if img == 1 %}
-                <div class="col-lg-7 col-md-7 banner-image"><img src="/static/assets_old/onepage/img/silder/banner01.jpg"/></div>
-                {% else %}
-                <div class="col-lg-7 col-md-7 banner-image"><img src="/static/assets_old/onepage/img/silder/banner02.jpg"/></div>
-                {% endif %}
             </div>
         </div>
-  </div>
         <!-- Promo block END -->
 
         <!-- About block BEGIN -->
         <div class="about-block content content-center" id="about">
             <div id="horizontalTab">
                 <ul>
-                    <li><a href="#tab-1" id="beautifulshop"><span><i class="fa fa-file-photo-o"></i></span>Beautiful Shop</a></li>
-                    <li><a href="#tab-2" id="dashboard"><span><i class="fa fa-sitemap"></i></span>Dashboard</a></li>
-                    <li><a href="#tab-3" id="instantprocessing"><span><i class="fa fa-mobile"></i></span>Instant Processing</a></li>
-                    <li><a href="#tab-4" id="inventorymanagement"><span><i class="fa fa-share-alt"></i></span>Inventory management</a></li>
-                    <li><a href="#tab-5" id="advancedanalytics"><span><i class="fa fa-bar-chart-o"></i></span>Advanced Analytics</a></li>
-                    <li><a href="#tab-6" id="customers"><span><i class="fa fa-user"></i></span>Customers</a></li>
-                    <li><a href="#tab-7" id="shoppingcart"><span><i class="fa fa-shopping-cart"></i></span>Shopping Cart</a></li>
-                    <li><a href="#tab-8" id="marketingseo"><span><i class="fa fa-reorder"></i></span>Marketing & SEO </a></li>
+                    <li><a href="#tab-1"><span><i class="fa fa-file-photo-o"></i></span>Beautiful Shop</a></li>
+                    <li><a href="#tab-2"><span><i class="fa fa-sitemap"></i></span>Dashboard</a></li>
+                    <li><a href="#tab-3"><span><i class="fa fa-mobile"></i></span>Instant Processing</a></li>
+                    <li><a href="#tab-4"><span><i class="fa fa-share-alt"></i></span>Inventory management</a></li>
+                    <li><a href="#tab-5"><span><i class="fa fa-bar-chart-o"></i></span>Advanced Analytics</a></li>
+                    <li><a href="#tab-6"><span><i class="fa fa-user"></i></span>Customers</a></li>
+                    <li><a href="#tab-7"><span><i class="fa fa-shopping-cart"></i></span>Shopping Cart</a></li>
+                    <li><a href="#tab-8"><span><i class="fa fa-reorder"></i></span>Marketing & SEO </a></li>
 
 
                 </ul>
@@ -445,7 +476,7 @@
         <!-- Prices block BEGIN -->
         <div class="prices-block content content-center" id="prices">
             <div class="container">
-                <h2 class="">Pricing</h2>
+                <h2 class="margin-bottom-50">Pricing</h2>
                 <div class="row">
                     <!-- Pricing item BEGIN -->
                     {% for pricing in pricing_list %}
@@ -565,7 +596,86 @@
                         </div>
                     </div>
                     {% endfor %}
-                    
+                    <!-- Pricing item END -->
+                    <!-- Pricing item BEGIN -->
+                    <!--<div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="pricing-item">
+                            <div class="pricing-head">
+                                <h3>Beginner</h3>
+                                <div class="price2 priceContainer">
+                                    <p class="line-thrgh-text">$1500.00</p>
+                                    <span>$999</span>
+
+                                </div>
+                            </div>
+                            <div class="pricing-content">
+
+                                <table class="pricingTableContent">
+                                    <tr><td><h3>Featured Categories</h3></td></tr>
+                                    <tr><td><img src="static/assets_old/onepage/img/table-tick.png"/><strong>100MB</strong> Disk Space</td></tr>
+                                    <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/><strong>200MB</strong> Monthly Traffic</td></tr>
+                                    <tr><td><img src="static/assets_old/onepage/img/table-cross.png"/><strong>100MB</strong> Disk Space</td></tr>
+                                    <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/><strong>200MB</strong> Monthly Traffic</td></tr>
+                                    <tr><td><img src="static/assets_old/onepage/img/table-cross.png"/><strong>100MB</strong> Disk Space</td></tr>
+                                </table>
+                                <div style="display:none;">
+                                    <table class="pricingTableContent">
+                                        <tr><td><h3>All</h3></td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/><strong>200MB</strong> Monthly Traffic</td></tr>
+                                        <tr><td><img src="static/assets_old/onepage/img/table-tick.png"/><strong>100MB</strong> Disk Space</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/><strong>200MB</strong> Monthly Traffic</td></tr>
+                                    </table>
+                                </div>
+                                <a href="javascript:void(0)" class="more">Read more</a>
+                            </div>
+                            <div class="pricing-footer">
+                                <a class="btn btn-default sign-up-ico fancybox-fast-view" href="#submit-pop">Sign Up</a>
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- Pricing item END -->
+                    <!-- Pricing item BEGIN -->
+                    <!--<div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="pricing-item">
+                            <div class="pricing-head">
+                                <h3>Beginner</h3>
+                                <div class="price2 priceContainer">
+                                    <p class="line-thrgh-text">$1500.00</p>
+                                    <span>$999</span>
+
+
+                                </div>
+                            </div>
+                            <div class="pricing-content">
+
+                                <table class="pricingTableContent">
+                                    <tr><td><h3>Featured Categories</h3></td></tr>
+                                    <tr><td><img src="static/assets_old/onepage/img/table-tick.png"/><strong>100MB</strong> Disk Space</td></tr>
+                                    <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/><strong>200MB</strong> Monthly Traffic</td></tr>
+                                    <tr><td><img src="static/assets_old/onepage/img/table-cross.png"/><strong>100MB</strong> Disk Space</td></tr>
+                                    <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/><strong>200MB</strong> Monthly Traffic</td></tr>
+                                    <tr><td><img src="static/assets_old/onepage/img/table-cross.png"/><strong>100MB</strong> Disk Space</td></tr>
+                                </table>
+                                <div style="display:none;">
+                                    <table class="pricingTableContent">
+                                        <tr><td><h3>All</h3></td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/><strong>200MB</strong> Monthly Traffic</td></tr>
+                                        <tr><td><img src="static/assets_old/onepage/img/table-tick.png"/><strong>100MB</strong> Disk Space</td></tr>
+                                        <tr class="altRow"><td><img src="static/assets_old/onepage/img/table-tick.png"/><strong>200MB</strong> Monthly Traffic</td></tr>
+                                    </table>
+                                </div>
+                                <a href="javascript:void(0)" class="more">Read more</a>
+
+                            </div>
+                            <div class="pricing-footer">
+                                <a class="btn btn-default sign-up-ico fancybox-fast-view" href="#price_pop">Sign Up</a>
+                             </div>
+          </div>
+        </div>-->
+                    <!-- Pricing item END -->
+                    <!-- Pricing item BEGIN -->
+
+                    <!-- Pricing item END -->
                 </div>
             </div>
         </div>
@@ -575,7 +685,7 @@
 
         <div class="faq_block content content-center" id="faq">
             <div class="container">
-                <h2 class="">FAQ</h2>
+                <h2 class="margin-bottom-50">FAQ</h2>
                 <div class="panel-group accordion" id="accordion1">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -706,7 +816,7 @@
 
         <!-- Message block BEGIN -->
         <div class="message-block content content-center valign-center" id="services">
-           
+
                 <div class="container">
                     <div class="row demo_sections">
                         <div class="col-lg-6 col-md-6 col-sm-6">
@@ -738,16 +848,15 @@
                     </div>
                 </div>
 
-           
+
         </div>
         <!-- Message block END -->
 
 
         <div class="clearfix"></div>
         <!-- BEGIN PRE-FOOTER -->
-        <div class="pre-footer content" id="contact">
+        <div class="pre-footer" id="contact">
             <div class="container top-footer">
-                <h1 class="">Contact</h1>
                 <div class="row">
                     <!-- BEGIN BOTTOM ABOUT BLOCK -->
                     <div class="col-md-4 col-sm-6 pre-footer-col">
@@ -926,8 +1035,18 @@
 
         <!-- Load JavaScripts at the bottom, because it will reduce page load time -->
         <!-- Core plugins BEGIN (For ALL pages) -->
-        
+{% comment %}
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+            ga('create', 'UA-56378954-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+{% %}
         <script src="static/assets_old/plugins/jquery-1.11.0.min.js" type="text/javascript"></script>
         <script src="static/assets_old/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
         <script src="static/assets_old/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
@@ -961,7 +1080,7 @@
         <script src="static/assets_old/onepage/scripts/jquery.responsiveTabs.js" type="text/javascript"></script>
         <script type="text/javascript">
             $(document).ready(function () {
-            
+
                 $('.package-drop').change(function(){
                     var pricing_id = $(this).val()
                     $.ajax({
@@ -1026,7 +1145,30 @@
                     return false;
                 });
 
-                
+                $('#horizontalTab').responsiveTabs({
+                    rotate: false,
+                    startCollapsed: 'accordion',
+                    collapsible: 'accordion',
+                    setHash: true,
+
+                    activate: function(e, tab) {
+                        $('.info').html('Tab <strong>' + tab.id + '</strong> activated!');
+                    }
+                });
+
+                $('#start-rotation').on('click', function() {
+                    $('#horizontalTab').responsiveTabs('active');
+                });
+                $('#stop-rotation').on('click', function() {
+                    $('#horizontalTab').responsiveTabs('stopRotation');
+                });
+                $('#start-rotation').on('click', function() {
+                    $('#horizontalTab').responsiveTabs('active');
+                });
+                $('.select-tab').on('click', function() {
+                    $('#horizontalTab').responsiveTabs('activate', $(this).val());
+                });
+
 
                 $('#newsletter-form').submit(function(event){
                     event.preventDefault();
@@ -1084,7 +1226,7 @@
                     var data=$('#contact_form').serialize();
                     $('#contact_submit_id').hide();
                     $('#contact_loading').show();
-                    
+
                     $.ajax({
                         type: $('#contact_form').attr('method'), // GET or POST
                         url: $('#contact_form').attr('action'),
@@ -1109,7 +1251,7 @@
                                     var current = $(this)
                                     var current_name  = $(this).attr('name');
                                     $.each(response.errors, function( index, value ){
-                                        
+
                                         if(current_name == index) {
 
                                             var div =current.after( "<div class=error style='color:red;font-size:13px;margin-top:8px;margin-bottom:16px;'></div>");
