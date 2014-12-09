@@ -17,6 +17,7 @@ font-size: 52px;
 margin: 0 0 10px;
 text-align: center;
 font-weight: normal;
+letter-spacing: -2px;
 
   
 }
@@ -1183,10 +1184,10 @@ Pre-Footer and pre-footer elements
   margin: 0 0 8px;
   color: #333;
   text-transform: uppercase;
-  font-family: 'ostrich_sanscondensed_light';
-  font-size: 30px;
-font-weight: bold;
-letter-spacing: 1px;
+   font-family: 'MyriadProLight';
+  font-size: 25px;
+font-weight: normal;
+
 }
 
 .pre-footer .container {
@@ -1202,7 +1203,7 @@ letter-spacing: 1px;
 .pre-footer p {
   margin-bottom: 20px;
   color: #5F6F7E;
-  font-family:"PT Sans Narrow", Arial, sans-serif;
+  font-family: 'MyriadProLight';
 }
 .pre-footer li {
   margin-bottom: 6px;
@@ -1698,7 +1699,7 @@ Styler Panel
 .feature_box p{ font-size:14px; color:#242424;}
 .feature_image_frame img{ }
 .feature_box_left h1{ color:#FFF; text-align:left; border-bottom: solid 2px #25aae1;}
-.feature_box_left p{ color:#FFF; text-align:left; font-family:Arial, Helvetica, sans-serif;}
+.feature_box_left p{ color:#FFF; text-align:left; font-family: 'MyriadProLight';font-size: 20px;}
 .prices-block h2{ color:#3E3E3E; margin:40px 0;}
 .demo_link{background: #d91a5d;border-radius: 3px!important;padding: 5px 15px;margin-top: -6px;color: #fff!important;}
 .demo_sections{/* margin-top:-23%;*/margin-top: 40px;background: rgba(255, 255, 255, 0.4); border-radius:3px!important; padding:22px 10px;}

@@ -149,7 +149,9 @@
 
         {% block tracking %}
         {# Default to using Google analytics #}
+        {% comment %}
         {% include "partials/google_analytics.html" %}
+        {% endcomment %}
         {% endblock %}
 
         {% comment %}
