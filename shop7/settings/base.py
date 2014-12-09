@@ -138,7 +138,7 @@ INSTALLED_APPS = [
     'apps.pricing',
 #    'sentry',
 #    'raven.contrib.django',
-    'raven.contrib.django.raven_compat',
+#    'raven.contrib.django.raven_compat',
 ]+ get_core_apps()
 
 
