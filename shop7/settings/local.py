@@ -1,7 +1,7 @@
 from shop7.settings.base import *
 from oscar import get_core_apps
 
-DEBUG=False
+DEBUG=True
 
 
 DATABASES = {
