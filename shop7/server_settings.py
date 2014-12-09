@@ -2,7 +2,7 @@ from settings import *
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['goshop7.com','75.126.24.85','www.goshop7.com']
 
 ADMINS = (
