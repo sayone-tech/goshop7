@@ -1,4 +1,4 @@
-from settings import *
+from base import *
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -14,7 +14,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'shop7',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': 'password',
         'HOST': '',
         'PORT': '',
         'STORAGE_ENGINE': 'MYISAM',
@@ -22,7 +22,7 @@ DATABASES = {
     }
 }
 
-#EMAIL_BACKEND = "mailer.backend.DbBackend"
+EMAIL_BACKEND = "mailer.backend.DbBackend"
 EMAIL_SUBJECT_PREFIX = "[Shop7]"
 
 EMAIL_HOST          = 'smtp.gmail.com'

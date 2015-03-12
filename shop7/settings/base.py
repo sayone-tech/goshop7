@@ -132,7 +132,7 @@ INSTALLED_APPS = [
     'apps.dashboard.vouchers',
     'apps.newsletter',
     'autocomplete_light',
-    'debug_toolbar',
+    # 'debug_toolbar',
     'apps.socialmedias',
     'apps.contact',
     'apps.pricing',
@@ -153,7 +153,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
     'oscar.apps.basket.middleware.BasketMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'apps.utils.middleware.AdminForceRedirect', # demo user denied to access the admin site

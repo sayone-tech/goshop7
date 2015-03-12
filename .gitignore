@@ -6,3 +6,4 @@ site.wsgi
 resource.cgn
 static/
 nbproject/
+.idea/*
