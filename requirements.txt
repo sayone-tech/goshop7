@@ -34,7 +34,7 @@ phonenumbers==6.0.0a
 purl==1.0
 python-openid==2.2.5
 pytz==2014.7
-requests==2.4.0
+requests==2.20.0
 requests-oauthlib==0.4.1
 six==1.7.3
 sorl-thumbnail==11.12
