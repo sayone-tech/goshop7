@@ -4,6 +4,7 @@ from django.contrib.sites.models import Site
 from apps.pricing.forms import PricingForm
 from apps.pricing.models import DemoPricing
 
+
 def google_analytics(request):
     """
     Use the variables returned in this function to
@@ -18,18 +19,20 @@ def google_analytics(request):
         }
     return {}
 
+
 def demo_pricing_form(request):
 
-    site=Site.objects.get(id=1)   
+    site = Site.objects.get(id=1)
     pricing_list = DemoPricing.objects.all()
     form = PricingForm()
-    first_obj=None
+    first_obj = None
     try:
         first_obj = DemoPricing.objects.get(id=1)
         first_price = first_obj.price
         first_discount_price = first_obj.discount_price
     except:
-        first_price=0.0
-        first_discount_price=0.0
-    
-    return {'site': site,'pricing_form': form, 'pricing_list':pricing_list, 'first_price': first_price, 'first_discount_price': first_discount_price}
+        first_price = 0.0
+        first_discount_price = 0.0
+
+    return {'site': site, 'pricing_form': form, 'pricing_list': pricing_list,
+            'first_price': first_price, 'first_discount_price': first_discount_price}

@@ -3,6 +3,7 @@ autocomplete_light.autodiscover()
 from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 from django.utils.functional import curry
 from apps.app import application
@@ -38,8 +39,21 @@ urlpatterns = patterns('',
     url(r'^autocomplete/', include('autocomplete_light.urls')),
 )
 
-urlpatterns += patterns('',
-        (r'^static/(.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT,'show_indexes': False}),
-    )+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#urlpatterns += patterns('',
+#        (r'^static/(.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT,'show_indexes': False}),
+#    )+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#
+##handler404 = curry('apps.general.views.custom_404', template_name='404.html')
 
-#handler404 = curry('apps.general.views.custom_404', template_name='404.html')
+if settings.DEBUG:
+    urlpatterns += staticfiles_urlpatterns()
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
+urlpatterns += staticfiles_urlpatterns()
+
+urlpatterns += patterns('',
+        (r'^static/(.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    )
+
+handler404 = 'apps.general.views.custom_404'
+handler500 = 'apps.general.views.custom_500'

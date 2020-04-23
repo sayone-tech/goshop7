@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout_2_col.html" %}
 
 
 {% load i18n %}
@@ -7,7 +7,16 @@
 {% block title %}
 {% trans "Offers" %} | {{ block.super }}
 {% endblock %}
-
+{% block headertext %}{% trans "Offers" %}{% endblock %}
+{% block banner_content %}
+<div class="title-wrapper">
+    <div class="container"><div class="container-inner">
+            <h1>
+                <span>{% if category %}{{ category.name }}{% else %}{% trans "OFFER" %}{% endif %}</span> {% trans "PRODUCTS" %}</h1>
+            <em>{% if not offers %}There are no site offers at the moment{% else %}Over 300 Items are available here{% endif %}</em>
+        </div></div>
+</div>
+{% endblock %}
 {% block breadcrumbs %}
 <ul class="breadcrumb">
     <li>
@@ -18,9 +27,6 @@
 </ul>
 {% endblock %}
 
-{% block headertext %}
-    {% trans "Offers" %}
-{% endblock %}
 
 {% block content %}
     {% if not offers %}
@@ -34,7 +40,7 @@
         {% if offer.has_products %}
             <div class="row product-list">
                 {% for product in offer.products|slice:":12" %}
-                <div class="col-md-4 col-sm-6 col-xs-12">{% render_product product %}</div>
+                <div class="col-md-3 col-sm-6 col-xs-12">{% render_product product %}</div>
                 {% endfor %}
             </div>
             <p>

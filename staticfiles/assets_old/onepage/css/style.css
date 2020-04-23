@@ -1,4 +1,7 @@
 /* General body settings */
+
+
+
 body { 
   color: #5f6f7e; 
   direction: ltr;
@@ -9,12 +12,13 @@ body {
 /* h1-h6 */
 .content h1, .content h2 {
   
-  font-family: 'ostrich_sanscondensed_light';
+ font-family: 'MyriadProLight';
 font-size: 52px;
 margin: 0 0 10px;
 text-align: center;
-font-weight: bold;
-letter-spacing: 3px;
+font-weight: normal;
+letter-spacing: -2px;
+
   
 }
 .content h1:after, .content h2:after {
@@ -398,7 +402,7 @@ a:hover {
   position: fixed;
   top: 0;
   bottom: auto;
-  background: rgba(255,255,255,0.95);
+  background: #fff;
 }
 
 .site-logo {
@@ -409,7 +413,7 @@ a:hover {
 .header .mobi-toggler {
   float: right;
   color: #D8D8D8;
-  border: 1px solid #D8D8D8;
+  
   border-radius: 100% !important;
   width: 32px;
   height: 32px;
@@ -422,9 +426,8 @@ a:hover {
   display: none;
 }
 .header .mobi-toggler:hover {
-  background: #e34f00 url(../img/toggler.png) no-repeat 6px -28px;
-  border-color: #e34f00;
-  color: #fff;
+  
+  
 }
 
 .header-navigation {
@@ -901,8 +904,8 @@ a:hover {
 
 /* Pricing */
 .prices-block {
-  background: #EFF6F9;
-padding: 60px 0 40px;
+  background: #fff;
+
 }
 
 .pricing-head {
@@ -1032,6 +1035,7 @@ border-top: solid 4px #C90F4F;
   position: static;
   margin: 27px 0 0;
   width: 100%;
+  display:none;
 }
 .carousel-indicators li {
   width: 12px !important;
@@ -1180,14 +1184,18 @@ Pre-Footer and pre-footer elements
   margin: 0 0 8px;
   color: #333;
   text-transform: uppercase;
-  font-family: 'ostrich_sanscondensed_light';
-  font-size: 30px;
-font-weight: bold;
-letter-spacing: 1px;
+   font-family: 'MyriadProLight';
+  font-size: 25px;
+font-weight: normal;
+
 }
 
 .pre-footer .container {
-  padding: 82px 0;
+  padding: 0 0;
+}
+
+.pre-footer .top-footer {
+  padding:0;
 }
 .pre-footer a {
   color: #57c8eb;
@@ -1195,11 +1203,19 @@ letter-spacing: 1px;
 .pre-footer p {
   margin-bottom: 20px;
   color: #5F6F7E;
-  font-family:"PT Sans Narrow", Arial, sans-serif;
+  font-family: 'MyriadProLight';
 }
 .pre-footer li {
   margin-bottom: 6px;
 }
+
+
+.top-footer h1 {
+color: #3E3E3E;
+margin: 40px 0;
+}
+
+
 
 /* pre-footer twitter block */
 .pre-footer dl.f-twitter {
@@ -1683,10 +1699,10 @@ Styler Panel
 .feature_box p{ font-size:14px; color:#242424;}
 .feature_image_frame img{ }
 .feature_box_left h1{ color:#FFF; text-align:left; border-bottom: solid 2px #25aae1;}
-.feature_box_left p{ color:#FFF; text-align:left; font-family:Arial, Helvetica, sans-serif;}
-.prices-block h2{ color:#3E3E3E;}
+.feature_box_left p{ color:#FFF; text-align:left; font-family: 'MyriadProLight';font-size: 20px;}
+.prices-block h2{ color:#3E3E3E; margin:40px 0;}
 .demo_link{background: #d91a5d;border-radius: 3px!important;padding: 5px 15px;margin-top: -6px;color: #fff!important;}
-.demo_sections{/* margin-top:-23%;*/background: rgba(255, 255, 255, 0.4); border-radius:3px!important; padding:22px 10px;}
+.demo_sections{/* margin-top:-23%;*/margin-top: 40px;background: rgba(255, 255, 255, 0.4); border-radius:3px!important; padding:22px 10px;}
 .demo_right_sec h1{ background:url(../img/blocks/demo_front_end.png) no-repeat; height:73px; padding-left:85px; color:#FFF; text-align:left;text-shadow: 1px 1px 3px #646565;}
 .dashboard_icon{ background:url(../img/blocks/demo_dashboard.png) no-repeat !important; }
 .demo_right_sec h1 span{ font-size:20px; display:block;}
@@ -1718,3 +1734,22 @@ left: 16em;}
 
 .footer-form input{ border:solid 1px #DADADA !important;}
 .footer-form textarea{ border:solid 1px #DADADA !important; height:80px;}
+
+#newsletter-form{ margin-bottom:15px;}
+
+
+
+/*====================================================added in 25/11/2014==================================================*/
+.banner-section{ padding-top:60px;}
+.banner-area{ margin:0;}
+.banner-caption{ padding:4em 0;}
+.banner-caption h1{ font-size:72px; color:#545454; line-height:95px;}
+.banner-caption h1 span{ color:#f0008f;}
+.banner-image img{ width:112%;}
+.demo-button{ border:solid 1px #ed008c; color:#545454; font-size:34px; border-radius:10px !important; margin-top:10px;
+-webkit-transition: 0.2s linear all;
+-moz-transition: 0.2s linear all;
+-ms-transition: 0.2s linear all;
+-o-transition: 0.2s linear all;
+transition: 0.2s linear all;}
+.demo-button:hover{ background:#ed008c; color:#FFF; border:solid 1px #ed008c;}

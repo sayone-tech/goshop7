@@ -21,17 +21,13 @@
     <div class="container">
         <div class="row">
             <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-            <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle" type="button">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+            <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+
             <!-- END RESPONSIVE MENU TOGGLER -->
             {% include "partials/brand.html" %}<!-- LOGO -->
             {% include "partials/search.html" %}
             {% block mini_basket %}
-            <div class="basket">
+            <div class="col-lg-3 col-md-3 col-sm-4 basket">
                 {% include "partials/mini_basket.html" %}
             </div>
             {% endblock %}

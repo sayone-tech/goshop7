@@ -2679,7 +2679,9 @@ Customized Bootstrap Panels
   padding: 10px 15px;
   background:#b06f23;
   color:#fff;
-  font-family:Arial, Helvetica, sans-serif;
+   font-family: 'MyriadProLight';
+   font-size: 20px;
+ font-weight: bold;
 }
 .panel-default{ border:none;}
 .accordion .panel .panel-title .accordion-toggle.accordion-toggle-styled {
@@ -2701,6 +2703,8 @@ Customized Bootstrap Panels
 }
 .panel-default > .panel-heading + .panel-collapse .panel-body {
   border-top-color: lighter(#b9b9b9);
+  font-family: 'MyriadProLight';
+  font-size: 19px;
 }
 .panel-default > .panel-footer + .panel-collapse .panel-body {
   border-bottom-color: lighter(#b9b9b9);

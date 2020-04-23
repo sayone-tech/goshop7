@@ -471,15 +471,15 @@ body.page-header-fixed {
   width: 32px;
   height: 32px;
   display: none;
-  margin:0 0 10px 30px;
+  margin:22px 18px 10px 4px;
   position: relative;
-  background: #fff url(../../../../xampp/htdocs/biyas/metronic-03-09-2014/metronic/metronic/assets/frontend/layout/img/icons/toggler.png) no-repeat 6px 8px;
+  background: #fff url(../img/icons/toggler.png) no-repeat 6px 8px;
 }
 .header .mobi-toggler i {
   display: none;
 }
 .header .mobi-toggler:hover {
-  background: #e34f00 url(../../../../xampp/htdocs/biyas/metronic-03-09-2014/metronic/metronic/assets/frontend/layout/img/icons/toggler.png) no-repeat 6px -28px;
+  background: #e34f00 url(../img/icons/toggler.png) no-repeat 6px -28px;
   border-color: #e34f00;
   color: #fff;
 }
@@ -817,16 +817,16 @@ body.page-header-fixed {
 	text-indent: -100000px;
 }
 .owl-buttons .owl-prev {
-    background: #fff url(../../../../xampp/htdocs/biyas/metronic-03-09-2014/metronic/metronic/assets/frontend/layout/img/fa-angles.png) no-repeat 8px 8px;
+    background: #fff url(../img/fa-angles.png) no-repeat 8px 8px;
 }
 .owl-buttons .owl-next {
-    background: #fff url(../../../../xampp/htdocs/biyas/metronic-03-09-2014/metronic/metronic/assets/frontend/layout/img/fa-angles.png) no-repeat -33px 8px;
+    background: #fff url(../img/fa-angles.png) no-repeat -33px 8px;
 }
 .owl-buttons .owl-prev:hover {
-    background: #e84d1c url(../../../../xampp/htdocs/biyas/metronic-03-09-2014/metronic/metronic/assets/frontend/layout/img/fa-angles.png) no-repeat 8px -31px;
+    background: #e84d1c url(../img/fa-angles.png) no-repeat 8px -31px;
 }
 .owl-buttons .owl-next:hover {
-    background: #e84d1c url(../../../../xampp/htdocs/biyas/metronic-03-09-2014/metronic/metronic/assets/frontend/layout/img/fa-angles.png) no-repeat -33px -31px;
+    background: #e84d1c url(../img/fa-angles.png) no-repeat -33px -31px;
 }
 
 /*  */
@@ -963,7 +963,7 @@ Sidebar
 .sidebar .fa-angle-down {
 	width: 11px;
 	height: 11px;
-	background: url(../../../../xampp/htdocs/biyas/metronic-03-09-2014/metronic/metronic/assets/frontend/layout/img/icons/sidebar-toggle-icons.png) no-repeat 0 0;
+	background: url(../img/icons/sidebar-toggle-icons.png) no-repeat 0 0;
 	position: absolute;
 	top: 12px;
 	right: 10px;
@@ -1003,20 +1003,20 @@ Brands
 }
 .brands .owl-buttons .owl-prev {
     left: 0;
-    background:url(../../../../xampp/htdocs/biyas/metronic-03-09-2014/metronic/metronic/assets/frontend/layout/img/fa-angle-brands.png) no-repeat 18px 18px;
+    background:url(../img/fa-angle-brands.png) no-repeat 18px 18px;
     margin-left: 0;
 }
 .brands .owl-buttons .owl-prev:hover {
-    background: url(../../../../xampp/htdocs/biyas/metronic-03-09-2014/metronic/metronic/assets/frontend/layout/img/fa-angle-brands.png) no-repeat 18px -217px;
+    background: url(../img/fa-angle-brands.png) no-repeat 18px -217px;
 }
 .brands .owl-buttons .owl-next {
     left: auto;
     right: 0;
-    background:url(../../../../xampp/htdocs/biyas/metronic-03-09-2014/metronic/metronic/assets/frontend/layout/img/fa-angle-brands.png) no-repeat -249px 18px;
+    background:url(../img/fa-angle-brands.png) no-repeat -249px 18px;
     margin-right: 0;
 }
 .brands .owl-buttons .owl-next:hover {
-    background:url(../../../../xampp/htdocs/biyas/metronic-03-09-2014/metronic/metronic/assets/frontend/layout/img/fa-angle-brands.png) no-repeat -249px -217px;
+    background:url(../img/fa-angle-brands.png) no-repeat -249px -217px;
 }
 
 /***
@@ -1049,7 +1049,7 @@ steps block and steps block elements
 	display: block;
 	width: 36px;
 	height: 71px;
-	background: url(../../../../xampp/htdocs/biyas/metronic-03-09-2014/metronic/metronic/assets/frontend/layout/img/step3-angle-right.png) no-repeat 100% 50%;
+	background: url(../img/step3-angle-right.png) no-repeat 100% 50%;
 	position: absolute;
 	top: 0;
 	right: 10px;
@@ -1106,7 +1106,7 @@ steps block and steps block elements
 	margin: -23px 0 23px;
 	position: relative;
 	overflow: hidden;
-	background: #72c2ff url(../../../../xampp/htdocs/biyas/metronic-03-09-2014/metronic/metronic/assets/frontend/pages/img/title-bg/man.jpg) no-repeat 100% 100%;
+	background: #72c2ff url(../img/title-bg/man.jpg) no-repeat 100% 100%;
 	min-height: 280px;
 	padding-top: 79px;
 	width: 100%;
@@ -3060,7 +3060,7 @@ Styler Panel
 
 /*====================================================added by biyas================================================*/
 .top_strip{ height:2px; display:block;}
-.search {margin:13px 0 0;z-index: 27;width:100%;}
+.search {margin:25px 0 0;z-index: 27;width:100%;}
 .search .form-text {
 width: 92%;
 border: 1px solid #ccc;
@@ -3322,3 +3322,9 @@ border-radius: 16px !important;
 right: 0;
 position: absolute;
 }
+
+.brands a img{height:70px;}
+.brands .owl-item{width: 175px!important;}
+.brands .owl-item a{text-align:center;}
+
+.wish-list{ margin-top:15px!important;}

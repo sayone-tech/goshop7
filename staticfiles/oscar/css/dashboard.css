@@ -2881,6 +2881,7 @@ td .btn-toolbar {
 }
 .form-inline .control-group {
   margin-right: 10px;
+  float:left;
 }
 .fields-full input[type=text],
 .fields-full textarea {

@@ -1109,6 +1109,22 @@ pre code {
   .col-md-6 {
     width: 50%;
   }
+  .col-md-50 {
+    width: 100%;
+    float: left;
+    osition: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .col-md-51 {
+    width: 24.7%;
+  }
   .col-md-5 {
     width: 41.66666667%;
   }
@@ -3738,7 +3754,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-brand {
   float: left;
-  height: 50px;
+  height: auto;
   padding: 15px 15px;
   font-size: 18px;
   line-height: 20px;

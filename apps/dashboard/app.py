@@ -4,7 +4,8 @@ from oscar.apps.dashboard import views
 from oscar.core.application import Application
 from oscar.core.loading import get_class
 
-from django.contrib.admin.views.decorators import staff_member_required as django_staff_member_required
+from django.contrib.admin.views.decorators import staff_member_required \
+    as django_staff_member_required
 
 
 class DashboardApplication(Application):
@@ -16,15 +17,15 @@ class DashboardApplication(Application):
     index_view = views.IndexView
     reports_app = get_class('dashboard.reports.app', 'application')
     orders_app = get_class('dashboard.orders.app', 'application')
-    users_app = get_class('dashboard.users.app', 'application')
-    catalogue_app = get_class('dashboard.catalogue.app', 'application')
+    users_app = get_class('apps.dashboard.users.app', 'application')
+    catalogue_app = get_class('apps.dashboard.catalogue.app', 'application')
     promotions_app = get_class('dashboard.promotions.app', 'application')
-    pages_app = get_class('dashboard.pages.app', 'application')
-    partners_app = get_class('dashboard.partners.app', 'application')
-    offers_app = get_class('dashboard.offers.app', 'application')
-    ranges_app = get_class('dashboard.ranges.app', 'application')
-    reviews_app = get_class('dashboard.reviews.app', 'application')
-    vouchers_app = get_class('dashboard.vouchers.app', 'application')
+    pages_app = get_class('apps.dashboard.pages.app', 'application')
+    partners_app = get_class('apps.dashboard.partners.app', 'application')
+    offers_app = get_class('apps.dashboard.offers.app', 'application')
+    ranges_app = get_class('apps.dashboard.ranges.app', 'application')
+    reviews_app = get_class('apps.dashboard.reviews.app', 'application')
+    vouchers_app = get_class('apps.dashboard.vouchers.app', 'application')
     comms_app = get_class('dashboard.communications.app', 'application')
 
     def get_urls(self):

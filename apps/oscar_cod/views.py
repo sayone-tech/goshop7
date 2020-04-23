@@ -1,8 +1,9 @@
-from django.conf import settings 
+from django.conf import settings
 
 from apps.checkout import views as checkout_views
 from oscar.apps.payment.models import SourceType, Source
-    
+
+
 class CodPaymentDetailsView(checkout_views.PaymentDetailsView):
     template_name_preview = 'checkout/preview.html'
     preview = True
@@ -24,4 +25,4 @@ class CodPaymentDetailsView(checkout_views.PaymentDetailsView):
                         amount_debited=0)
         self.add_payment_source(source)
         self.add_payment_event('Allocated', total.incl_tax,
-                               reference='COD'+str(order_number))
+                               reference='COD' + str(order_number))
