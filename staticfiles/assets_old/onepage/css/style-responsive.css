@@ -117,6 +117,9 @@
 	.team-block .img-responsive {
 	  width: 100%;
 	}
+	/*--Added 23/04/20---*/
+	.banner-caption{text-align: center;}
+	.demo-button {display: inline-block;}
 }
 @media (min-width: 760px) {
 	.slider-item-1 .large_bold_white {
@@ -200,6 +203,7 @@
 	  float: left;
 	  margin: 0 5px 0 0;
 	}
+
 }
 @media (max-width: 600px) {
 	.slider-item-1 .promo-like-text {
