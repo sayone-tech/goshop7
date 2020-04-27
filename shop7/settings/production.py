@@ -4,18 +4,20 @@ from base import *
 
 DEBUG = False
 ALLOWED_HOSTS = ['goshop7.com','75.126.24.85','www.goshop7.com']
+#ALLOWED_HOSTS = []
 
 ADMINS = (
      ('Shebin', 'shebinoutlook@gmail.com'),
 )
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
+print "production"
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'store',
-        'USER': 'sayonestore',
+        'NAME': 'shop7',
+        'USER': 'sayoneshop',
         'PASSWORD': 'pwd@store',
         'HOST': 'localhost',
         'PORT': '',
