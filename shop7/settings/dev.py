@@ -8,7 +8,7 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = ['*', '127.0.0.1:8000', '127.0.0.1:9000']
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-
+print "dev"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',

@@ -157,7 +157,7 @@ vertical-align: middle;}
 
         .banner-caption h1{ text-align:center;font-size: 40px;line-height: 70px;}
 	.banner-image img{ width:100%;}
-	.demo-button{display: inline-block;text-align: center;}
+	.demo-button{display: block;text-align: center;}
 	}
 
 
@@ -183,7 +183,7 @@ vertical-align: middle;}
 
          .banner-caption h1{ text-align:center;font-size: 40px;line-height: 70px;}
 	.banner-image img{ width:100%;}
-	.demo-button{display: inline-block;text-align: center;}
+	.demo-button{display: block;text-align: center;}
 
 
 	}
@@ -211,7 +211,7 @@ vertical-align: middle;}
 
          .banner-caption h1{ text-align:center;font-size: 40px;line-height: 70px;}
 	.banner-image{ display:none;}
-	.demo-button{display:inline-block;text-align: center;}
+	.demo-button{display: block;text-align: center;}
          .package-drop{height: 30px;font-size: 18px;}
 	}
 
@@ -239,7 +239,7 @@ vertical-align: middle;}
 
         .banner-caption h1{ text-align:center;font-size: 40px;line-height: 70px;}
 	.banner-image{ display:none;}
-	.demo-button{display: inline-block;text-align: center;}
+	.demo-button{display: block;text-align: center;}
         .package-drop{height: 30px;font-size: 18px;}
 	}
 

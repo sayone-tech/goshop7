@@ -18,19 +18,19 @@ BASE_DIR = os.path.abspath(os.path.join(URLS_DIRECTORY,os.path.pardir))
 
 TEST_PEP8_DIRS = [os.path.dirname(BASE_DIR), ]
 
-DEBUG=False
+#DEBUG=False
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'ka9=k&4z2y!g#2@b&a7v5j-27q8*lt#grjt8e*o6c+-&i7^9ef'
 
-
+print "base"
 
 TEST_PEP8_EXCLUDE = ['migrations', ] # Exclude this paths from tests
 TEST_PEP8_IGNORE = ['E128', ] # Ignore this tests
 
-ALLOWED_HOSTS = ['*','127.0.0.1:8000','127.0.0.1:9000']
+#ALLOWED_HOSTS = ['*','127.0.0.1:8000','127.0.0.1:9000']
 # SECURITY WARNING: don't run with debug turned on in production!
 
 

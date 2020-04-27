@@ -1685,10 +1685,9 @@ Styler Panel
     }
 
     .r-tabs .r-tabs-accordion-title {
-      display: block;
-      padding: 8px 15px;
-      text-align: left;
-  }
+        display: block;
+		padding:8px 0;
+    }
 	.r-tabs-accordion-title a span .fa{ font-size:18px; color:#fff; padding-right:8px;}
 	.r-tabs-accordion-title a{ font-size:18px; color:#fff;}
 	.r-tabs-accordion-title{ background:#107eac; margin-bottom:1px;}
@@ -1744,19 +1743,13 @@ left: 16em;}
 .banner-section{ padding-top:60px;}
 .banner-area{ margin:0;}
 .banner-caption{ padding:4em 0;}
-.banner-caption h1{ font-size:60px; color:#fff; line-height:95px;}
+.banner-caption h1{ font-size:72px; color:#545454; line-height:95px;}
 .banner-caption h1 span{ color:#f0008f;}
 .banner-image img{ width:112%;}
-.demo-button{ background:#ed008c;border:solid 1px #ed008c; color:#fff; font-size:34px; border-radius:10px !important; margin-top:10px;
+.demo-button{ border:solid 1px #ed008c; color:#545454; font-size:34px; border-radius:10px !important; margin-top:10px;
 -webkit-transition: 0.2s linear all;
 -moz-transition: 0.2s linear all;
 -ms-transition: 0.2s linear all;
 -o-transition: 0.2s linear all;
 transition: 0.2s linear all;}
-.demo-button:hover{background: #dc0786;; color:#FFF;}
-
-/*--ADDED 23/04/2020---*/
-.banner-caption h1 {margin-top:0;text-shadow: 1px 1px 7px rgba(0, 0, 0, 0.44);}
-.banner-caption h3{margin: 0 0 30px;color: #fff;text-shadow: 1px 1px 7px rgba(0, 0, 0, 0.73);}
-.banner-section{background:url('../img/banner.png') ;background-size: cover;}
-.demo-button{display: inline-block;}
+.demo-button:hover{ background:#ed008c; color:#FFF; border:solid 1px #ed008c;}
