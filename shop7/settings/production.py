@@ -1,6 +1,9 @@
+import os
+
 from base import *
 
 # SECURITY WARNING: don't run with debug turned on in production!
+from shop7.settings.base import BASE_DIR
 
 DEBUG = False
 ALLOWED_HOSTS = ['goshop7.com','75.126.24.85','www.goshop7.com']
@@ -11,7 +14,7 @@ ADMINS = (
 )
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-print "production"
+print("production")
 
 DATABASES = {
     'default': {
@@ -29,10 +32,17 @@ DATABASES = {
 EMAIL_BACKEND = "mailer.backend.DbBackend"
 EMAIL_SUBJECT_PREFIX = "[Shop7]"
 
-TIME_ZONE = 'Asia/Kolkata'
-
 EMAIL_HOST          = 'smtp.gmail.com'
-EMAIL_HOST_PASSWORD = 'noreplaydeveloper@sayone'
-EMAIL_HOST_USER     = 'noreplaydeveloper@gmail.com'
+EMAIL_HOST_PASSWORD = 'S4nYNTDs'
+EMAIL_HOST_USER     = 'helloshop7'
 EMAIL_PORT          = 587
 EMAIL_USE_TLS       = True
+
+OSCAR_FROM_EMAIL = 'Team Shop7 <hello@goshop7.com>'
+DEFAULT_FROM_EMAIL = 'Team Shop7 <hello@goshop7.com>'
+
+GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-43709275-2'
+
+GOOGLE_ANALYTICS_DOMAIN = 'http://www.goshop7.com/'
+
+GEOIP_PATH = os.path.join(BASE_DIR, 'geoip')
