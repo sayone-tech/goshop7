@@ -1,88 +1,14 @@
-"""
-Django settings for shop7 project.
-For more information on this file, see
-https://docs.djangoproject.com/en/1.6/topics/settings/
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.6/ref/settings/
-"""
+from shop7.settings.base import *
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
-from oscar import get_core_apps
-#BASE_DIR = os.path.dirname('settings')
-SETTINGS_DIR = os.path.dirname(os.path.realpath(__file__))
-URLS_DIRECTORY = os.path.abspath(os.path.join(SETTINGS_DIR,os.path.pardir))
-BASE_DIR = os.path.abspath(os.path.join(URLS_DIRECTORY,os.path.pardir))
+DEBUG=True
 
-TEST_PEP8_DIRS = [os.path.dirname(BASE_DIR), ]
-
-DEBUG=False
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'ka9=k&4z2y!g#2@b&a7v5j-27q8*lt#grjt8e*o6c+-&i7^9ef'
 
 
-
 TEST_PEP8_EXCLUDE = ['migrations', ] # Exclude this paths from tests
 TEST_PEP8_IGNORE = ['E128', ] # Ignore this tests
 
-ALLOWED_HOSTS = ['*','127.0.0.1:8000','127.0.0.1:9000']
-# SECURITY WARNING: don't run with debug turned on in production!
-
-
-
-# Application definition
-TEST_PEP8_EXCLUDE = ['migrations', ] # Exclude this paths from tests
-TEST_PEP8_IGNORE = ['E128', ] # Ignore this tests
-
-
-
-INTERNAL_IPS = ('127.0.0.1:8000',)
-
-
-
-SITE_ID = 1
-
-STATIC_URL = '/static/'
-
-ROOT_URLCONF = 'shop7.urls'
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-MEDIA_URL = '/media/'
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'staticfiles'),)
-
-from oscar import OSCAR_MAIN_TEMPLATE_DIR
-
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, "templates"),
-    os.path.join(BASE_DIR, "templates/oscar"),
-    OSCAR_MAIN_TEMPLATE_DIR,
-)
-
-WSGI_APPLICATION = 'shop7.wsgi.application'
-
-gettext_noop = lambda s: s
-LANGUAGES = (
-    ('en', gettext_noop('English')),
-#    ('ar', gettext_noop('Arabic')),
-    )
-LANGUAGE_CODE = 'en'
-
-SSL=False
-
-TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
-
+from oscar import get_core_apps
 INSTALLED_APPS = [
     'djangocms_admin_style',
     'django.contrib.admin',
@@ -120,29 +46,14 @@ INSTALLED_APPS = [
     'lxml',
 #    'apps.customer',
     'apps.dashboard.catalogue',
-    'apps.dashboard.offers',
-    'apps.dashboard.pages',
-    'apps.dashboard.partners',
-#    'apps.dashboard.promotions',
-    'apps.dashboard.ranges',
-    'apps.dashboard.reviews',
-    'apps.dashboard.users',
-    'apps.dashboard.vouchers',
     'apps.newsletter',
     'autocomplete_light',
-    # 'debug_toolbar',
+    'debug_toolbar',
     'apps.socialmedias',
     'apps.contact',
     'apps.pricing',
-#    'sentry',
-#    'raven.contrib.django',
-#    'raven.contrib.django.raven_compat',
 ]+ get_core_apps()
 
-
-RAVEN_CONFIG = {
-    'dsn': 'http://321fb5a669604f0e9cb38ce36bfd21c6:eca12dc7b5da4f1eb7a40177e8963b20@127.0.0.1:9000/2',
-}
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -151,12 +62,21 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'oscar.apps.basket.middleware.BasketMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
-    'apps.utils.middleware.AdminForceRedirect', # demo user denied to access the admin site
 )
-
+#DEBUG_TOOLBAR_PANELS = (
+#    'debug_toolbar.panels.version.VersionDebugPanel',
+#    'debug_toolbar.panels.timer.TimerDebugPanel',
+#    'debug_toolbar.panels.settings_vars.SettingsVarsDebugPanel',
+#    'debug_toolbar.panels.headers.HeaderDebugPanel',
+#    'debug_toolbar.panels.request_vars.RequestVarsDebugPanel',
+#    'debug_toolbar.panels.template.TemplateDebugPanel',
+#    'debug_toolbar.panels.sql.SQLDebugPanel',
+#    'debug_toolbar.panels.signals.SignalDebugPanel',
+#    'debug_toolbar.panels.logger.LoggingPanel',
+#)
 
 DEBUG_TOOLBAR_PANELS = [
     'debug_toolbar.panels.versions.VersionsPanel',
@@ -304,5 +224,41 @@ CYBERSOURCE_MERCHANT_ID = 'goshop7'
 CYBERSOURCE_PASSWORD = 'VoA7SKROKesU+yZu4xVHhyKcGGzyvPENJXx+zikvBrOEIZR8P9kTJJKJR52D289D+NUEta4q4ygK43rE3G1zHICAMNFQb/M7Sov7gmW7rvtguv8jkK0CfF2aqPh7pSKse0M+yVB1qc2OQ4M4myXl4pkm0oagJagKcyqhCc6wizNJ245LAvrqQMpuCvMkpJYJxh3rewGSKAhVq0cjxXAC2swpzxsPqiWdy+cJ+90FbC5MTKQS0JJcviC6K3TjVMVJQFQu11mnf01JJOauu8ZUnV3P6kzD2uI2/WeNczQUhBWmL4DyCpFpcBts8F8XwennoqXBBExu3ukQJ6fuqS/xtQ=='
 
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'shop7',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+
+PAYPAL_API_USERNAME = 'vishnu.sayone-facilitator_api1.gmail.com'
+PAYPAL_API_PASSWORD = 'V59UVTEQ8H3ML973'
+PAYPAL_API_SIGNATURE = 'AFcWxV21C7fd0v3bYYYRCpSSRl31AiSPlTNnVWuzcmHDqBWlK3pJqCNk'
+PAYPAL_SANDBOX_MODE=True
+#PAYPAL_TEST = True
+PAYPAL_PAYFLOW_CURRENCY = 'USD'
+PAYPAL_CURRENCY = 'USD'
+PAYPAL_API_VERSION = '88.0'
+PAYPAL_PAYFLOW_DASHBOARD_FORMS = True
 
 
+#EMAIL_SUBJECT_PREFIX = "[Shop7]"
+
+EMAIL_HOST          = 'smtp.webfaction.com'
+EMAIL_HOST_PASSWORD = 'x8VbG29r'
+EMAIL_HOST_USER     = 'helloshop7'
+EMAIL_PORT          = 587
+EMAIL_USE_TLS       = True
+
+OSCAR_FROM_EMAIL = 'Team Shop7 <hello@goshop7.com>'
+DEFAULT_FROM_EMAIL = 'Team Shop7 <hello@goshop7.com>'
+
+GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-56378954-1'
+
+GOOGLE_ANALYTICS_DOMAIN = 'http://www.goshop7.com/'
+
+GEOIP_PATH = os.path.join(BASE_DIR, 'geoip')

@@ -5,13 +5,13 @@
     <!-- Head BEGIN -->
     <head>
         <meta charset="utf-8">
-        <title>Shop7 - reach out globally</title>
+        <title>Readymade eCommerce Website | Cheap eCommerce Website</title>
 
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-        <meta content="Metronic Shop UI description" name="description">
-        <meta content="Metronic Shop UI keywords" name="keywords">
+        <meta name="description" content="Get your full-scale e-commerce website up and selling in just 7 days, and it does more than selling.">
+        <meta name="keywords" content="cheap ecommerce website, affordable ecommerce website design, affordable ecommerce website, ecommerce website, ecommerce portal, ecommerce website, shopping cart, shopping website, ready made e commerce website, Ready to deploy e commerce website" >
         <meta content="keenthemes" name="author">
         <meta http-equiv="cleartype" content="on">
 
@@ -160,10 +160,10 @@
                             <li class="current"><a href="#promo-block">Home</a></li>
                             <li><a href="#about">Features</a></li>
                             <li><a href="#why_shop">Why Shop7</a></li>
-                            <!--<li><a href="#prices">Pricing</a></li>-->
                             <li><a href="#faq">FAQ</a></li>
                             <li><a href="#contact">Contact</a></li>
-                            <li><a href="#services" class="demo_link">Demo</a></li>
+<!--                            <li><a href="/static/blog.html">Blog</a></li>-->
+<!--                            <li><a href="#services" class="demo_link">Demo</a></li>-->
                         </ul>
                     </div>
                     <!-- Navigation END -->
@@ -180,7 +180,7 @@
             	<div class="col-lg-6 col-md-6 banner-caption">
                     <h1>YOUR BUSINESS<br>READY WEBSITE</h1>
                     <h3>Hit Sales off the roof NOW!</h3>
-                        <a class="btn-default demo-button" href="http://goshop7.com/shop" target="blank">take a demo</a>
+<!--                        <a class="btn-default demo-button" href="http://goshop7.com/shop" target="blank">take a demo</a>-->
                 </div>
                 {% get_banner_img request as img %}
                 {% if img == 1 %}
@@ -544,6 +544,12 @@
         </div>
         <!-- Prices block END -->
 
+        <!---Brochure section--->
+        <div class="brochure-main">
+            <a href="/static/assets/frontend/pages/img/brochure.pdf" target="_blank" download>Download Brochure</a>
+        </div>
+        <!---Brochure section END--->
+
         <!-- Prices block BEGIN -->
 
         <div class="faq_block content content-center" id="faq">
@@ -686,8 +692,8 @@
                             <div class="demo_right_sec">
                                 <h1>Front-End<span>How your customers see it</span></h1>
                                 <div class="demo_image_sec">
-                                    <a class="view_image_button" href="{% url 'promotions:home' %}">
-                                        <a class="btn demo_link view-popup" href="{% url 'promotions:home' %}" target="_blank">view</a>
+                                    <a class="view_image_button">
+<!--                                        <a class="btn demo_link view-popup" href="{% url 'promotions:home' %}" target="_blank">view</a>-->
                                     </a>
                                     <img src="static/assets_old/onepage/img/blocks/front-end-image.png"/>
                                 </div>
@@ -697,8 +703,8 @@
                             <div class="demo_right_sec">
                                 <h1 class="dashboard_icon">Dashboard<span>How you see it</span></h1>
                                 <div class="demo_image_sec">
-                                    <a class="view_image_button" href="/dashboard/">
-                                        <a class="btn demo_link view-popup" href="/dashboard/" target="_blank">view</a>
+                                    <a class="view_image_button">
+<!--                                        <a class="btn demo_link view-popup" href="/dashboard/" target="_blank">view</a>-->
                                     </a>
                                     <img src="static/assets_old/onepage/img/blocks/dashboard-image.png"/>
                                 </div>
@@ -720,100 +726,74 @@
         <!-- BEGIN PRE-FOOTER -->
         <div class="pre-footer content" id="contact">
             <div class="container top-footer">
-                <h1 class="">Contact</h1>
+                <!-- <h1 class="">Contact</h1> -->
                 <div class="row">
                     <!-- BEGIN BOTTOM ABOUT BLOCK -->
                     <div class="col-md-4 col-sm-6 pre-footer-col">
-                        <h2>About us</h2>
-                        <p>You love your shop. And they love to buy from you. Don't let the barriers decide your
-                            customers. Blur the barriers and reach out globally.
-                            Shop7 is a robust e-commerce platform to take your shop to the global customers.
-                            Its an effective way to reach out to the people who love what you sell.
-                            Lets explore what we have in Store for you and be poised to
-                            transform your shop to a global one.</p>
-                        <address class="margin-bottom-20">
-                            SayOne Technolgoies Pvt Ltd,<br>
-                            7/401(I), 2nd Floor, Cyber house,<br>
-                            Old Civil lane Rd, Kakkand,<br>
-                            Kochi, India<br>
-                            Pin:682030<br>
-                            Phone:  +91484 403 7171<br>
-                            Email: <a href="mailto:hello@goshop7.com">hello@goshop7.com</a><br>
-                        </address>
+                        <h2>About Shop7</h2>
+                        <p>Shop7 sets up your online store in 7 days. It is the complete eCommerce solution that your business needs to operate, thrive, and stay ahead of the competition. It offers you all the tools to market, promote, and sell your business and engage your customers.</p>
+                        
                     </div>
                     <!-- END BOTTOM ABOUT BLOCK -->
 
-                    <!-- BEGIN TWITTER BLOCK -->
-                     <div class="col-md-4 col-sm-6 pre-footer-col">
-                    <form action="{% url 'contactus' %}" method="post" id="contact_form">{% csrf_token %}
-                        <div class="pre-footer-col">
-                            <h2>Contact Us</h2>
-                            <div class="content-form-page footer-form">
-                                <div class="form-group">
-                                    <input type="text" name="name" class="form-control" id="id_name" placeholder="Name">
-                                </div>
-
-                            </div>
-                            <div class="content-form-page footer-form">
-                                <div class="form-group">
-                                    <input type="email" name="email" class="form-control" id="id_email" placeholder="Email">
-                                </div>
-
-                            </div>
-                            <div class="content-form-page footer-form">
-                                <div class="form-group">
-                                    <input type="text" name="subject" class="form-control" id="id_subject" placeholder="Subject">
-                                </div>
-
-                            </div>
-                            <div class="content-form-page footer-form">
-                                <div class="form-group">
-                                    <textarea type="text" name="msg" class="form-control" id="id_message" placeholder="Message"></textarea>
-                                </div>
-
-                            </div>
-                            <div class="content-form-page footer-form">
-                                <div class="form-group">
-                                    <button type="submit" id="contact_submit_id" class="btn btn-primary login-button" name="contact_submit">Submit</button>
-                                    <div id="contact_loading" style="background:url(/static/assets_old/onepage/img/ajax-loader.gif) no-repeat #03B621; display:none; width:100px; height:34px; padding:5px 0; background-position:41px 8px;"></div>
-                                </div>
-                                <span id="success_message_id" style="color:green;"></span>
-                            </div>
-                        </div>
-                    </form>
-                         </div>
-                    <!-- END TWITTER BLOCK -->
+                    
 
                     <div class="col-md-4 col-sm-6 pre-footer-col">
                         <!-- BEGIN BOTTOM CONTACTS -->
 
                         <!-- END BOTTOM CONTACTS -->
 
-                        <div class="pre-footer-subscribe-box">
-                            <h2>Newsletter</h2>
-                            <form action="{% url 'newsletter_subscription' %}" method="post" id="newsletter-form">{% csrf_token %}
-                                <div class="input-group">
-                                    <input type="text" placeholder="youremail@mail.com" class="form-control" id="newsletter-email" name="email">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary" id="sbscribe_button" type="submit" id="news">Subscribe</button>
-                                        <div id="loading" style="background:url(/static/assets_old/onepage/img/ajax-loader.gif) no-repeat #03B621; display:none; width:100px; height:34px; padding:5px 0; background-position:41px 8px;"></div>
-                                    </span>
-                            </form>
+                        <div class="pre-footer-subscribe-box social-media-foot">
+                            <h2>Connect with us</h2>
+                            <p><a href="tel:+91 72931 52324"><i class="fa fa-phone" aria-hidden="true"></i> +91 72931 52324</a></p>
+                            <p><a href="mailto:hello@goshop7.com"><i class="fa fa-envelope" aria-hidden="true"></i> hello@goshop7.com</a></p>
+                            <ul>
+                                <li><a target="blank" href="https://www.facebook.com/Shop7-106759067671946/?modal=admin_todo_tour"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                                <li><a target="blank" href="https://twitter.com/Shop719"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                            </ul>
                         </div>
-
-                        <div class="pre-footer-subscribe-box">
-                            <h2>Powered by</h2>
-                            <div class="powered-images">
-                                <a href="http://sayonetech.com/" target="_blank" ><img src="static/assets_old/onepage/img/logo_sayone.png"/></a>
-
-                                <a href="http://djangorockstars.com/" target="_blank"><img src="static/assets_old/onepage/img/logo_djanko.png"/></a>
-                            </div>
-                        </div>
-
-
                         <span id="msg" style="color:red"></span>
                     </div>
-
+                    <!-- BEGIN TWITTER BLOCK -->
+                    <div class="col-md-4 col-sm-6 pre-footer-col">
+                        <form action="{% url 'contactus' %}" method="post" id="contact_form">{% csrf_token %}
+                            <div class="pre-footer-col">
+                                <h2>Contact Us</h2>
+                                <div class="content-form-page footer-form">
+                                    <div class="form-group">
+                                        <input type="text" name="name" class="form-control" id="id_name" placeholder="Name">
+                                    </div>
+    
+                                </div>
+                                <div class="content-form-page footer-form">
+                                    <div class="form-group">
+                                        <input type="email" name="email" class="form-control" id="id_email" placeholder="Email">
+                                    </div>
+    
+                                </div>
+                                <div class="content-form-page footer-form">
+                                    <div class="form-group">
+                                        <input type="text" name="subject" class="form-control" id="id_subject" placeholder="Subject">
+                                    </div>
+    
+                                </div>
+                                <div class="content-form-page footer-form">
+                                    <div class="form-group">
+                                        <textarea type="text" name="msg" class="form-control" id="id_message" placeholder="Message"></textarea>
+                                    </div>
+    
+                                </div>
+                                <div class="content-form-page footer-form text-center">
+                                    <div class="form-group">
+                                        <button type="submit" id="contact_submit_id" class="btn btn-primary login-button" name="contact_submit">Submit</button>
+                                        <div id="contact_loading" style="background:url(/static/assets_old/onepage/img/ajax-loader.gif) no-repeat #03B621; display:none; width:100px; height:34px; padding:5px 0; background-position:41px 8px;"></div>
+                                    </div>
+                                    <span id="success_message_id" style="color:green;"></span>
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                        <!-- END TWITTER BLOCK -->
                     </form>
                 </div>
                 <span id="msg" style="color:red"></span>
@@ -825,25 +805,8 @@
 
         <!-- BEGIN FOOTER -->
         <div class="footer">
-            <div class="container">
-                <div class="row">
-                    <!-- BEGIN COPYRIGHT -->
-                    <div class="col-md-6 col-sm-6">
-                        <div class="copyright">2014 Â© Shop7. All Rights Reserved.</div>
-                    </div>
-                    <!-- END COPYRIGHT -->
-                    <!-- BEGIN SOCIAL ICONS -->
-                    <div class="col-md-6 col-sm-6 pull-right">
-                        <ul class="social-icons">
-
-                            <li><a class="facebook" data-original-title="facebook" href="javascript:void(0);"></a></li>
-                            <li><a class="twitter" data-original-title="twitter" href="javascript:void(0);"></a></li>
-                            <li><a class="googleplus" data-original-title="googleplus" href="javascript:void(0);"></a></li>
-
-                        </ul>
-                    </div>
-                    <!-- END SOCIAL ICONS -->
-                </div>
+            <div class="text-center">
+                <div class="copyright">2020 Â© Shop7. All Rights Reserved.</div>
             </div>
         </div>
         <!-- END FOOTER -->
