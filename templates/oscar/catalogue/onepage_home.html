@@ -162,8 +162,8 @@
                             <li><a href="#why_shop">Why Shop7</a></li>
                             <li><a href="#faq">FAQ</a></li>
                             <li><a href="#contact">Contact</a></li>
-                            <li><a href="../../../staticfiles/blog.html">Blog</a></li>
-                            <li><a href="#services" class="demo_link">Demo</a></li>
+<!--                            <li><a href="/static/blog.html">Blog</a></li>-->
+<!--                            <li><a href="#services" class="demo_link">Demo</a></li>-->
                         </ul>
                     </div>
                     <!-- Navigation END -->
@@ -180,7 +180,7 @@
             	<div class="col-lg-6 col-md-6 banner-caption">
                     <h1>YOUR BUSINESS<br>READY WEBSITE</h1>
                     <h3>Hit Sales off the roof NOW!</h3>
-                        <a class="btn-default demo-button" href="http://goshop7.com/shop" target="blank">take a demo</a>
+<!--                        <a class="btn-default demo-button" href="http://goshop7.com/shop" target="blank">take a demo</a>-->
                 </div>
                 {% get_banner_img request as img %}
                 {% if img == 1 %}
@@ -546,7 +546,7 @@
 
         <!---Brochure section--->
         <div class="brochure-main">
-            <a href="/staticfiles/assets/frontend/pages/img/brochure.pdf" target="_blank" download>Download Brochure</a>
+            <a href="/static/assets/frontend/pages/img/brochure.pdf" target="_blank" download>Download Brochure</a>
         </div>
         <!---Brochure section END--->
 
@@ -692,8 +692,8 @@
                             <div class="demo_right_sec">
                                 <h1>Front-End<span>How your customers see it</span></h1>
                                 <div class="demo_image_sec">
-                                    <a class="view_image_button" href="{% url 'promotions:home' %}">
-                                        <a class="btn demo_link view-popup" href="{% url 'promotions:home' %}" target="_blank">view</a>
+                                    <a class="view_image_button">
+<!--                                        <a class="btn demo_link view-popup" href="{% url 'promotions:home' %}" target="_blank">view</a>-->
                                     </a>
                                     <img src="static/assets_old/onepage/img/blocks/front-end-image.png"/>
                                 </div>
@@ -703,8 +703,8 @@
                             <div class="demo_right_sec">
                                 <h1 class="dashboard_icon">Dashboard<span>How you see it</span></h1>
                                 <div class="demo_image_sec">
-                                    <a class="view_image_button" href="/dashboard/">
-                                        <a class="btn demo_link view-popup" href="/dashboard/" target="_blank">view</a>
+                                    <a class="view_image_button">
+<!--                                        <a class="btn demo_link view-popup" href="/dashboard/" target="_blank">view</a>-->
                                     </a>
                                     <img src="static/assets_old/onepage/img/blocks/dashboard-image.png"/>
                                 </div>
