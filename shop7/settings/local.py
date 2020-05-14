@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'apps.dashboard.catalogue',
     'apps.newsletter',
     'autocomplete_light',
-    # 'debug_toolbar',
+    'debug_toolbar',
     'apps.socialmedias',
     'apps.contact',
     'apps.pricing',
@@ -62,7 +62,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'oscar.apps.basket.middleware.BasketMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
@@ -78,23 +78,23 @@ MIDDLEWARE_CLASSES = (
 #    'debug_toolbar.panels.logger.LoggingPanel',
 #)
 
-# DEBUG_TOOLBAR_PANELS = [
-#     'debug_toolbar.panels.versions.VersionsPanel',
-#     'debug_toolbar.panels.timer.TimerPanel',
-#     'debug_toolbar.panels.settings.SettingsPanel',
-#     'debug_toolbar.panels.headers.HeadersPanel',
-#     'debug_toolbar.panels.request.RequestPanel',
-#     'debug_toolbar.panels.sql.SQLPanel',
-#     'debug_toolbar.panels.staticfiles.StaticFilesPanel',
-#     'debug_toolbar.panels.templates.TemplatesPanel',
-#     'debug_toolbar.panels.cache.CachePanel',
-#     'debug_toolbar.panels.signals.SignalsPanel',
-#     'debug_toolbar.panels.logging.LoggingPanel',
-#     'debug_toolbar.panels.redirects.RedirectsPanel',
-# ]
+DEBUG_TOOLBAR_PANELS = [
+    'debug_toolbar.panels.versions.VersionsPanel',
+    'debug_toolbar.panels.timer.TimerPanel',
+    'debug_toolbar.panels.settings.SettingsPanel',
+    'debug_toolbar.panels.headers.HeadersPanel',
+    'debug_toolbar.panels.request.RequestPanel',
+    'debug_toolbar.panels.sql.SQLPanel',
+    'debug_toolbar.panels.staticfiles.StaticFilesPanel',
+    'debug_toolbar.panels.templates.TemplatesPanel',
+    'debug_toolbar.panels.cache.CachePanel',
+    'debug_toolbar.panels.signals.SignalsPanel',
+    'debug_toolbar.panels.logging.LoggingPanel',
+    'debug_toolbar.panels.redirects.RedirectsPanel',
+]
 
 
-SITE_ID=1
+
 INTERNAL_IPS = ('127.0.0.1:8000',)
 
 ADMIN_SHORTCUTS = [
@@ -227,7 +227,7 @@ CYBERSOURCE_PASSWORD = 'VoA7SKROKesU+yZu4xVHhyKcGGzyvPENJXx+zikvBrOEIZR8P9kTJJKJ
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'newshop7',
+        'NAME': 'shop7',
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': 'localhost',
@@ -248,14 +248,14 @@ PAYPAL_PAYFLOW_DASHBOARD_FORMS = True
 
 #EMAIL_SUBJECT_PREFIX = "[Shop7]"
 
-EMAIL_HOST          = 'smtp.gmail.com'
-EMAIL_HOST_PASSWORD = 'ASDF!@#$'
-EMAIL_HOST_USER     = 'newslystaging@gmail.com'
+EMAIL_HOST          = 'smtp.webfaction.com'
+EMAIL_HOST_PASSWORD = 'x8VbG29r'
+EMAIL_HOST_USER     = 'helloshop7'
 EMAIL_PORT          = 587
 EMAIL_USE_TLS       = True
 
-OSCAR_FROM_EMAIL = 'Team Shop7 <vineethjp.sayone@gmail.com>'
-DEFAULT_FROM_EMAIL = 'Team Shop7 <vineethjp.sayone@gmail.com>'
+OSCAR_FROM_EMAIL = 'Team Shop7 <hello@goshop7.com>'
+DEFAULT_FROM_EMAIL = 'Team Shop7 <hello@goshop7.com>'
 
 GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-56378954-1'
 
