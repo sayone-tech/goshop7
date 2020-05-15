@@ -435,6 +435,13 @@ vertical-align: middle;}
 .mb-4{margin-bottom: 1.5rem!important;}
 .related-blog-each{background: #fff;border-radius: 10px;padding: 15px;margin-bottom: 20px;}
 /* === BLOG DETAILS END === */        
+
+.demo_image_sec{display: flex;flex-direction: column;justify-content: center;}
+/*--Home Modal---*/
+.home-modal.modal .modal-header .close { margin-top: -10px !important;}
+.view-popup {top: 50%;left: 42%;}
+
+
 @media (max-width:767px){
 .brochure-main {padding: 30px 20px;}
 .brochure-main a{padding: 10px 20px;font-size: 18px;}
