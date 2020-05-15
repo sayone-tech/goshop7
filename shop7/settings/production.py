@@ -32,7 +32,7 @@ DATABASES = {
 # EMAIL_BACKEND = "mailer.backend.DbBackend"
 EMAIL_SUBJECT_PREFIX = "[Shop7]"
 
-EMAIL_HOST          = 'smtp.gmail.com'
+EMAIL_HOST          = 'smtp.webfaction.com'
 EMAIL_HOST_PASSWORD = 'S4nYNTDs'
 EMAIL_HOST_USER     = 'helloshop7'
 EMAIL_PORT          = 587
