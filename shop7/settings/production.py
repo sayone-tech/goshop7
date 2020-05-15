@@ -29,7 +29,7 @@ DATABASES = {
     }
 }
 
-EMAIL_BACKEND = "mailer.backend.DbBackend"
+# EMAIL_BACKEND = "mailer.backend.DbBackend"
 EMAIL_SUBJECT_PREFIX = "[Shop7]"
 
 EMAIL_HOST          = 'smtp.gmail.com'
