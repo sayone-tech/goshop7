@@ -172,7 +172,8 @@
                             <li><a href="#faq">FAQ</a></li>
                             <li><a href="#contact">Contact</a></li>
 <!--                            <li><a href="/static/blog.html">Blog</a></li>-->
-<!--                            <li><a href="#services" class="demo_link">Demo</a></li>-->
+                            <li><a href="#services" class="demo_link" data-toggle="modal" data-target="#staticBackdrop">Demo</a></li>
+
                         </ul>
                     </div>
                     <!-- Navigation END -->
@@ -555,7 +556,7 @@
 
         <!---Brochure section--->
         <div class="brochure-main">
-            <a href="/static/assets/frontend/pages/img/brochure.pdf" target="_blank" download>Download Brochure</a>
+            <a href="/static/assets/frontend/pages/img/brochure2.pdf" target="_blank" download>Download Brochure</a>
         </div>
         <!---Brochure section END--->
 
@@ -702,7 +703,6 @@
                                 <h1>Front-End<span>How your customers see it</span></h1>
                                 <div class="demo_image_sec">
                                     <a class="view_image_button">
-<!--                                        <a class="btn demo_link view-popup" href="{% url 'promotions:home' %}" target="_blank">view</a>-->
                                     </a>
                                     <img src="static/assets_old/onepage/img/blocks/front-end-image.png"/>
                                 </div>
@@ -815,7 +815,7 @@
         <!-- BEGIN FOOTER -->
         <div class="footer">
             <div class="text-center">
-                <div class="copyright">2020 Â© Shop7. All Rights Reserved.</div>
+                <div class="copyright">2020 © Shop7. All Rights Reserved.</div>
             </div>
         </div>
         <!-- END FOOTER -->
@@ -865,14 +865,86 @@
         </div>
         <a href="#promo-block" class="go2top scroll"><i class="fa fa-arrow-up"></i></a>
 
-        <!--[if lt IE 9]>
-          <script src="static/assets/plugins/respond.min.js"></script>
-        <![endif]-->
-
-        <!-- Load JavaScripts at the bottom, because it will reduce page load time -->
-        <!-- Core plugins BEGIN (For ALL pages) -->
 
 
+        <!--Front-end section Modal -->
+        <div class="modal fade home-modal" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+            <form action="{% url 'contactus2' %}" method="post" id="contact_form_2">{% csrf_token %}
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Please enter your details</h5>
+                  <button type="button" class="close close_req" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="form-group">
+                              <input class="form-control" name="name" class="form-control" id="id_name" placeholder="Name">
+                          </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                            <input class="form-control" name="email" class="form-control" id="id_email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <input class="form-control" name="subject" class="form-control" id="id_subject" placeholder="Phone Number">
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary close_req" data-dismiss="modal">Close</button>
+                  <button type="button" id="contact_submit_id_2" class="btn btn-primary login-button" name="contact_submit" class="btn btn-primary">Proceed</button>
+                </div>
+                  <span style="color:red;display:None;" id="load_span"><strong>&nbsp;loading...</strong></span>
+                  <span style="color:red;display:None;" id="error_span"><strong>&nbsp;Fields are missing or incorrect</strong></span>
+                  <span style="color:green;display:None;" id="correct_span"><strong>&nbsp;Will contact you shortly</strong></span>
+              </div>
+            </form>
+            </div>
+        </div>
+        <!--Front-end section Modal end-->
+
+        <div class="modal fade home-modal" id="staticBackdrop2" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-m">
+              <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="staticBackdropLabel2"><b>Taking your business online is the first step to make your business bigger.</b></h3>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="form-group">
+                            <table cellpadding="0" cellspacing="0" width="100%" border="0" style="padding:15px;">
+                                <tr>
+                                    <td>
+                                        <ul>
+                                            <li style="list-style: none;position: relative; left:10px"><span style="position: absolute; left:-10px;color: #008000;">&#x2714;</span> Your business ready Web & Mobile store for just $2500.</li>
+                                            <li style="list-style: none;position: relative; left:10px"><span style="position: absolute; left:-10px;color: #008000;">&#x2714;</span> Run your business from web/mobile, it's omni-present.</li>
+                                            <li style="list-style: none;position: relative; left:10px"><span style="position: absolute; left:-10px;color: #008000;">&#x2714;</span> Beautiful shop that attract customers and sales</li>
+                                            <li style="list-style: none;position: relative; left:10px"><span style="position: absolute; left:-10px;color: #008000;">&#x2714;</span> Gain customer loyalty by creating hyper personalized offers.</li>
+                                            <li style="list-style: none;position: relative; left:10px"><span style="position: absolute; left:-10px;color: #008000;">&#x2714;</span> Fully loaded dashboard to help you manage your business and more.</li>
+                                            <li style="list-style: none;position: relative; left:10px"><span style="position: absolute; left:-10px;color: #008000;">&#x2714;</span> Inventory that manages itself, never go out of stock again.</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </table>
+                          </div>
+                      </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
         <script src="static/assets_old/plugins/jquery-1.11.0.min.js" type="text/javascript"></script>
         <script src="static/assets_old/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
         <script src="static/assets_old/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
@@ -1077,6 +1149,57 @@
 
             });
         </script>
+        <script>
+   $(document).ready(function() {
+      // When the user clicks the button...
+      $(".activate-close").click(function () {
+         sessionStorage.setItem("no_display", "true");;
+      })
+// When a user visits the page...
+      var no_display = sessionStorage.getItem('no_display');
+      if (no_display !== 'true') {
+          setTimeout(function(){ $("#staticBackdrop2").modal('show') }, 15000)
+      }
+   })
+</script>
+<script>
+    $('#contact_submit_id_2').click(function(event) {
+        event.preventDefault();
+         $.ajax
+         ({
+            type: $('#contact_form_2').attr('method'), // GET or POST
+            url: $('#contact_form_2').attr('action'),
+            data :$('#contact_form_2').serialize(),
+            cache:false,
+             beforeSend: function() {
+                    $('#load_span').css("display","block")
+             },
+            success:function(response) {
+                console.log(response)
+                var data = response['data'];
+                if(data)
+                {
+                    $('#load_span').css("display","None")
+                    $('#error_span').css("display","block")
+                    console.log("#######",data['errors'])
+                }
+                else
+                {
+                    $('#load_span').css("display","None")
+                    $('#correct_span').css("display","block")
+                    location.reload();
+                }
+            }
+         });
+          return false;
+    });
+
+    $('.close_req').click(function(event) {
+
+         $("#staticBackdrop").html("");
+            location.reload();
+    });
+</script>
         <!-- Google Code for leadshop Conversion Page -->
         <script type="text/javascript">
         /* <![CDATA[ */
