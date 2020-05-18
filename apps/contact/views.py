@@ -1,10 +1,10 @@
 import json
 
-from apps.contact.forms import ContactForm
+from apps.contact.forms import ContactForm, ContactForm2
 from django.views.generic import View
 #from django.contrib.gis.geoip import GeoIP
 
-from django.http import Http404,HttpResponse
+from django.http import Http404, HttpResponse, HttpResponseRedirect
 
 
 class ContactView(View):    
@@ -45,3 +45,25 @@ class ContactView(View):
                 ctx['errors']=contct_form.errors
                 return HttpResponse(json.dumps(ctx),mimetype='application/json')
         return HttpResponse(json.dumps(ctx),mimetype='application/json')
+
+class ContactView2(View):
+
+    def post(self, request, *args, **kwargs):
+        results = {'success': True, 'data': None, 'message': ''}
+        if request.method=='POST':
+            ctx = {}
+            contct_form = ContactForm2(request.POST)
+            if contct_form.is_valid():
+                data = contct_form.cleaned_data
+                contct_form.send_email(data)
+                contct_form.save()
+                # phone_no = data['subject']
+                # print("&&&&&&&&&",phone_no)
+            else:
+                print "errors",contct_form.errors.as_text()
+                ctx['errors']=contct_form.errors
+                results['data'] = {
+                    'errors': contct_form.errors,
+                }
+                return HttpResponse(json.dumps(results),mimetype='application/json')
+        return HttpResponse(json.dumps(results))
