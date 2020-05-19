@@ -46,14 +46,26 @@ class ContactForm(forms.ModelForm):
 
 
 class ContactForm2(forms.ModelForm):
+    first_name = forms.CharField()
+    last_name = forms.CharField()
+
     class Meta:
         model = ContactUs
-        fields = ('name', 'email', 'subject')
+        fields = ('first_name','last_name', 'email', 'subject')
+
+    def clean_subject(self):
+        subject = self.cleaned_data['subject']
+        if not subject.isdigit():
+            raise forms.ValidationError("Enter digits")
+        else:
+            return subject
 
     def send_email(self, form_data):
         site = Site.objects.get_current()
         template = loader.get_template('contact/contact_email.html')
-        name = form_data.get('name')
+        first_name = form_data.get('first_name')
+        last_name = form_data.get('last_name')
+        name = first_name + last_name
         email = form_data.get('email')
         subject = form_data.get('subject')
         msg = 'phone number is the provided subject'

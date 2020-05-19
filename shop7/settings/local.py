@@ -249,7 +249,7 @@ PAYPAL_PAYFLOW_DASHBOARD_FORMS = True
 #EMAIL_SUBJECT_PREFIX = "[Shop7]"
 
 EMAIL_HOST          = 'smtp.webfaction.com'
-EMAIL_HOST_PASSWORD = 'x8VbG29r'
+EMAIL_HOST_PASSWORD = 'S4nYNTDs'
 EMAIL_HOST_USER     = 'helloshop7'
 EMAIL_PORT          = 587
 EMAIL_USE_TLS       = True
