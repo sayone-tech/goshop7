@@ -57,11 +57,9 @@ class ContactView2(View):
                 data = contct_form.cleaned_data
                 contct_form.send_email(data)
                 contct_form.save()
-                # phone_no = data['subject']
-                # print("&&&&&&&&&",phone_no)
             else:
-                print "errors",contct_form.errors.as_text()
-                ctx['errors']=contct_form.errors
+                # print "errors",contct_form.errors.as_text()
+                # ctx['errors']=contct_form.errors
                 results['data'] = {
                     'errors': contct_form.errors,
                 }
