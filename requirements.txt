@@ -27,7 +27,7 @@ django-suit==0.2.11
 django-test-pep8==0.1
 django-treebeard==2.0
 djangocms-admin-style==0.2.2
-lxml==3.4.0
+lxml==4.6.2
 oauthlib==0.6.3
 pep8==1.5.7
 phonenumbers==6.0.0a
