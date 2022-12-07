@@ -6,7 +6,7 @@ Pillow==2.4.0
 PyXML==0.8.4
 South==0.8.4
 Unidecode==0.04.16
-certifi==14.05.14
+certifi==2022.12.7
 distribute==0.6.10
 django-admin-shortcuts==1.2.5
 django-allauth==0.16.1
